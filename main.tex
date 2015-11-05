@@ -1,0 +1,87 @@
+\documentclass[12pt,letterpaper,oneside]{book}
+
+% Inicio de los paquetes
+\usepackage{geometry}
+\usepackage[spanish]{babel}
+\usepackage{import}
+\usepackage{graphicx}
+\graphicspath{ {Figuras/} }
+\usepackage{array}
+\usepackage{makeidx}
+\usepackage{blindtext}
+\usepackage{fancyhdr}
+\usepackage[square, numbers, comma, sort&compress]{natbib}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+% Fin de los paquetes
+
+% Inicio de funciones
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\seccion}[1]{\import{Secciones/}{#1.tex}}
+\newcommand{\capitulo}[1]{\import{Capitulos/}{#1.tex}}
+\newcommand{\apendice}[1]{\import{Apendices/}{#1.tex}}
+\newcommand{\anexo}[1]{\import{Anexos/}{#1.tex}}
+\newcommand{\cuadro}[1]{\import{Cuadros/}{#1.tex}}
+\newcommand{\figura}[1]{\import{Figuras/}{#1.tex}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+% Fin de funciones
+
+% Márgenes y otros
+ \geometry{
+ letterpaper,
+ left=35mm,
+ right=15mm,
+ top=20mm,
+ bottom=20mm,
+ }
+ \fancyhf{} % clear all header and footers
+ \rfoot{\thepage}
+% Fin de Márgenes y otros
+\makeindex
+\pagestyle{fancy}
+\begin{document}
+
+\frontmatter
+\input{portada.tex}
+\clearpage
+\thispagestyle{empty}
+\input{abstract.tex}
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+\setcounter{page}{1}
+\listoffigures
+\addcontentsline{toc}{chapter}{Índice de figuras}
+\clearpage
+\listoftables
+\addcontentsline{toc}{chapter}{Índice de cuadros}
+\clearpage
+
+\mainmatter
+\capitulo{1Introduccion1}
+\capitulo{2DescripcionDelProblema}
+\capitulo{3MarcoTeorico}
+\capitulo{4Metodologia}
+\capitulo{5LineaBase}
+\capitulo{6SolucionPropuesta}
+\capitulo{7AnalisisDeResultados}
+\capitulo{8ConclusionesRecomendaciones}
+\capitulo{9TrabajoFuturo}
+\backmatter
+\bibliographystyle{unsrtnat}
+\bibliography{bibliografia}
+\appendix
+%\apendice{ApendiceA}
+%\apendice{ApendiceB}
+\anexo{Anexo}
+\end{document}

@@ -1,0 +1,24 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\scalebox{0.8}{
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}cccc@{}}
+\toprule
+Classification Rule & Dropout Class & Support & Confindence \\ \midrule
+\begin{tabular}[c]{@{}c@{}}grade\_average = from 2.4 to 3.1 \& failed\_semester =\\ Initial semesters\end{tabular} & True & 0.1559 & 0.939 \\
+grade\_average = from 3.7 to 4.0 \& failed\_times = 1 & False & 0.1551 & 0.8528 \\
+grade\_average = less than 2.4 & True & 0.1519 & 0.998 \\
+\begin{tabular}[c]{@{}c@{}}grade\_average = from 3.5 to 3.7 \& campus = PASTO\\ \& failed\_courses = from 7 to 9\end{tabular} & False & 0.0314 & 0.8585 \\
+\begin{tabular}[c]{@{}c@{}}grade\_average = from 3.1 to 3.5 \& failed\_courses =\\ from 3 to 4\end{tabular} & True & 0.0264 & 0.9535 \\
+\begin{tabular}[c]{@{}c@{}}grade\_average = from 3.5 to 3.7 \& failed\_courses = De\\ 1 to 2 \& failed\_semester = Initial semesters\end{tabular} & True & 0.0227 & 0.8108 \\
+\begin{tabular}[c]{@{}c@{}}grade\_average = from 3.1 to 3.5 \& failed\_courses = De\\ 5 to 6 \& failed\_semester = Initial semesters\end{tabular} & True & 0.017 & 0.8198 \\
+\begin{tabular}[c]{@{}c@{}}grade\_average = from 3.5 to 3.7 \& campus = PASTO\\ \& failed\_courses = from 1 to 2 \& failed\_semester =\\ Initial semesters \& place\_of\_provenance = PASTO\end{tabular} & True & 0.0129 & 0.8341 \\ \bottomrule
+\end{tabular}
+}
+}
+\caption{Resultados del árbol de decisión para la predicción del abandono escolar en una universidad de Colombia}
+\label{tab:treecol}
+\end{table}

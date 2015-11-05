@@ -1,0 +1,32 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Nombre & Nivel & Llave Primaria(Si existe) & Descripcin & Acceso & Frecuencia \\ \midrule
+Encuesta SIMCE & Estudiante & Mltiples & \begin{tabular}[c]{@{}l@{}}Encuesta SIMCE realizada a los apoderados \\ para conocer el contexto familiar \\ y social de los alumnos(subjetivo)\end{tabular} & CIAE & Anual \\
+Resultados SIMCE & Estudiante & Mltiples & \begin{tabular}[c]{@{}l@{}}Los resultados de las pruebas Simce aportan \\ informacin clave para que cada comunidad \\ educativa reflexione sobre los aprendizajes \\ alcanzados por sus estudiantes e identifique\\  desafos y fortalezas que contribuyan a la \\ elaboracin o reformulacin de estrategias de\\  enseanza orientadas a mejorar los aprendizajes.\end{tabular} & Web/Formulario & Anual \\
+PISA & Estudiante & Mltiples & \begin{tabular}[c]{@{}l@{}}PISA es un estudio realizado por la Organizacin \\ para la Cooperacin y el Desarrollo Econmico (OCDE),\\  e implementado en Chile por la Agencia de Calidad \\ de la Educacin, que busca evaluar en qu medida los \\ estudiantes que se acercan al final de la enseanza \\ escolar obligatoria han adquirido competencias esenciales\\  para una completa participacin en la sociedad.\end{tabular} & N/D & Trianual \\
+Delitos por Comuna & Comuna & N/A & Informacin de los delitos por Comuna de la RM & Web & Anual \\
+Matrcula ňnica Estudiante & Estudiante & MRUN & \begin{tabular}[c]{@{}l@{}}Alumnos matriculados en los establecimientos\\  escolares al 30 de abril de cada ano.ano.\end{tabular} & Web & Bianual \\
+Rendimiento Escolar & Estudiante & MRUN & \begin{tabular}[c]{@{}l@{}}Alumnos y su estado de promocion al finalizar \\ cada ano escolar.\end{tabular} & Web & Anual \\
+Asistencia Mensual & Estudiante & MRUN & \begin{tabular}[c]{@{}l@{}}Asistencia mensual de los estudiantes a los distintos \\ establecimientos educacionales de dependencia Municipal\\  y Particular subvencionada\end{tabular} & Web & Mensual \\
+Subvencin Escolar Preferencial & Estudiante & MRUN & \begin{tabular}[c]{@{}l@{}}Base de Datos que contiene alumnos prioritarios y \\ beneficiarios SEP, indicando el criterio por el cual\\  se clasifica como prioritario.\end{tabular} & Web & Bianual \\
+Sistema Nacional de Evaluacion de Desempeno & Establecimiento & RBD & \begin{tabular}[c]{@{}l@{}}Base de Datos que registra los establecimientos \\ seleccionados para recibir la subvencio\_n por SNED\end{tabular} & Web & Bianual \\
+Docentes por Cargo & Docente & CLAVE & \begin{tabular}[c]{@{}l@{}}Base de Datos que incluye las personas que ejercen como \\ docentes, identificando los establecimientos en los que \\ ejerce funciones, el tipo de funcion desempenada, anos \\ de servicio, entre otras.\end{tabular} & Web & Anual \\
+Evaluacin Docente & Docente & CLAVE & \begin{tabular}[c]{@{}l@{}}Bases de datos con los resultados de la Evaluacion Docente,\\  desagregado por dimensiones del instrumento de evaluacion.\\  Ademas contiene informacion obtenida mediante la \\ aplicacion de un cuestionario complementario a los \\ docentes que participan del proceso.\end{tabular} & Web & Anual \\
+Censo Docente & Docente & CLAVE & \begin{tabular}[c]{@{}l@{}}Conocer la poblacio\_n de los profesores pre-escolares\\  y escolares, abarcando TODO Chile\end{tabular} & Web & Bianual \\
+CASEN & Varios & Mltiples & \begin{tabular}[c]{@{}l@{}}Encuesta de Caracterizacin Socioeconmica Nacional, \\ es una encuesta a nivel nacional, regional y comunal,\end{tabular} & Web & Bianual \\
+Resumen Dotacin Docente & Establecimiento & RBD & \begin{tabular}[c]{@{}l@{}}Establecimiento, docentes de aula, total de horas de\\  contrato por establecimiento, entre otras.\end{tabular} & Web & Anual \\
+Segregacion & Isocrona & N/A & Informacin de la segregacin de la RM de Chile por manzana(isocrona) & Contacto Directo & N/A \\
+çreas Verdes & Isocrona & N/A & Informacin de las reas verdes de la RM de Chile por manzana(isocrona) & Contacto Directo & N/A \\
+Delitos & Isocrona & N/A & Informacin de los delitos de la RM de Chile por manzana(isocrona) & Contacto Directo & N/A \\
+IVE-SINAE & Establecimiento & RBD & \begin{tabular}[c]{@{}l@{}}El IVE es una medicin que tiene por objetivo identificar \\ la vulnerabilidad social de la poblacin chilena y se utiliza\\ como referencia en la asignacin de los beneficios que la\\ Institucinotorga a cada establecimiento.\\ El SINAE es una metodologa de Medicin de la Condicin de\\ vulnerabilidad, que se construye con insumos de \\ diferentes fuentes de informacin de cada estudiante\\  y que llegan a JUNAEB mediante Convenios interinstitucionales.\end{tabular} & Web & Anual \\ \bottomrule
+\end{tabular}
+}
+\caption{My caption}
+\label{my-label}
+\end{table}
