@@ -5,17 +5,26 @@ A lo largo de este capítulo señalaremos con qué métodos y herramientas logra
 
 \section{Minería de Datos}
 La cantidad de datos ha ido aumentando de forma exponencial debido a los avances en la tecnología de la computación necesitando que la búsqueda de conocimiento sea de forma automatizada.
+
 La minería de datos es un proceso que se ideó pensando en descubrir información valiosa dentro de una gran cantidad de datos\footnote{Para este trabajo definimos datos como información textual o numérica con alguna estructura dada} como flujo de entrada y nos entrega conocimiento.\footnote{Esto es una analogía a la industria de la minería donde se extrae los minerales rocosos donde una parte de esta es valiosa}
 
-[grafico]
-http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figuras/DM}
+      \caption{Proceso de Minería de Datos.}
+    \label{fig:datamining}
+\end{figure}
+
+%http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
 
 La minería de datos tiene como finalidad obtener información valiosa para la toma de decisiones o para la comprensión de un fenómeno y se realiza a través de diferentes tareas que se pueden realizar con los diferentes algoritmos disponibles que los señalaremos posteriormente.
 
 Para realizar la minería de datos se han establecido diferentes metodologías para asegurar un resultado coherente con lo que se busca obtener. Existen diferentes metodologías que serán mencionadas y descritas brevemente a continuación.
 
 \subsubsection{KDD}
-[cita] http://www.csd.uwo.ca/faculty/ling/cs435/fayyad.pdf
+
+%[cita] http://www.csd.uwo.ca/faculty/ling/cs435/fayyad.pdf
+
 La metodología \textit{Knowledge Discovery in Databases} o Proceso de Extracción del Conocimiento, tal como su nombre lo dice, es un proceso no trivial de descubrimiento de conocimiento e información potencialmente útil dentro de los datos contenidos en algún repositorio de información (cita de Han, J.; Kamber M. (2001). Data Mining: Concepts ans Techniques. Morgan Kaufmann Publishers, USA.). 
 
 Es un proceso iterativo que explora de forma exhaustiva altos volúmenes de datos con el fin de determinar relaciones. De esta manera es posible extraer información de calidad que se puede utilizar para generar modelos con los datos. 
@@ -78,15 +87,23 @@ Las fases son:
   \item[6. Implementación:] luego de que el modelo ha sido construido y validado, se procede a transformar el conocimiento obtenido en acciones dentro del proceso de negocio.
 \end{description}
 
-[cita] http://oldemarrodriguez.com/yahoo_site_admin/assets/docs/Documento_CRISP-DM.2385037.pdf
+[cita] 
+%http://oldemarrodriguez.com/yahoo_site_admin/assets/docs/Documento_CRISP-DM.2385037.pdf
 
 Para poder cumplir con los objetivos del trabajo debemos seleccionar una metodología de minería de datos. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.[cita]A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad [cita] http://www.kdnuggets.com/2014/10/crisp-dm-top-methodology-analytics-data-mining-data-science-projects.html
 
-[tabla] Table 1: Summary of KDD, CRISP-DM and SEMMA Processes [cita] A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.99\textwidth]{Figuras/ComparacionModelos}
+      \caption{Resumen de los procesos KDD, CRISP-DM y SEMMA.}
+    \label{fig:comparacion}
+\end{figure}
 
-En base a lo anterior, para desarrollar el trabajo se utilizará la metodología CRISP-DM.
+En base a la Figura~\ref{fig:comparacion}, donde se compara de forma resumida cada metodología para la minería de datos, la seleccionada para desarrollar este proyecto será la metodología CRISP-DM.
+
 
 \subsection{Utilidad}
+
 \subsubsection{Clasificación y Regresión}
 La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.[cita] http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
 
@@ -95,8 +112,17 @@ Teniendo $N$ observaciones con variables $x_1, x_2, x_3, ... , x_i$ se busca pre
 Utilizando algoritmos de aprendizaje automatizado se busca encontrar una función tal que
 $f(x_1, x_2, x_3, ... , x_i) = y_1, y_2, y_3, ... , y_j$
 [grafico]
+
 \subsubsection{Análisis de Reglas Asociativas}
-El analisis de reglas asociativas busca descubrir patrones o asociaciones en base a diferentes elementos en un conjunto de datos. El más comun de este analisis es el analisis de los carritos de compras en un supermercado. Lo que se busca en este caso es buscar el patrón de compras conjuntas, por ejemplo se puede encontrar un patrón común $\{\textrm{Hamburguesa, Pan}\} \to \textrm{Ketchup}$, es decir, en general las personas que llevan hamburguesa y pan de hamburguesa en el carrito de compra, es probable que también lleven ketchup.[grafico]*
+El análisis de reglas asociativas busca descubrir patrones o asociaciones en base a diferentes elementos en un conjunto de datos. El ejemplo más común de este análisis es el de los carritos de compras en un supermercado. Lo que se busca en este caso es buscar el patrón de compras conjuntas, por ejemplo, se puede encontrar un patrón común $\{\textrm{Hamburguesa, Pan}\} \to \textrm{Ketchup}$, es decir, en general las personas que llevan hamburguesa y pan de hamburguesa en el carrito de compra, es probable que también lleven ketchup.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.7\textwidth]{Figuras/Carrito}
+      \caption{Ejemplo del análisis del carrito de supermercado. [cita]}
+    \label{fig:carrito}
+\end{figure}
+
 
 \subsubsection{Análisis de Conglomerados}
 Este análisis tiene como objetivo agrupar variables similares en un mismo conglomerado. Las aplicaciones de esto pueden ser la agrupación de documentos de noticias en base al uso de un buscador.
@@ -104,6 +130,8 @@ Este análisis tiene como objetivo agrupar variables similares en un mismo congl
 Matemáticamente podemos ver lo siguiente:\\
 Teniendo $N$ observaciones con variables $x_1, x_2, x_3, ... , x_i$ se buscan agrupar estas variables en $M$ conglomerados en base a las $N$ observaciones de cada variable. Este método se puede aplicar tanto como a las observaciones o variables.
 [grafico]
+
+
 
 [revisar] http://eprints.iisc.ernet.in/273/1/p264-jain.pdf
 
@@ -125,11 +153,11 @@ Los procedimientos utilizados en esta etapa son los siguientes:
   Otra forma de normalizar, que más bien se habla de escalamiento, es utilizando una escala uniforme establecimiento el mínimo y el máximo en la escala. Matemáticamente se puede ver lo siguiente:
   [formula]
   
-  Finalmente la discretización y vectorización de los datos implica el uso de algoritmos que son capaces de manejar datos que no poseen magnitud, es decir, categorías para transformarlos en algo númerico que sea legible para el modelo.
+  Finalmente la discretización y vectorización de los datos implica el uso de algoritmos que son capaces de manejar datos que no poseen magnitud, es decir, categorías para transformarlos en algo numérico que sea legible para el modelo.
   
-  La discretización es un procedimiento que lo hace es asignarle números a las categorías, es decir, si tenemos una variable que contiene las siguientes categorias $\{\textrm{Santiago, La Florida, Lo Espejo}\}$ el algoritmo transformará está información en $\{1,2,3\}$. 
+  La discretización es un procedimiento que lo hace es asignarle números a las categorías, es decir, si tenemos una variable que contiene las siguientes categorías $\{\textrm{Santiago, La Florida, Lo Espejo}\}$ el algoritmo transformará está información en $\{1,2,3\}$. 
   
-  La vectorización es también un procedimiento para transformar categorías, pero es aún más util, puesto que separa cada categoría en una nueva variable donde se señala si se presenta o no cierta categoria. Utilizando el ejemplo anterior donde tenemos una variable categorica con las siguientes categorias $\{\textrm{Santiago, La Florida, Lo Espejo}\}$, al realizar la vectorización, el algortimo como se puede ver en la Figura~\ref{fig:vect} crea 3 variables dónde cada una indica si la observación es de Santiago, La Florida ó Lo Espejo de forma separada, dónde $1$ señala que presenta esa caracteristica y $0$ cuando no la presenta.
+  La vectorización es también un procedimiento para transformar categorías, pero es aún más útil, puesto que separa cada categoría en una nueva variable donde se señala si se presenta o no cierta categoría. Utilizando el ejemplo anterior donde tenemos una variable categórica con las siguientes categorías $\{\textrm{Santiago, La Florida, Lo Espejo}\}$, al realizar la vectorización, el algoritmo como se puede ver en la Figura~\ref{fig:vect} crea 3 variables dónde cada una indica si la observación es de Santiago, La Florida ó Lo Espejo de forma separada, dónde $1$ señala que presenta esa característica y $0$ cuando no la presenta.
     \begin{table}[H]
     \centering
     \begin{tabular}{l|c|c|c|}
@@ -146,19 +174,99 @@ Los procedimientos utilizados en esta etapa son los siguientes:
   Todo esto se utiliza por que normalmente los algoritmos de aprendizaje automático requieren el uso de variables númericas donde la distancia entre los datos es la que se compara, por tanto, no tendría sentido utilizar variables categoricas de texto ni tampoco usar dos variables que tengan diferentes escalas, puesto que los resultados entregados por este estarían influenciados por la variable que tenga la escala más grande.\footnote{Existen métodos que automáticamente manejan estos conflictos. Se hablará de estos más adelante.}
 
 \end{description}
-
-
-\\ La importancia de este proceso se puede resumir en tres puntos:
-
+La importancia de este proceso se puede resumir en tres puntos:
 \begin{enumerate}
   \item Los datos se obtienen del mundo real donde puede estar incompleta, con ruido y ser inconsistente
   \item La preparación de datos genera un conjunto de datos más pequeño que el original logrando menos tiempo de procesamiento en el proceso del modelamiento
   \item La preparación de datos genera conjuntos de datos de calidad mejorando los patrones encontrados
 \end{enumerate}
-[cita] http://www.cs.ccsu.edu/~markov/ccsu_courses/datamining-3.html
-\subsection{Algoritmos de Aprendizaje Automatizado}
+[cita]
+%http://www.cs.ccsu.edu/~markov/ccsu_courses/datamining-3.html
 
-\subsection{Validación de los Resultados}
+\subsection{Algoritmos de Aprendizaje Automatizado}
+Para poder obtener información de los datos, se necesita analizar la información. Lamentablemente cuando tenemos demasiados datos, es imposible obtener información de forma rápida. Debido a esto, se plantearon diferentes algoritmos que buscan automáticamente lo relevante de los datos.
+A continuación señalaremos y haremos un breve resumen de los algoritmos más utilizados para la mineria de datos.
+\begin{enumerate}
+  \item Clasificación y Regresión
+    \begin{description}
+      \item[Regresión Lineal ó Múltiple] \hfill \\
+      The first item
+      \item[Regresión Logística] \hfill \\
+      The second item
+      \item[Máquina de Vectores de Soporte] \hfill \\
+      The third etc \ldots
+      \item[Naive-Bayes] \hfill \\
+      The first item
+      \item[Redes Neuronales] \hfill \\
+      The first item
+      \item[Vecino Más Cercano] \hfill \\
+      The third etc \ldots
+      \item[Árboles de Decision] \hfill \\
+      The third etc \ldots
+      \item[Bosques Aleatorios] \hfill \\
+      The third etc \ldots
+      \item[AdaBoost] \hfill \\
+      The third etc \ldots
+      \item[GradientBoost] \hfill \\
+      The third etc \ldots     
+    \end{description}
+  \item Análisis de Reglas Asociativas
+    \begin{description}
+      \item[Apriori] \hfill \\
+      The first item
+      \item[Eclat] \hfill \\
+      The second item
+      \item[FP-Growth] \hfill \\
+      The third etc \ldots
+    \end{description}
+  \item Análisis de Conglomerados
+    \begin{description}
+      \item[Vecino Más Cercano] \hfill \\
+      The first item
+      \item[DBSCAN] \hfill \\
+      The second item
+      \item[K-means] \hfill \\
+      The third etc \ldots
+    \end{description}
+\end{enumerate}
+
+\subsection{Validación del Modelo}
+
+Una vez obtenido un modelo, es necesario validar que el modelo es capaz de generalizar para observaciones nuevas. El gran problema que puede ocurrir con un modelo es el sobre-ajuste, es decir, el modelo se ajusta perfectamente a los datos entregados, pero al momento de evaluar datos nuevos, entrega información incorrecta. Esto se puede ver muy fácilmente para una regresión. En el gráfico se ve que el modelo se ajusta muy bien a los datos entregados [grafico], pero no así con los datos nuevos [grafico].Para evitar el sobre-ajuste, es necesario realizar un procedimiento llamado validación cruzada.
+
+La validación de un modelo consta de la división del conjunto de datos entre un conjunto llamado 'conjunto de entrenamiento' y 'conjunto de prueba'. Solamente se entrena el modelo con el conjunto de entrenamiento, mientras que el conjunto de prueba se utiliza para ver el verdadero desempeño del modelo y obteniendo el error de entrenamiento y el error de prueba. El problema de esto es que estos errores no son buenos estimadores del desempeño de la generalización del modelo, puesto que los conjuntos no cambian Para obtener un buen estimador se utiliza la validación cruzada, que, como lo señala su nombre, es lo mismo que la validación, pero se agregan pasos iterativos que van permutando el conjunto de entrenamiento y de prueba para obtener un error promedio que si es representativo del problema.
+
+Existen múltiples métodos de validación cruzadas, a continuación se señalarán algunos:
+    \begin{description}
+      \item[Hold-out Validation] \hfill \\
+      The first item
+      [grafico]
+      \item[K-fold Cross-Validation] \hfill \\
+      The second item
+      [grafico]
+      \item[Leave-One-Out Cross-Validation] \hfill \\
+      The third etc \ldots
+      [grafico]
+    \end{description}
+
+[tabla] Cross-Validation. Table 1. Pros and Cons of different validation methods
+
+\subsection{Afinación de los Parámetros del Modelo}
+La mayoría de los modelos poseen parámetros que definen diferentes atributos de este. Estos parámetros normalmente se determinan \textit{a priori}. Existen métodos que, en conjunto con la validación cruzada, logran además, encontrar los parámetros que más se acerquen al óptimo. Esto se hace con una técnica llamada Búsqueda Aleatoria de Grilla [cita]. Lo que hace la Búsqueda Aleatoria de Grilla es, a través de una distribución de probabilidad dada, crear una grilla de estos valores e ir probando $N$ valores de forma aleatoria hasta que se acerque al óptimo. En general, siempre se obtiene algo mejor, pero es difícil llegar al óptimo, dado la naturaleza del problema de búsqueda en optimización, donde la limitante para hacer una búsqueda exhaustiva es la capacidad computacional.
+[grafico]
+\subsection{Medición del Desempeño del Modelo}
+
+Para evaluar el desempeño de un modelo se pueden utilizar diferentes medidas. Para nuestro estudio solamente señalaremos las más importantes que son la precisión y la exhaustividad.La precisión cuando hablamos de una tarea de clasificación se define como la proporción de las observaciones que son clasificados correctamente y la exhaustividad es la proporción de observaciones relevantes correctamente clasificadas.
+[grafico] 
+%rehacer: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/440px-Precisionrecall.svg.png
+
+Para poder obtener toda esta información debemos, como primer paso, calcular la llamada \textit[matriz de confusión] dónde resume el resultado de la tarea de clasificación.
+
+[grafico] 
+%rehacer tabla con colores señalando que es error tipo I y II: https://en.wikipedia.org/wiki/Confusion_matrix
+
+[cita] 
+%http://www.flinders.edu.au/science_engineering/fms/School-CSEM/publications/tech_reps-research_artfcts/TRRA_2007.pdf
 
 \section{Herramientas Computacionales}
 Para poder desarrollar este trabajo se deben integrar diferentes herramientas para realizar la transformación, preparación, modelamiento y validación de los datos.
@@ -177,8 +285,8 @@ Python se basa en paquetes o librerías para poder distribuir soluciones especif
   \item[NumPy] \hfill \\
   Libería fundamental para el trabajo cientifico con Python. Se utiliza para trabajar con arreglos multidimensionales, algebra lineal y herramientas para implementar soluciones en lenguajes de bajo nivel(C/C++\footnote{Lenguaje de programación muy utilizado de bajo nivel que logra una rapidez y eficiencia en el uso de recursos.}) para obtener un mejor rendimiento.
   \item[Pandas] \hfill \\
-  Manejo de datos de forma estructurada rapidamente y sencilla. Se utiliza mucho para hacer analisis de los datos y posee compatibilidad varias estructuras de información como SQL, CSV y TSV.
-  \item[Scikit-Learn] \hfill \\
+  Manejo de datos de forma estructurada rápidamente y sencilla. Se utiliza mucho para hacer analisis de los datos y posee compatibilidad varias estructuras de información como SQL, CSV y TSV.
+  \item[Scikit-Learn] \cite{scikit-learn} \hfill \\
   Implementación de algoritmos de machine learning de forma sencilla e intuitiva.
   \item[Scikit-Learn-NNet] \hfill \\
   Implementación de redes neuronales para la librería scikit-learn.
@@ -198,3 +306,6 @@ Herramienta intuitiva de visualización y exploración de datos muy usado en la 
 Herramienta para el manejo de hojas de cálculo y datos estructurados de forma sencilla.\footnote{Ver más sobre Excel: https://products.office.com/en-us/excel/}
 \subsection{QGIS}
 Sistema de información geográfica de código libre para el manejo y análisis de datos con geo-refencia.\footnote{Ver más sobre QGIS: http://www.qgis.org/es/site/}
+\section{Conclusiones}
+
+Durante este capitulo se presentaron las herramientas estadísticas y computacionales, junto con la metodología de trabajo que llevaremos a cabo para lograr el objetivo del proyecto. Nos guiaremos por la metodología CRISP-DM dado su amplio uso en la minería de datos y usaremos herramientas potentes de código libre. Se utilizará Python y sus librería para todas las etapas de la metodología y en conjunto con herramientas de visualización potente para las áreas exploratorias y descriptivas que se vayan necesitando. En general este conjunto de herramientas
