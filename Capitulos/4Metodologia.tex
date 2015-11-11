@@ -8,6 +8,8 @@ La cantidad de datos ha ido aumentando de forma exponencial debido a los avances
 
 La minería de datos es un proceso que se ideó pensando en descubrir información valiosa dentro de una gran cantidad de datos\footnote{Para este trabajo definimos datos como información textual o numérica con alguna estructura dada} como flujo de entrada y nos entrega conocimiento.\footnote{Esto es una analogía a la industria de la minería donde se extrae los minerales rocosos donde una parte de esta es valiosa}
 
+La minería de datos, tal como es posible observar en la Figura\ref{fig:datamining}, tiene como finalidad generar conocimiento  valioso a partir de un conjunto de datos, la que luego es utilizada para la toma de decisiones o para la comprensión de un fenómeno, y se realiza a través de diferentes tareas que se pueden realizar con los diferentes algoritmos disponibles que los señalaremos posteriormente.
+
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/DM}
@@ -17,9 +19,7 @@ La minería de datos es un proceso que se ideó pensando en descubrir informaci�
 
 %http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
 
-La minería de datos tiene como finalidad obtener información valiosa para la toma de decisiones o para la comprensión de un fenómeno y se realiza a través de diferentes tareas que se pueden realizar con los diferentes algoritmos disponibles que los señalaremos posteriormente.
-
-Para realizar la minería de datos se han establecido diferentes metodologías para asegurar un resultado coherente con lo que se busca obtener. Existen diferentes metodologías que serán mencionadas y descritas brevemente a continuación.
+Para realizar minería de datos se han establecido diferentes metodologías para asegurar un resultado coherente con lo que se busca obtener. Existen diferentes metodologías que serán mencionadas y descritas brevemente a continuación.
 
 \subsubsection{KDD}
 
@@ -92,29 +92,58 @@ Las fases son:
 
 Para poder cumplir con los objetivos del trabajo debemos seleccionar una metodología de minería de datos. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.[cita]A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad [cita] http://www.kdnuggets.com/2014/10/crisp-dm-top-methodology-analytics-data-mining-data-science-projects.html
 
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=0.99\textwidth]{Figuras/ComparacionModelos}
-      \caption{Resumen de los procesos KDD, CRISP-DM y SEMMA.}
-    \label{fig:comparacion}
-\end{figure}
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+{\color[HTML]{000000} \textbf{\begin{tabular}[c]{@{}c@{}}Modelos de Procesos de\\ Minería de Datos\end{tabular}}} & {\color[HTML]{000000} \textbf{KDD}} & {\color[HTML]{000000} \textbf{CRISP-DM}} & {\color[HTML]{000000} \textbf{SEMMA}} \\ \hline
+{\color[HTML]{000000} Número de pasos} & {\color[HTML]{000000} 9} & {\color[HTML]{000000} 6} & {\color[HTML]{000000} 5} \\ \hline
+{\color[HTML]{000000} } & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Desarrollo y comprensión \\ de la aplicación\end{tabular}} & {\color[HTML]{000000} Entendimiento del negocio} & {\color[HTML]{000000} ------} \\ \cline{2-4} 
+{\color[HTML]{000000} } & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Creación de un conjunto \\ de datos objetivo\end{tabular}} & {\color[HTML]{000000} } & {\color[HTML]{000000} Muestreo} \\ \cline{2-2} \cline{4-4} 
+{\color[HTML]{000000} } & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Limpieza de datos \\ y pre-procesamiento\end{tabular}} & \multirow{-2}{*}{{\color[HTML]{000000} Entendimiento de los datos}} & {\color[HTML]{000000} Exporación} \\ \cline{2-4} 
+{\color[HTML]{000000} } & {\color[HTML]{000000} Transformación de los datos} & {\color[HTML]{000000} Preparación de los datos} & {\color[HTML]{000000} Modificación} \\ \cline{2-4} 
+{\color[HTML]{000000} } & \begin{tabular}[c]{@{}c@{}}Selección de las tareas de \\ minería de datos adecuadas\end{tabular} &  &  \\ \cline{2-2}
+{\color[HTML]{000000} } & \begin{tabular}[c]{@{}c@{}}Selección del algoritmo de \\ minería de datos adecuado\end{tabular} &  &  \\ \cline{2-2}
+{\color[HTML]{000000} } & \begin{tabular}[c]{@{}c@{}}Aplicación del algoritmo \\ de minería de datos\end{tabular} & \multirow{-3}{*}{Modelamiento} & \multirow{-3}{*}{Modelamiento} \\ \cline{2-4} 
+{\color[HTML]{000000} } & \begin{tabular}[c]{@{}c@{}}Interpretación de patrones \\ detectados\end{tabular} & Evaluación & Evaluación \\ \cline{2-4} 
+\multirow{-9}{*}{{\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Nombre de cada\\ paso\end{tabular}}} & \begin{tabular}[c]{@{}c@{}}Utilización del conocimiento \\ descubierto\end{tabular} & Implementación & ------ \\ \hline
+\end{tabular}
+}
+\caption{Resumen de los procesos KDD, CRISP-SM y SEMMA.}
+\label{tab:metodos}
+\end{table}
 
-En base a la Figura~\ref{fig:comparacion}, donde se compara de forma resumida cada metodología para la minería de datos, la seleccionada para desarrollar este proyecto será la metodología CRISP-DM.
+En base al Cuadro~\ref{tab:metodos}, donde se compara de forma resumida cada metodología para la minería de datos, la seleccionada para desarrollar este proyecto será la metodología CRISP-DM.
 
 
 \subsection{Utilidad}
 
 \subsubsection{Clasificación y Regresión}
-La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.[cita] http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
+La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.[cita] %http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
 
 Matemáticamente podemos ver lo siguiente:\\
 Teniendo $N$ observaciones con variables $x_1, x_2, x_3, ... , x_i$ se busca predecir el valor de las variables $y_1, y_2, y_3, ... , y_j$ para las $N$ observaciones de forma independiente.
 Utilizando algoritmos de aprendizaje automatizado se busca encontrar una función tal que
 $f(x_1, x_2, x_3, ... , x_i) = y_1, y_2, y_3, ... , y_j$
-[grafico]
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figuras/Clasificacion}
+      \caption{Ejemplos de clasificación y regresión.[cita]}
+    \label{fig:clasificacion}
+\end{figure}
+ 
+%http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
 
 \subsubsection{Análisis de Reglas Asociativas}
-El análisis de reglas asociativas busca descubrir patrones o asociaciones en base a diferentes elementos en un conjunto de datos. El ejemplo más común de este análisis es el de los carritos de compras en un supermercado. Lo que se busca en este caso es buscar el patrón de compras conjuntas, por ejemplo, se puede encontrar un patrón común $\{\textrm{Hamburguesa, Pan}\} \to \textrm{Ketchup}$, es decir, en general las personas que llevan hamburguesa y pan de hamburguesa en el carrito de compra, es probable que también lleven ketchup.
+El análisis de reglas asociativas busca descubrir patrones o asociaciones en base a diferentes elementos en un conjunto de datos. El ejemplo más común de este análisis es el de los carritos de compras en un supermercado. El objetivo en este caso es buscar el patrón de compras conjuntas, por ejemplo, y se puede encontrar un patrón común $\{\textrm{Hamburguesa, Pan}\} \to \textrm{Ketchup}$, es decir, en general las personas que llevan hamburguesa y pan de hamburguesa en el carrito de compra, es probable que también lleven ketchup. 
 
 \begin{figure}[H]
   \centering
@@ -123,17 +152,24 @@ El análisis de reglas asociativas busca descubrir patrones o asociaciones en ba
     \label{fig:carrito}
 \end{figure}
 
+En la Figura~\ref{fig:carrito} se puede ver el ejemplo del carrito de supermercados de forma genérica, es decir, se ve representado el patrón de compras, donde el 98\% de los clientes que compraron el ítem A y B, también compraron el ítem C. 
 
 \subsubsection{Análisis de Conglomerados}
 Este análisis tiene como objetivo agrupar variables similares en un mismo conglomerado. Las aplicaciones de esto pueden ser la agrupación de documentos de noticias en base al uso de un buscador.
 
 Matemáticamente podemos ver lo siguiente:\\
 Teniendo $N$ observaciones con variables $x_1, x_2, x_3, ... , x_i$ se buscan agrupar estas variables en $M$ conglomerados en base a las $N$ observaciones de cada variable. Este método se puede aplicar tanto como a las observaciones o variables.
-[grafico]
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figuras/Conglomerados}
+      \caption{Ejemplo de análisis de conglomerados.}
+    \label{fig:conglomerado}
+\end{figure}
 
+Lo que se observa gráficamente en un análisis de conglomerados se muestra en la Figura~\ref{fig:conglomerado}, donde es posible ver que se generan grupos donde sus elementos sean lo más homogéneos posible, y los grupos entre ellos sean lo más heterogéneos posible. 
 
-[revisar] http://eprints.iisc.ernet.in/273/1/p264-jain.pdf
+%[revisar] http://eprints.iisc.ernet.in/273/1/p264-jain.pdf
 
 \subsection{Transformación de los Datos}
 La transformación de datos debe estar presente cuando se quiere aplicar minería de datos, ya que es un paso fundamental para que los datos sean legibles y válidos para los algoritmos del procedimiento del modelamiento.
@@ -171,7 +207,7 @@ Los procedimientos utilizados en esta etapa son los siguientes:
     \label{fig:vect}
     \end{table}
       
-  Todo esto se utiliza por que normalmente los algoritmos de aprendizaje automático requieren el uso de variables númericas donde la distancia entre los datos es la que se compara, por tanto, no tendría sentido utilizar variables categoricas de texto ni tampoco usar dos variables que tengan diferentes escalas, puesto que los resultados entregados por este estarían influenciados por la variable que tenga la escala más grande.\footnote{Existen métodos que automáticamente manejan estos conflictos. Se hablará de estos más adelante.}
+  Todo esto se utiliza por que normalmente los algoritmos de aprendizaje automático requieren el uso de variables numéricas donde la distancia entre los datos es la que se compara, por tanto, no tendría sentido utilizar variables categóricas de texto ni tampoco usar dos variables que tengan diferentes escalas, puesto que los resultados entregados por este estarían influenciados por la variable que tenga la escala más grande.\footnote{Existen métodos que automáticamente manejan estos conflictos. Se hablará de estos más adelante.}
 
 \end{description}
 La importancia de este proceso se puede resumir en tres puntos:
@@ -185,24 +221,28 @@ La importancia de este proceso se puede resumir en tres puntos:
 
 \subsection{Algoritmos de Aprendizaje Automatizado}
 Para poder obtener información de los datos, se necesita analizar la información. Lamentablemente cuando tenemos demasiados datos, es imposible obtener información de forma rápida. Debido a esto, se plantearon diferentes algoritmos que buscan automáticamente lo relevante de los datos.
-A continuación señalaremos y haremos un breve resumen de los algoritmos más utilizados para la mineria de datos.
+A continuación señalaremos y haremos un breve resumen de los algoritmos más utilizados para la minería de datos.
+
+%http://pendientedemigracion.ucm.es/info/socivmyt/paginas/D_departamento/materiales/analisis_datosyMultivariable/18reglin_SPSS.pdf [regresión lineal]
+
+
 \begin{enumerate}
   \item Clasificación y Regresión
     \begin{description}
       \item[Regresión Lineal ó Múltiple] \hfill \\
-      The first item
+      El método de regresión líneal tiene como objetivo modelar la relación entre una variable independiente y variables dependientes
       \item[Regresión Logística] \hfill \\
-      The second item
+      The second item [grafico]
       \item[Máquina de Vectores de Soporte] \hfill \\
       The third etc \ldots
       \item[Naive-Bayes] \hfill \\
       The first item
       \item[Redes Neuronales] \hfill \\
-      The first item
+      The first item [grafico]
       \item[Vecino Más Cercano] \hfill \\
       The third etc \ldots
-      \item[Árboles de Decision] \hfill \\
-      The third etc \ldots
+      \item[Árboles de Decisión] \hfill \\
+      The third etc [grafico] \ldots
       \item[Bosques Aleatorios] \hfill \\
       The third etc \ldots
       \item[AdaBoost] \hfill \\
@@ -230,6 +270,7 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
     \end{description}
 \end{enumerate}
 
+
 \subsection{Validación del Modelo}
 
 Una vez obtenido un modelo, es necesario validar que el modelo es capaz de generalizar para observaciones nuevas. El gran problema que puede ocurrir con un modelo es el sobre-ajuste, es decir, el modelo se ajusta perfectamente a los datos entregados, pero al momento de evaluar datos nuevos, entrega información incorrecta. Esto se puede ver muy fácilmente para una regresión. En el gráfico se ve que el modelo se ajusta muy bien a los datos entregados [grafico], pero no así con los datos nuevos [grafico].Para evitar el sobre-ajuste, es necesario realizar un procedimiento llamado validación cruzada.
@@ -249,7 +290,27 @@ Existen múltiples métodos de validación cruzadas, a continuación se señalar
       [grafico]
     \end{description}
 
-[tabla] Cross-Validation. Table 1. Pros and Cons of different validation methods
+% Please add the following required packages to your document preamble:
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{Método de Validación} & \textbf{Pros} & \textbf{Contras} \\ \hline
+Validación con restitución & Simple de implementar & Tendencia al sobre-ajuste \\ \hline
+Validación con retención & \begin{tabular}[c]{@{}c@{}}Conjunto de entrenamiento y\\  conjunto de prueba independientes\end{tabular} & \begin{tabular}[c]{@{}c@{}}Set de entrenamiento y set de prueba \\ reducidos, varianza grande\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}c@{}}Validación cruzada con \\ k-permutaciones\end{tabular} & \begin{tabular}[c]{@{}c@{}}Mayor exactitud de la estimación \\ del desempeño\end{tabular} & \begin{tabular}[c]{@{}c@{}}Muestra pequeña de estimación; \\ Varianza subestimada\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}c@{}}Validación cruzada \\ dejando un dato fuera\end{tabular} & \begin{tabular}[c]{@{}c@{}}La estimación del desempeño no está \\  sesgada\end{tabular} & Varianza muy grande \\ \hline
+\begin{tabular}[c]{@{}c@{}}Validación cruzada con \\ k-permutaciones repetidas\end{tabular} & Varias estimaciones del desempeño & Varianza subestimada \\ \hline
+\end{tabular}
+}
+\caption{Pros y contras de diferentes métodos de validación.}
+\label{mvalidacion}
+\end{table}
+
+% [tabla] Cross-Validation. Table 1. Pros and Cons of different validation methods
 
 \subsection{Afinación de los Parámetros del Modelo}
 La mayoría de los modelos poseen parámetros que definen diferentes atributos de este. Estos parámetros normalmente se determinan \textit{a priori}. Existen métodos que, en conjunto con la validación cruzada, logran además, encontrar los parámetros que más se acerquen al óptimo. Esto se hace con una técnica llamada Búsqueda Aleatoria de Grilla [cita]. Lo que hace la Búsqueda Aleatoria de Grilla es, a través de una distribución de probabilidad dada, crear una grilla de estos valores e ir probando $N$ valores de forma aleatoria hasta que se acerque al óptimo. En general, siempre se obtiene algo mejor, pero es difícil llegar al óptimo, dado la naturaleza del problema de búsqueda en optimización, donde la limitante para hacer una búsqueda exhaustiva es la capacidad computacional.
@@ -257,13 +318,37 @@ La mayoría de los modelos poseen parámetros que definen diferentes atributos d
 \subsection{Medición del Desempeño del Modelo}
 
 Para evaluar el desempeño de un modelo se pueden utilizar diferentes medidas. Para nuestro estudio solamente señalaremos las más importantes que son la precisión y la exhaustividad.La precisión cuando hablamos de una tarea de clasificación se define como la proporción de las observaciones que son clasificados correctamente y la exhaustividad es la proporción de observaciones relevantes correctamente clasificadas.
-[grafico] 
-%rehacer: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/440px-Precisionrecall.svg.png
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figuras/Precision}
+      \caption{Descripción gráfica de presición y exhaustividad.}
+    \label{fig:precision}
+\end{figure}
+
+
+% https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/440px-Precisionrecall.svg.png
 
 Para poder obtener toda esta información debemos, como primer paso, calcular la llamada \textit[matriz de confusión] dónde resume el resultado de la tarea de clasificación.
 
 [grafico] 
 %rehacer tabla con colores señalando que es error tipo I y II: https://en.wikipedia.org/wiki/Confusion_matrix
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[H]
+\centering
+\begin{tabular}{lc|c|c|}
+\cline{3-4}
+ & \multicolumn{1}{l|}{} & \multicolumn{2}{c|}{Condición verdadera} \\ \cline{2-4} 
+\multicolumn{1}{l|}{} & Población total & Condición positiva & Condición negativa \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Condición\\ de \\ predicción\end{tabular}}} & \begin{tabular}[c]{@{}c@{}}Condición de \\ predicción positiva\end{tabular} & Verdadero positivo & \begin{tabular}[c]{@{}c@{}}Falso positivo\\ (Error tipo I)\end{tabular} \\ \cline{2-4} 
+\multicolumn{1}{|c|}{} & \begin{tabular}[c]{@{}c@{}}Condición de \\ predicción negativa\end{tabular} & \begin{tabular}[c]{@{}c@{}}Falso negativo\\ (Error tipo II)\end{tabular} & Verdadero negativo \\ \hline
+\end{tabular}
+\caption{Matriz de confusión.}
+\label{mconfusion}
+\end{table}
+
 
 [cita] 
 %http://www.flinders.edu.au/science_engineering/fms/School-CSEM/publications/tech_reps-research_artfcts/TRRA_2007.pdf

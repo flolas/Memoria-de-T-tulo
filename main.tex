@@ -1,10 +1,13 @@
 \documentclass[12pt,letterpaper,oneside]{book}
 
 % Inicio de los paquetes
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \usepackage{geometry}
 \usepackage[spanish]{babel}
 \usepackage{import}
 \usepackage{graphicx}
+\usepackage{lipsum}
 \graphicspath{ {Figuras/} }
 \usepackage{array}
 \usepackage{makeidx}
@@ -19,6 +22,8 @@
 \usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage[utf8]{inputenc}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow}
 % Fin de los paquetes
 
 % Inicio de funciones
@@ -41,11 +46,18 @@
  top=20mm,
  bottom=20mm,
  }
- \fancyhf{} % clear all header and footers
- \rfoot{\thepage}
-% Fin de Márgenes y otros
-\makeindex
+\fancyhf{}
+\fancyfoot[R]{\thepage}
 \pagestyle{fancy}
+\fancypagestyle{plain}{%
+    \renewcommand{\headrulewidth}{0pt}%
+    \fancyhf{}%
+    \fancyfoot[R]{\thepage}%
+}
+
+% Fin de Márgenes y otros
+
+\makeindex
 \begin{document}
 
 \frontmatter
@@ -77,11 +89,18 @@
 \capitulo{7AnalisisDeResultados}
 \capitulo{8ConclusionesRecomendaciones}
 \capitulo{9TrabajoFuturo}
+\lipsum[1]
+\chapter*{Anexo}
+\addcontentsline{toc}{chapter}{Anexo}
+\renewcommand{\thesection}{\Alph{section}}
+\anexo{AnexoA}
+\anexo{AnexoB}
+\anexo{AnexoC}
+\appendix
+\addcontentsline{toc}{chapter}{Apéndice}
+\chapter*{Apéndice}
+\apendice{ApendiceA}
 \backmatter
 \bibliographystyle{unsrtnat}
 \bibliography{bibliografia}
-\appendix
-%\apendice{ApendiceA}
-%\apendice{ApendiceB}
-\anexo{Anexo}
 \end{document}
