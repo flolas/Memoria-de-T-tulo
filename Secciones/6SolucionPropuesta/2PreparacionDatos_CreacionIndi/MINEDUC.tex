@@ -1,0 +1,169 @@
+\subsubsection{Centro de Estudios del MINEDUC}
+    Los conjuntos de datos utilizados se obtuvieron de la página web del Centro de Estudios del MINEDUC, donde se concentran todos los datos públicos que maneja el MINEDUC, sin embargo, como lo hemos señalado anteriormente, se puede solicitar conjuntos de datos no disponibles mediante la Ley Sobre Acceso a la Información.
+    
+    A continuación se presentarán los conjuntos de datos disponibles[cita] para el año $2002$ hasta el año $2014$ y se señalarán los indicadores creados mediante estos conjuntos.
+    \begin{longdescription}
+        \item[Rendimiento Anual de los Alumnos] \hfill \\
+        Concentra información de los alumnos en base al campo MRUN que es la llave única\footnote{Llave única se refiere a un campo que contiene un número o conjunto de caracteres únicos que identifica a la observación} del conjunto de datos. Para ver el libro de código\footnote{Un libro de código es un documento donde se señalan los campos, tipo de datos y características de un conjunto de datos.} completo ver Figura~\ref{fig:lb-raa} en el Anexo~\ref{an:lb}.
+        Los siguientes indicadores fueron creados a partir de este conjunto de datos:
+            \begin{longdescription}
+              \item[Deserción del alumno] (DESERTA\_ALU): En base a la teoría ya hemos definido lo que es la deserción escolar. Para nuestro caso de estudio consideraremos la misma definición que utiliza el MINEDUC para calcular la deserción.
+              En la Ecuación~\ref{eq:des} se muestra el cálculo hecho para cada MRUN único de cada alumno denotado como $j$ en base a un año $t$ donde se revisa si el alumno fue matriculado en el año siguiente.
+              \begin{equation}
+              \centering
+              DESERTA\_ALU_{j}^{t} = \left\{
+                \begin{array}{c l}
+                 1 & j \; \mbox{existe en el año} \; t + 1\\
+                 0 & j \; \mbox{no existe en el año} \; t + 1
+                \end{array}
+                \right.
+                \label{eq:des}
+              \end{equation}
+                
+              \item[Repitencia del año anterior del alumno] (REPITENTE\_ALU): La repitencia del año anterior se calcula utilizando información del año anterior del alumno revisando la información de su situación actual de ese año. Ver la Ecuación~\ref{eq:rep}
+              \begin{equation}
+              \centering
+              REPITENTE\_ALU_{j}^{t} = \left\{
+                \begin{array}{c l}
+                 1 & SIT\_FIN\_R = \mbox{'R'}  \; \mbox{en el año} \; t - 1\\
+                 0 & SIT\_FIN\_R \neq \mbox{'R'} \; \mbox{en el año} \; t - 1
+                \end{array}
+                \right.
+                \label{eq:rep}
+              \end{equation}
+              \item[Abandono en el mismo año del alumno] (ABANDONA\_ALU): Cuando un alumno abandona el establecimiento durante el año escolar. Ver la Ecuación~\ref{eq:ab}
+              \begin{equation}
+              \centering
+              ABANDONA\_ALU_{j}^{t} = \left\{
+                \begin{array}{c l}
+                 1 & SIT\_FIN\_R = \mbox{'Y'}  \; \mbox{en el año} \; t\\
+                 0 & SIT\_FIN\_R \neq \mbox{'Y'} \; \mbox{en el año} \; t
+                \end{array}
+                \right.
+                \label{eq:ab}
+              \end{equation}
+              \item[Edad del alumno] (EDAD\_ALU): La edad del alumno se calcula basada en la diferencia entre la fecha de nacimiento disponible en la columna $FEC\_NAC_\_ALU$ y el año actual $t$ utilizando el día y el mes donde se observa la información\footnote{30 de junio de cada año}. Para esto se utiliza una función especializada para calcular la diferencia entre dos fechas\footnote{Se utiliza la librería 'datetime' que está integrada a Python}.
+             
+              \item[Sobre-edad del alumno] (SOBRE\_EDAD\_ALU) : Este indicador señala la cantidad de años que un alumno $j$ en particular está por sobre la edad respectiva a su grado, en este caso, como mejor aproximación usaremos el promedio de la edad de todos los alumnos del grado $COD\_GRADO$ representado por $g$, pues al utilizar esto, captamos mayor información respecto a la adecuación del alumno en base a sus pares.[cita] La construcción se puede ver en la Ecuación~\ref{eq:sd}
+              \begin{equation}
+              \centering
+              SOBRE\_EDAD\_ALU_{j}^{t} = \left\{
+                \begin{array}{c l}
+                 EDAD\_ALU -\overline{EDAD\_ALU_g} & \mbox{diferencia positiva}\\
+                 0 & \mbox{e.o.c.}
+                \end{array}
+                \right.
+                \label{eq:sd}
+              \end{equation}
+              \item[Percentil en el curso del promedio general del alumno] (PROM\_GRAL\_RANK\_ALU): Representa el lugar en porcentaje en el cual, el alumno identificado por su $MRUN$ y denotado por $j$, se encuentra respecto a su curso $LET\_CUR$ y grado $COD\_GRADO$ en función del promedio general.
+              \item[Percentil en el curso de la asistencia del alumno](ASISTENCIA\_RANK\_ALU): Representa el lugar en porcentaje en el cual, el alumno identificado por su $MRUN$ y denotado por $j$, se encuentra respecto a su curso $LET\_CUR$ y grado $COD\_GRADO$ en función de la asistencia a clases.
+              \item[Cantidad de Veces que el Alumno se Traslada Durante el Año](CANT\_TRASLADOS\_ALU):
+             Cuenta la cantidad de veces que el alumno $t$ se traslada de un establecimiento a otro durante el año $t$. La construcción se puede ver en la Ecuación~\ref{eq:cant-traslados-alu}
+            \begin{equation}
+              \centering
+              CANT\_TRASLADOS\_ALU_{j}^{t} = \mbox{COUNT}(SIT\_FIN\_R = \mbox{'T'} )
+                \label{eq:cant-traslados-alu}
+              \end{equation}
+              \item[Tasa de Repitencia del Establecimiento al que Asiste el Alumno](TASA\_REPITENCIA\_RBD): Esta medida se define por la cantidad de alumnos que repiten sobre la cantidad de matrículas o alumnos totales en el establecimiento del alumno $j$ en el año $t$
+              \item[Tasa de Abandono del Establecimiento al que Asiste el Alumno](TASA\_ABANDONO\_RBD):Esta medida se define por la cantidad de alumnos que abandonan sobre la cantidad de matrículas o alumnos totales en el establecimiento del alumno $j$ en el año $t$
+              \item[Tasa de Deserción del Establecimiento al que Asiste el Alumno](TASA\_DESERCION\_RBD):Esta medida se define por la cantidad de alumnos que desertan al próximo año $t+1$ sobre la cantidad de matrículas o alumnos totales en el establecimiento del alumno $j$ en el año $t$
+              \item[Tasa de Traslados del Establecimiento al que Asiste el Alumno](TASA\_TRASLADOS\_RBD):Esta medida se define por la cantidad de alumnos que se trasladan sobre la cantidad de matrículas o alumnos totales en el establecimiento del alumno $j$ en el año $t$
+            \end{longdescription}
+        Además, se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+            \begin{itemize}
+              \item Año de la información obtenida (AGNO)
+              \item Identificador único del establecimiento (RBD)
+              \item Nombre del establecimiento (NOM\_RBD)
+              \item Código de la comuna del establecimiento (COD\_COM\_RBD)
+              \footnote{Los códigos de las comunas de Chile actualizados están disponibles en la siguiente URL \url{http://www.sinim.gov.cl/archivos/centro_descargas/modificacion_instructivo_pres_codigos.pdf}}
+              \item Nombre de la comuna del establecimiento (NOM\_COM\_RBD)
+              \item Código de enseñanza al que pertenece el alumno (COD\_ENSE)
+              \item Código del grado al que pertenece el alumno (COD\_GRADO)
+              \item Letra del curso al que pertenece el alumno (LET\_CUR)
+              \item Código de la jornada escolar del establecimiento (COD\_JOR)
+              \item RUT del alumno codificado, llave única (MRUN)
+              \item Género del alumno (GEN\_ALU)
+              \item Código de la comuna del alumno (COD\_COM\_ALU)
+              \item Nombre de la comuna del alumno (NOM\_COM\_ALU)
+            \end{itemize}
+        \item[Matriculas Anuales de los Alumnos] \hfill \\
+        Este conjunto de datos contiene características de los alumnos, tal como la anterior, pero se ven los alumnos desde el punto de vista de las matrículas.
+        Este conjunto de datos no se utilizó para la creación de los indicadores.
+        
+        \item[Dotación Docente de los Establecimientos] \hfill \\
+        Este conjunto de datos contiene características de los docentes de los establecimientos basados en cantidad a nivel general. Este conjunto de datos no se utilizará para la creación de los indicadores.
+        
+        \item[Información Anual de la Subvención Escolar Preferencial] \hfill \\
+         se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+            \begin{itemize}
+                \item Identificador único del establecimiento (RBD)\footnote{Solamente para facilitar el cruzamiento de los datos}
+                \item Indice calculado del SNED(INDICE\_SNED\_RBD)
+                \item Tipo de SNED(SEL\_SNED\_RBD)
+            \end{itemize}
+        \item[Información del SEP] \hfill \\
+        se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+            \begin{itemize}
+              \item Identificador único del establecimiento (RBD)\footnote{Solamente para facilitar el cruzamiento de datos durante la creación de la muestra de estudio.}
+              \item Prioridad del beneficio SEP (PRIO\_SEP\_RBD)
+              \item Beneficiario o no de SEP(BEN\_SEP\_RBD)
+              \item Clasificación del SEP(CLASIFICACION\_SEP\_RBD)
+              \item Si existe convenio SEP(CONVENIO\_SEP\_RBD)
+            \end{itemize}
+        \item[Directorio de Establecimientos] \hfill \\
+            \begin{longdescription}
+                \item[Cantidad de Matrículas de Género Femenino](MAT\_MUJ\_RBD):
+                \item[Cantidad de Matrículas de Género Masculino](MAT\_HOM\_RBD):
+                \item[Cantidad de Matrículas de Educación Básica](MAT\_BASICA\_RBD):
+                \item[Cantidad de Matrículas de Educación Media]
+                (MAT\_MEDIA\_RBD):
+                \item[Cantidad de Cursos Impartidos]
+                (CANT\_CURSOS\_RBD):
+                \item[Cantidad de Docentes de Género Femenino]
+                (CANT\_DOC\_F\_RBD):
+                \item[Cantidad de Docentes de Género Masculino]
+                (CANT\_DOC\_M\_RBD):
+            \end{longdescription} 
+            Además, se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+            \begin{itemize}
+              \item Identificador único del Alumno (MRUN)\footnote{Solamente para facilitar el cruzamiento de datos durante la creación de la muestra de estudio.}
+              \item Código de la dependencia (COD\_DEPE\_RBD)
+              \item Rango de pago de la matrícula anual del establecimiento (PAGO\_MATRICULA\_RBD)
+              \item Rango de pago del pago mensual del establecimiento (PAGO\_MENSUAL\_RBD)
+              \item Si ejecuta el programa de integración escolar\footnote{[cita] que es pie y link para mas info} (CONVENIO\_PIE\_RBD)
+            \end{itemize}     
+\item[Información Anual de los Cargos de Docentes] \hfill \\
+        Este conjunto de datos se utilizara para crear diferentes indicadores por establecimiento($RBD$) de sus docentes.
+        Acá se encuentra información por docente que trabaja en el establecimiento dado informando su título profesional, horas de trabajo por contrato y edad de titulación entre otros. Para ver el libro de código completo dirigirse a la Figura~\ref{fig:lb-iacd} en el Anexo~\ref{an:lb}.
+            \begin{longdescription}
+                \item[Horas de Profesores-Aula\footnote{[cita]} por Alumno](PROF\_AULA\_H\_MAT\_RBD):
+                
+                \item[Horas de Profesores-Pedagógicos\footnote{[cita]} por Alumno](PRO\_PEDA\_H\_MAT\_RBD):
+                
+                \item[Horas de Profesores-Inspectores\footnote{[cita]} por Alumno](PRO\_INSP\_H\_MAT\_RBD):
+                
+                \item[Horas de Profesores-Orientadores \footnote{[cita]} por Alumno](PRO\_ORI\_H\_MAT\_RBD):
+                
+                \item[Horas de Profesores por   Alumno](PRO\_TOT\_H\_MAT\_RBD):
+                
+                \item[Porcentaje de Horas Lectivas\footnote{[cita]} de Profesores](PORC\_HORAS\_LECTIVAS\_DOC\_RBD):
+                
+                \item[Promedio de la Edad de Titulación de Docentes]
+                (PROM\_EDAD\_TITULACION\_DOC\_RBD):
+                
+                \item[Promedio de la Edad de Docentes]
+                (PROM\_EDAD\_DOC\_RBD):
+                
+                \item[Promedio de los Años de Servicio de Docentes]
+                (PROM\_ANOS\_SERVICIO\_DOC\_RBD):
+                
+                \item[Promedio de Estudio de Docentes]
+                (PROM\_ANOS\_ESTUDIOS\_DOC\_RBD):
+                
+                \item[Porcentaje de Docentes Sin Mención]
+                (PROM\_SIN\_MENCION\_DOC\_RBD):
+            \end{longdescription}
+        Además, se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+            \begin{itemize}
+              \item Identificador único del establecimiento (RBD)\footnote{Solamente para facilitar el cruzamiento de datos durante la creación de la muestra de estudio.}
+            \end{itemize}
+        \end{longdescription}

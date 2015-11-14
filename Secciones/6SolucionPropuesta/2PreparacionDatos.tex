@@ -2,111 +2,16 @@
 Como se señaló en el Capítulo~\ref{ch:metodologia}, la preparación de los datos es la etapa más importante para la minería de datos. Durante este ca
 \subsection{Creación de Indicadores}
 En base a la revisión teórica en el Capitulo~\ref{ch:marcoteorico} se encontraron diferentes indicadores tentativos que son factibles para su creación.
-A continuación presentaremos la creación de cada uno de estos en base a la entidad de dónde provienen.
-\subsubsection{Centro de Estudios del MINEDUC}
-    Los conjuntos de datos utilizados se obtuvieron de la página web del Centro de Estudios del MINEDUC, donde se concentran todos los datos públicos que maneja el MINEDUC, sin embargo, como lo hemos señalado anteriormente, se puede solicitar conjuntos de datos no disponibles mediante la Ley Sobre Acceso a la Información.
-    
-    A continuación se presentarán los conjuntos de datos disponibles[cita] para el año $2002$ hasta el año $2014$ y se señalarán los indicadores creados mediante estos conjuntos.
-    \begin{description}
-        \item[Rendimiento Anual de los Alumnos] \hfill \\
-        Concentra información de los alumnos en base al campo MRUN que es la llave única\footnote{Llave única se refiere a un campo que contiene un número o conjunto de caracteres únicos que identifica a la observación} del conjunto de datos. Para ver el libro de código\footnote{Un libro de código es un documento donde se señalan los campos, tipo de datos y características de un conjunto de datos.} completo ver Anexo~\ref{an:Bral}. Los conjuntos de datos disponibles en base al nombre del documento se presentan en el Anexo~\ref{an:Cral}
-        Los siguientes indicadores fueron creados a partir de este conjunto de datos:
-            \begin{description}
-              \item[Deserción del alumno] (DESERTA\_ALU) \hfill \\
-              a
-              \item[Repitencia del año anterior del alumno] (REPITENTE\_ALU) \hfill \\
-              a
-              \item[Abandono en el mismo año del alumno] (ABANDONA\_ALU) \hfill \\
-              a
-              \item[Edad del alumno] (EDAD\_ALU)\hfill \\
-              a
-              \item[Sobre-Edad del alumno] (SOBRE\_EDAD\_ALU) \hfill \\
-              a
-              \item[Percentil en el curso del promedio general del alumno] (PROM\_GRAL\_RANK\_ALU) \hfill \\
-              a
-              \item[Percentil en el curso de la asistencia del alumno] (ASISTENCIA\_RANK\_ALU) \hfill \\
-              a
-            \end{description}
-        Además, se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos\footnote{Para ver los valores ver el libro de código en el Anexo~\ref{an:Bral}}:
-            \begin{itemize}
-              \item Año de la información obtenida (AGNO)
-              \item Identificador único del establecimiento (RBD)
-              \item Nombre del establecimiento (NOM\_RBD)
-              \item Código de la comuna del establecimiento (COD\_COM\_RBD)
-              \footnote{Los códigos de las comunas de Chile actualizados están disponibles en la siguiente URL \url{http://www.sinim.gov.cl/archivos/centro_descargas/modificacion_instructivo_pres_codigos.pdf}}
-              \item Nombre de la comuna del establecimiento (NOM\_COM\_RBD)
-              \item Código de enseñanza al que pertenece el alumno (COD\_ENSE)
-              \item Código del grado al que pertenece el alumno (COD\_GRADO)
-              \item Letra del curso al que pertenece el alumno (LET\_CUR)
-              \item Código de la jornada escolar del establecimiento (COD\_JOR)
-              \item RUT del alumno codificado, llave única (MRUN)
-              \item Género del alumno (GEN\_ALU)
-              \item Código de la comuna del alumno (COD\_COM\_ALU)
-              \item Nombre de la comuna del alumno (NOM\_COM\_ALU)
-            \end{itemize}
-        \item[Matriculas Anuales de los Alumnos] \hfill \\
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      
-        \item[Dotación Docente de los Establecimientos] \hfill \\
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    
-        \item[Información Anual del SNED] \hfill \\
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          
-        \item[Información Anual de la Subvención Escolar Preferencial] \hfill \\
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-          
-        \item[Establecimientos Georeferenciados] \hfill \\
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-          
-        \item[Información Anual de los Docentes] \hfill \\
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    \end{description}
-\subsubsection{Agencia de Calidad}
-\begin{description}
-
-  \item[SIMCE] \hfill \\
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  
-  \item[Otros Indicadores de la Calidad] \hfill \\
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  
-\end{description}
-
-\subsubsection{MIME}
-\begin{description}
-  \item[Indicador de Selección para la Admisión] \hfill \\
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-\end{description}
-\subsubsection{JUNAEB}
-\begin{description}
-  \item[Índice de Vulnerabilidad Escolar] \hfill \\
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-\end{description}
-\subsubsection{Centro de Inteligencia Territorial}
-\begin{description}
-  \item[Manzanas Georefenciadas] \hfill \\
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  \item[Indicador de Áreas Verdes por Manzana] \hfill \\
-  
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-     
-  \item[Indicador de Cultura por Manzana] \hfill \\
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-     
-  \item[Grupo Socioeconomico por Manzana] \hfill \\
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-     
-  \item[Desagregación del GSE por Manzana] \hfill \\
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-  \item[Delitos Totales por Manzana] \hfill \\
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-\end{description}
+A continuación presentaremos la creación de cada uno de estos en base a la entidad de dónde provienen. Además, todos los indicadores están relacionados a un alumno, en este caso, nuestras observaciones consisten en alumnos y nuestros campos o columnas, corresponden a los indicadores o características del alumno.
+\cindicadores{MINEDUC}
+\cindicadores{AgenciaDeCalidad}
+\cindicadores{MIME}
+\cindicadores{JUNAEB}
+\cindicadores{CIAE}
+\cindicadores{CIT}
 \subsection{Preparación de la Muestra de Estudio}
 \subsection{Validación de la Muestra de Estudio}
 \subsection{Pre-procesamiento de la Muestra de Estudio}
-
 
 
 

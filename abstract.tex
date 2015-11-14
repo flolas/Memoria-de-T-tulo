@@ -9,8 +9,13 @@
     \end{center}
 
 
-En el presente documento se aborda la deserción escolar dentro de la educación pública de Chile. El objetivo es la creación de un sistema de alerta temprana que apoye la toma de desiciones que se toman en el Ministerio de Educación, en cuanto a políticas públicas dirigidas a la educación pública del país. 
+%En el presente documento se aborda la deserción escolar dentro de la educación pública de Chile. El objetivo es la creación de un sistema de alerta temprana que apoye la toma de desiciones que se toman en el Ministerio de Educación, en cuanto a políticas públicas dirigidas a la educación pública del país. 
+%Para lograr lo propuesto se trabajará en conjunto al Centro de Investigación Avanzada en Educación de la Universidad de Chile. 
+%Se trabajarán diversas fuentes que incluyen información tanto de los establecimientos públicos de Santiago, sus alumnos y las familias de estos. Para esto se utilizarán herramientas de Minería de Datos y \textit{Big Data}.
+Párrafo 1: contexto, identificación de la oportunidad, hipótesis y objetivos.
 
-Para lograr lo propuesto se trabajará en conjunto al Centro de Investigación Avanzada en Educación de la Universidad de Chile. 
+Siguiendo la metodología CRISP-DM, utilizamos herramientas de minería de datos como árboles de decisiones, bosques aleatorios y redes neuronales entre otros, eligiendo el que más se acerque al objetivo de modelo. Para poder hacer esta selección del modelo de predicción se utilizaron procedimientos de múltiples validación cruzadas y algoritmos que optimizan los parámetros de los modelos para obtener solución más cercana a la solución óptima.
 
-Se trabajarán diversas fuentes que incluyen información tanto de los establecimientos públicos de Santiago, sus alumnos y las familias de estos. Para esto se utilizarán herramientas de Minería de Datos y \textit{Big Data}.
+Logramos crear un modelo acorde a nuestros objetivos capaz de predecir la deserción escolar para el año siguiente con una precisión del $95$\% basado en bosques aleatorios. Nuestra muestra de estudio consistió en $300.000$ alumnos de escuelas municipalizadas del sistema regular de educación del Gran Santiago de Santiago de Chile con un total de $120$ características donde finalmente solamente $10$ eran importantes:la diferencia de edad entre los pares del alumno, el ranking del promedio general y asistencia en el curso del alumno, la escolaridad de los padres, el grupo socioeconómico del barrio del establecimiento al que asiste el alumno y del lugar donde reside entre otros. 
+
+Finalmente se concluye que si bien el modelo es capaz de predecir la deserción escolar al plazo de un año, no es capaz de detectar casos de deserción en periodos menores a un año debido a la baja frecuencia y disponibilidad de los datos y la escasa información personal del alumno que dificultan la predicción de la deserción escolar. Para el futuro se espera obtener una mayor frecuencia y disponibilidad de datos, lo que posibilitaría un sistema de predicción de desertores para monitorear automáticamente de forma mensual y crear reportes para la toma de decisiones para intervenciones relacionadas.

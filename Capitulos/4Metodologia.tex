@@ -21,7 +21,7 @@ La minería de datos, tal como es posible observar en la Figura\ref{fig:datamini
 
 Para realizar minería de datos se han establecido diferentes metodologías para asegurar un resultado coherente con lo que se busca obtener. Existen diferentes metodologías que serán mencionadas y descritas brevemente a continuación.
 
-\subsubsection{KDD}
+\subsection{KDD}
 
 %[cita] http://www.csd.uwo.ca/faculty/ling/cs435/fayyad.pdf
 
@@ -45,7 +45,7 @@ Como muestra la Figura~\ref{fig:kdd}, el proceso de extracción del conocimiento
   \item[5. Interpretación y Evaluación:] finalmente se identifican los patrones obtenidos y que son realmente interesantes, además de evaluar los resultados obtenidos.
 \end{description}
 
-\subsubsection{SEMMA}
+\subsection{SEMMA}
 La metodología SEMMA, acrónimo de \textit{Sample, Explore, Modify, Model, Assess}, se define como un proceso de selección, exploración y modelamiento de grandes cantidades de datos para descubrir patrones de negocios desconocidos. 
 
 \begin{figure}[H]
@@ -65,7 +65,7 @@ En la Figura~\ref{fig:semma} es posible observar que esta metodología consta de
 \end{description}
 [cita]
 
-\subsubsection{CRISP-DM}
+\subsection{CRISP-DM}
 La metodología CRISP-DM o \textit{Cross-Industry Standard Process for Data Mining} es un estándar para los proyectos de minería de datos que incluye un modelo y una guía, estructurados en fases que pueden ser bidireccionales, es decir, al desarrollar una fase es posible revisar parcial o totalmente las anteriores. 
 
 \begin{figure}[H]
@@ -89,6 +89,8 @@ Las fases son:
 
 [cita] 
 %http://oldemarrodriguez.com/yahoo_site_admin/assets/docs/Documento_CRISP-DM.2385037.pdf
+
+\subsection{Selección de una metodología}
 
 Para poder cumplir con los objetivos del trabajo debemos seleccionar una metodología de minería de datos. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.[cita]A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad [cita] http://www.kdnuggets.com/2014/10/crisp-dm-top-methodology-analytics-data-mining-data-science-projects.html
 
@@ -223,50 +225,221 @@ La importancia de este proceso se puede resumir en tres puntos:
 Para poder obtener información de los datos, se necesita analizar la información. Lamentablemente cuando tenemos demasiados datos, es imposible obtener información de forma rápida. Debido a esto, se plantearon diferentes algoritmos que buscan automáticamente lo relevante de los datos.
 A continuación señalaremos y haremos un breve resumen de los algoritmos más utilizados para la minería de datos.
 
-%http://pendientedemigracion.ucm.es/info/socivmyt/paginas/D_departamento/materiales/analisis_datosyMultivariable/18reglin_SPSS.pdf [regresión lineal]
-
+%http://www.uru.edu/fondoeditorial/libros/pdf/manualdestatistix/cap10.pdf [regresión logística]
 
 \begin{enumerate}
   \item Clasificación y Regresión
     \begin{description}
-      \item[Regresión Lineal ó Múltiple] \hfill \\
-      El método de regresión líneal tiene como objetivo modelar la relación entre una variable independiente y variables dependientes
+      \item[Regresión Lineal Simple ó Múltiple] \hfill \\
+      El método de regresión lineal tiene como objetivo modelar la relación entre una variable independiente ($y$) y una o más variables dependientes ($x_1, x_2, x_3,...,x_n$). Para modelar esta relación se genera una ecuación de la forma 
+      \begin{equation}\label{rlineal}
+      y= b_o + b_1 x_1 + b_2 x_2 + ... + b_n x_n 
+      \end{equation}
+      Donde $b_o,b_1,...,b_n$ son coeficientes escogidos de forma que la suma de cuadrados entre los valores observados y los pronosticados sea mínima, es decir, que se va a minimizar la varianza residual.
+      
+      Para determinar qué tan buena es una regresión, es decir, cuán precisa es la recta con respecto a los datos, se define el coeficiente de determinación $R^2$. Se trata de un indicador estandarizado que toma valores entre 0 y 1, y da a conocer el porcentaje de datos que son explicados por la regresión. 
+      
+      En la Figura~\ref{fig:dispersion} se ve un ejemplo de un diagrama de dispersión, donde se muestra el porcentaje de alcohol que contienen diferentes productos y sus precios. Junto a esto, se muestra también la recta de regresión lineal simple, representada por la ecuación $y=20,16+11,61x$, donde $y$ representa el precio y $x$ el porcentaje de alcohol. 
+      
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Figuras/Dispersion}
+         \caption{Ejemplo: porcentaje de de alcohol por precio. [cita]}
+         \label{fig:dispersion}
+    \end{figure}
+      
+      %http://pendientedemigracion.ucm.es/info/socivmyt/paginas/D_departamento/materiales/analisis_datosyMultivariable/18reglin_SPSS.pdf
+      
+      Para el ejemplo de la Figura~\ref{fig:dispersion}, $R^2=0,06$ lo que significa que el porcentaje de alcohol contenido en los productos explica sólo el 6\% de su precio. 
+      
       \item[Regresión Logística] \hfill \\
-      The second item [grafico]
+      El método de regresión logística es un modelo de regresión lineal en el cual la o las variables dependientes son binarias\footnote{Una variable binaria es aquella que adopta sólo dos valores posibles, como por ejemplo  éxito y fracaso, positivo y negativo, muerto y vivo, buen y mal desempeño,, aprobado o no aprobado.}
+      La finalidad de este método de regresión es explicar y predecir una variable categórica binaria\footnote{Las variables categóricas también se denominan variables cualitativas o variables de atributos. Una variable categórica binaria cuenta con dos atributos posibles.}.
+      
+      Este método es útil para modelar la probabilidad de un evento ocurriendo como función de otros factores.
+      
+      Se define 
+      \begin{equation}
+      Odds Ratio = \frac{p}{(1-p)}
+      \end{equation}
+     Donde $p$ representa la probabilidad de éxito. 
+     
+     Luego, el modelo logístico se basa en el logaritmo natural de este cociente. 
+     
+     \begin{equation}
+     ln(\frac{p}{(1-p)}) = b_o + b_1 x_1 + b_2 x_2 + ... + b_n x_n 
+     \end{equation}
+     
+     El modelo tiene una formulación equivalente dada por
+     \begin{equation}\label{rlogist}
+     p=\frac{1}{1-e^-(b_o + b_1 x_1 + b_2 x_2 + ... + b_n x_n)}
+     \end{equation}
+     
+     Gráficamente, la Ecuación~\ref{rlogist} se puede ver en la Figura~\ref{fig:curvalog}, donde $y=1/(1+e^-z); z=b_o + b_1 x_1 + b_2 x_2 + ... + b_n x_n$. Entonces, 
+    \begin{itemize}
+    \item si $z=0$ entonces $y=0.5$
+    \item si $z$ tiende a $+\infty$, entonces  $y=1$
+    \item si $z$ tiende a $-\infty$, entonces  $y=0$
+    \end{itemize}
+     
+     
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Figuras/CurvaLog}
+         \caption{Curva logística. [cita]}
+         \label{fig:curvalog}
+    \end{figure}
+    %https://es.wikipedia.org/wiki/Función_log%C3%ADstica???? wikipedia????
+     
       \item[Máquina de Vectores de Soporte] \hfill \\
-      The third etc \ldots
+      %http://revistas.utp.edu.co/index.php/revistaciencia/article/view/6895/4139
+      
+      La máquina de vectores de soporte (SVM) es un conjunto de algoritmos de aprendizaje supervisado, es decir, una técnica de predicción. 
+      
+      Una SVM comienza mapeando los puntos de entrada a un espacio de características de una dimensión mayor, es decir, si los datos se encuentran en $R^2$, son mapeados por la SVM a $R^3$ para encontrar un hiperplano capaz de separarlos en clases y maximizar el margen $m$ entre estas, como se muestra en la Figura~\ref{fig:svm}.
+      
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Figuras/SVM}
+         \caption{La frontera de desición debe estar tan lejos de los datos de ambas clases como sea posible. [cita]}
+         \label{fig:svm}
+      \end{figure}
+      
+      Entonces, el objetivo es maximizar el margen $m$, lo que se transforma en un problema de programación cuadrática y puede ser resuelto por su problema dual\footnote{Todo problema matemático de programación lineal, conocido como el primal, tiene un dual. Es una definición matemática estrechamente relacionada que se deriva del problema primal. Se define dependiendo del sentido de optimización (maximización o minimización), de los tipos de restricciones (> , < , =) y del signo de las variables (no negativas y no restringidas).} introduciendo multiplicadores de Lagrange\footnote{En los problemas de optimización, el método de los multiplicadores de Lagrange es un procedimiento para encontrar los máximos y mínimos de funciones de múltiples variables sujetas a restricciones mediante derivadas parciales y la regla de la cadena.}. 
+      
+      Sin ningún tipo de conocimiento del mapeo, la SVM es capaz de encontrar el hiperplano óptimo utilizando el producto punto\footnote{El producto punto de dos vectores es un número real que resulta al multiplicar el producto de sus módulos por el coseno del ángulo que forman.} con funciones en el espacio de características, llamadas kernels. De esta forma, la solución de este hiperplano óptimo puede ser definida a partir de la combinación de unos pocos puntos de entrada, que son los llamados vectores de soporte. 
+      
       \item[Naive-Bayes] \hfill \\
-      The first item
+      % http://www.researchgate.net/profile/Irina_Rish/publication/228845263_An_empirical_study_of_the_naive_Bayes_classifier/links/00b7d52dc3ccd8d692000000.pdf
+      % https://ccc.inaoep.mx/~emorales/Cursos/NvoAprend/bayesiano.pdf
+      % http://pages.cs.wisc.edu/~jerryzhu/cs769/nb.pdf
+      % http://algoritmosmineriadatos.blogspot.cl/2009/12/algoritmo-naive-bayes.html
+      
+      El método de Naive Bayes o Clasificador Bayesiano Ingenuo es una técnica de clasificación y predicción supervisada que construye modelos cuyo objetivo es predecir la probabilidad de posibles resultados.
+      
+      Es un método que simplifica el aprendizaje mediante el supuesto de que las características pertenecen a clases independientes. Aunque la independencia es generalmente una mala suposición, este ingenuo método suele competir bien  clasificadores más sofisticados.
+      
+      Se basa en el teorema de Bayes, o de la probabilidad condicionada: 
+      \begin{equation}\label{bayes}
+      P(A|B)=\frac{P(B|A) P(A)}{P(B)}
+      \end{equation}
+      
+      La Ecuación~\ref{bayes} da a conocer el teorema de Bayes, el cual permite conocer la probabilidad de que ocurra el suceso $A$ dado $B$. El supuesto de este teorema es que los sucesos A y B son dependientes, es decir, la probabilidad de que alguno de ellos ocurra está influenciada por la previa ocurrencia del otro.
+      
+      La forma en que este clasificador trabaja es la siguiente. Como se mencionó anteriormente, este es un método de clasificación probabilístico, que será utilizado para clasificar un nuevo elemento $X$, definido como un vector $X=(X_1, X_2, ..., X_n)$, dentro de un conjunto finito $C={C_1, C_2, ..., C_n}$ de clases determinadas. Esto significa que, dada una clase $C$, se calcula la probabilidad de que dicho elemento se clasifique dentro de la categoría $C$, como lo muestra la Ecuación~\ref{pclase}, donde $P(C)$ es la probabilidad a priori de la clase, $P(X|C)$ es la probabilidad condicional del elemento $X$ dada la clase $C$.
+      \begin{equation}\label{pclase}
+      P(C|X)=\frac{P(X|C) P(C)}{P(X)}
+      \end{equation}
+      
+      En base a los datos observados, la probabilidad de que cada uno pertenezca a cada clase es conocida, y la probabilidad de cada clase también. Por lo que lo que necesita encontrar es el máximo valor de la expresión para encontrar la clase que mejor clasifica al nuevo elemento $X$. 
+      
+      El nuevo elemento $X$ a clasificar se encuentra definido en términos del vector $X=(X_1, X_2, ..., X_n)$. Además, existe un conjunto finito de clases $C={C_1, C_2, ..., C_n}$ en las que puede ser clasificado dicho vector. Finalmente, el método Naive Bayes clasifica el elemento $X$ en una de todas las clases existentes utilizando la Ecuación~\ref{mclase}.
+
+      \begin{equation}\label{mclase}
+      Mejor Clase = Argmax_{c_j\in C} P(c_j) \prod P(x_i|c_j)
+      \end{equation}
+      
       \item[Redes Neuronales] \hfill \\
-      The first item [grafico]
+      %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.125.4567&rep=rep1&type=pdf
+      %http://avellano.fis.usal.es/~lalonso/compt_soft/articulos/dataminingnn.pdf
+    
+      Las redes neuronales son conexiones de nodos conectados, con entradas,  salidas y procesamiento en cada nodo. Entre las entradas y salidas de una red neuronal existen capas ocultas de procesamiento, tal como es posible observar en la Figura~\ref{fig:redneuronal}, la cual presenta su capa de salida, que es lo que se quiere predecir, una capa oculta cuyo objetivo es transformar el espacio de entrada en otro más propicio para que las neuronas de salida puedan realizar discriminaciones lineales, y una capa de entrada que representan los atributos con los que se quiere realizar la predicción. 
+      
+      Una red neuronal debe ser entrenada con un conjunto de patrones de entrenamiento (aprendizaje supervisado). Una vez entrenada, es capaz de realizar predicciones. 
+      
+       \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Figuras/RedNeuronal}
+         \caption{Vista gráfica de una red neuronal.  [cita]}
+         \label{fig:redneuronal}
+      \end{figure}
+      %http://materias.fi.uba.ar/7500/bot-tesisdegradoingenieriainformatica.pdf
+
       \item[Vecino Más Cercano] \hfill \\
-      The third etc \ldots
+     %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.220.2882&rep=rep1&type=pdf
+     
+     El método del vecino más cercano es uno de los métodos de clasificación más simples de los algoritmos para la predicción de clases. Este se basa en el aprendizaje supervisado, es decir, en la existencia de dos muestras: una de entrenamiento y otra de testeo. Gracias a la muestra de entrenamiento, que contiene casos ($x$) con sus respectivas etiquetas ($y$), posible hacer la predicción para los casos de la muestra de testeo.
+     
+     Específicamente, este método lo que hace es, dado un conjunto de datos de la forma $(x,y)$, transformarlos en una función de distancia. 
+     
+     Este método básico se llama el algoritmo kNN. Hay dos principales opciones de diseño para hacer: el valor de k, y la función de distancia para su uso. Cuando hay dos clases alternativas, con el fin de evitar lazos la elección más común para k es un pequeño entero impar, por ejemplo k = 3. Si hay más de dos clases, a continuación, los lazos son posibles incluso cuando k es impar. Lazos también pueden surgir cuando dos valores de distancia son lo mismo. Una implementación de kNN necesita un algoritmo razonable para romper los lazos; no existe un consenso sobre la mejor manera de hacer esto.
+     
+     Cuando cada ejemplo es un vector de longitud fija de números reales, la función de distancia más común es la distancia euclídea, que se muestra en la Ecuación~\ref{distancia}.
+     \begin{equation}\label{distancia}
+     d(x,y)=||x-y||=\sqrt{(x-y) \cdot (x-y)}=(\sum_{i=1}^m (x_i - y_i )^2)^{1/2}
+     \end{equation}
+      Donde $x$ e $y$ son puntos en $X=\mathsf{R}^m$.
+      
       \item[Árboles de Decisión] \hfill \\
-      The third etc [grafico] \ldots
+      %http://dmle.cindoc.csic.es/pdf/QUESTIIO_2001_25_03_04.pdf
+      %
+      
+      Los árboles de decisión son un método de clasificación, y tal como lo dice su nombre, su uso permite clasificar elementos a partir de los atributos de cada elemento. 
+      
+      Por lo que la forma en que este método actúa es predijendo el valor de una variable de destino $y$ a partir de diversas variables de entrada $x_i$.
+      
+      En la Figura~\ref{fig:arbol} es posible observar gráficamente un árbol de decisión, donde cada nodo interior corresponde a una de las variables de entrada, cada hoja representa un valor de la variable de destino dados los valores de las variables de entrada representados por el camino desde la raíz a la hoja.
+      
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Figuras/Arbol}
+         \caption{Vista gráfica de un árbol de decisión.}
+         \label{fig:arbol}
+      \end{figure}
+      
+      Por ejemplo, si un dato posee los atributos color=rojo y forma=cuadrado, sería clasificado en la categoría B, como se muestra en la Figura~\ref{fig:arbol}. 
+      
       \item[Bosques Aleatorios] \hfill \\
-      The third etc \ldots
+      %http://machinelearning202.pbworks.com/w/file/fetch/60606349/breiman_randomforests.pdf
+      
+      Los bosques aleatorios son un método de clasificación y predicción que consiste en la combinación de árboles de de decisión, en la que cada árbol depende de los valores de un vector aleatorio probado independientemente y con la misma distribución para cada uno de estos.
+      
+      Este es un algoritmo que mejora la precisión en la clasificación mediante la incorporación de aleatoriedad en la construcción de cada clasificador individual. Esta aleatorización puede introducirse tanto en la partición del espacio (construcción del árbol), así como en la muestra de entrenamiento. Los bosques aleatorios comienzan con una técnica de aprendizaje automático estándar descrita anteriormente, árbol de decisión, que, en cuanto al conjunto, corresponde a un aprendizaje. Tal como fue descrito, en un árbol de decisión, una entrada se introduce en la parte superior y hacia abajo a medida que atraviesa el árbol de los datos, los cuales se acumulan en conjuntos más pequeños.
+      
+      Este método permite hacer de manera segura predicciones más precisas y sin la mayoría de los errores básicos comunes a otros métodos.
+      
       \item[AdaBoost] \hfill \\
-      The third etc \ldots
+      %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.329&rep=rep1&type=pdf 
+      
+      El AdaBoost o \textit{Adaptive Boosting} es un método que construye una regla de clasificación final utilizando varios clasificadores menores, denominados “débiles” por su sencillez y escasa precisión. En solitario estos clasificadores débiles no constituirían un sistema de clasificación útil debido a su alta inexactitud, pero al usarlos en conjunto es posible construir un clasificador mucho más preciso. Los clasificadores débiles corresponden a reglas de clasificación simples y que entregan como resultado un valor de confianza, o confidencia, respecto a la predicción que están haciendo.
+      
+      Los clasificadores débiles  generan resultados pobres, pero es posible  definir clasificadores mas robustos enlazando una serie de módulos como el de la figura,  incrementando de manera exponencial el éxito de detección. Aun cuando estos clasificadores fuertes  pueden llegar a una tasa de detección del 99\%, la tasa de falsos positivos puede ubicarse por encima de 30\%.
+      
       \item[GradientBoost] \hfill \\
-      The third etc \ldots     
+      %https://www.cs.princeton.edu/courses/archive/spring07/cos424/papers/boosting-survey.pdf
+      
+      \textit{Gradient Boost} es un método de aprendizaje automático para problemas de regresión y clasificación. La idea es generar un modelo de predicción en forma de un conjunto de modelos de predicción débiles, que son, por lo general, árboles de decisión. La forma en que el modelo es construido es mediante etapas, Construye el modelo mediante etapas, y los generaliza, permitiéndoles optimizar de manera arbitraria la función de pérdida.
+      
     \end{description}
+    
+    
   \item Análisis de Reglas Asociativas
     \begin{description}
+    
       \item[Apriori] \hfill \\
       The first item
+      
       \item[Eclat] \hfill \\
       The second item
+      
       \item[FP-Growth] \hfill \\
       The third etc \ldots
+      
     \end{description}
+    
+    
   \item Análisis de Conglomerados
     \begin{description}
+    
       \item[Vecino Más Cercano] \hfill \\
       The first item
+      
       \item[DBSCAN] \hfill \\
       The second item
+      
       \item[K-means] \hfill \\
       The third etc \ldots
+      
     \end{description}
 \end{enumerate}
 
