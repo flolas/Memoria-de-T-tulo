@@ -293,7 +293,6 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
      
       \item[Máquina de Vectores de Soporte] \hfill \\
       %http://revistas.utp.edu.co/index.php/revistaciencia/article/view/6895/4139
-      
       La máquina de vectores de soporte (SVM) es un conjunto de algoritmos de aprendizaje supervisado, es decir, una técnica de predicción. 
       
       Una SVM comienza mapeando los puntos de entrada a un espacio de características de una dimensión mayor, es decir, si los datos se encuentran en $R^2$, son mapeados por la SVM a $R^3$ para encontrar un hiperplano capaz de separarlos en clases y maximizar el margen $m$ entre estas, como se muestra en la Figura~\ref{fig:svm}.
@@ -314,7 +313,6 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       % https://ccc.inaoep.mx/~emorales/Cursos/NvoAprend/bayesiano.pdf
       % http://pages.cs.wisc.edu/~jerryzhu/cs769/nb.pdf
       % http://algoritmosmineriadatos.blogspot.cl/2009/12/algoritmo-naive-bayes.html
-      
       El método de Naive Bayes o Clasificador Bayesiano Ingenuo es una técnica de clasificación y predicción supervisada que construye modelos cuyo objetivo es predecir la probabilidad de posibles resultados.
       
       Es un método que simplifica el aprendizaje mediante el supuesto de que las características pertenecen a clases independientes. Aunque la independencia es generalmente una mala suposición, este ingenuo método suele competir bien  clasificadores más sofisticados.
@@ -342,7 +340,6 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       \item[Redes Neuronales] \hfill \\
       %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.125.4567&rep=rep1&type=pdf
       %http://avellano.fis.usal.es/~lalonso/compt_soft/articulos/dataminingnn.pdf
-    
       Las redes neuronales son conexiones de nodos conectados, con entradas,  salidas y procesamiento en cada nodo. Entre las entradas y salidas de una red neuronal existen capas ocultas de procesamiento, tal como es posible observar en la Figura~\ref{fig:redneuronal}, la cual presenta su capa de salida, que es lo que se quiere predecir, una capa oculta cuyo objetivo es transformar el espacio de entrada en otro más propicio para que las neuronas de salida puedan realizar discriminaciones lineales, y una capa de entrada que representan los atributos con los que se quiere realizar la predicción. 
       
       Una red neuronal debe ser entrenada con un conjunto de patrones de entrenamiento (aprendizaje supervisado). Una vez entrenada, es capaz de realizar predicciones. 
@@ -357,7 +354,6 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
 
       \item[Vecino Más Cercano] \hfill \\
      %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.220.2882&rep=rep1&type=pdf
-     
      El método del vecino más cercano es uno de los métodos de clasificación más simples de los algoritmos para la predicción de clases. Este se basa en el aprendizaje supervisado, es decir, en la existencia de dos muestras: una de entrenamiento y otra de testeo. Gracias a la muestra de entrenamiento, que contiene casos ($x$) con sus respectivas etiquetas ($y$), posible hacer la predicción para los casos de la muestra de testeo.
      
      Específicamente, este método lo que hace es, dado un conjunto de datos de la forma $(x,y)$, transformarlos en una función de distancia. 
@@ -372,8 +368,6 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       
       \item[Árboles de Decisión] \hfill \\
       %http://dmle.cindoc.csic.es/pdf/QUESTIIO_2001_25_03_04.pdf
-      %
-      
       Los árboles de decisión son un método de clasificación, y tal como lo dice su nombre, su uso permite clasificar elementos a partir de los atributos de cada elemento. 
       
       Por lo que la forma en que este método actúa es predijendo el valor de una variable de destino $y$ a partir de diversas variables de entrada $x_i$.
@@ -391,7 +385,6 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       
       \item[Bosques Aleatorios] \hfill \\
       %http://machinelearning202.pbworks.com/w/file/fetch/60606349/breiman_randomforests.pdf
-      
       Los bosques aleatorios son un método de clasificación y predicción que consiste en la combinación de árboles de de decisión, en la que cada árbol depende de los valores de un vector aleatorio probado independientemente y con la misma distribución para cada uno de estos.
       
       Este es un algoritmo que mejora la precisión en la clasificación mediante la incorporación de aleatoriedad en la construcción de cada clasificador individual. Esta aleatorización puede introducirse tanto en la partición del espacio (construcción del árbol), así como en la muestra de entrenamiento. Los bosques aleatorios comienzan con una técnica de aprendizaje automático estándar descrita anteriormente, árbol de decisión, que, en cuanto al conjunto, corresponde a un aprendizaje. Tal como fue descrito, en un árbol de decisión, una entrada se introduce en la parte superior y hacia abajo a medida que atraviesa el árbol de los datos, los cuales se acumulan en conjuntos más pequeños.
@@ -400,14 +393,12 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       
       \item[AdaBoost] \hfill \\
       %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.329&rep=rep1&type=pdf 
-      
       El AdaBoost o \textit{Adaptive Boosting} es un método que construye una regla de clasificación final utilizando varios clasificadores menores, denominados “débiles” por su sencillez y escasa precisión. En solitario estos clasificadores débiles no constituirían un sistema de clasificación útil debido a su alta inexactitud, pero al usarlos en conjunto es posible construir un clasificador mucho más preciso. Los clasificadores débiles corresponden a reglas de clasificación simples y que entregan como resultado un valor de confianza, o confidencia, respecto a la predicción que están haciendo.
       
       Los clasificadores débiles  generan resultados pobres, pero es posible  definir clasificadores mas robustos enlazando una serie de módulos como el de la figura,  incrementando de manera exponencial el éxito de detección. Aun cuando estos clasificadores fuertes  pueden llegar a una tasa de detección del 99\%, la tasa de falsos positivos puede ubicarse por encima de 30\%.
       
       \item[GradientBoost] \hfill \\
       %https://www.cs.princeton.edu/courses/archive/spring07/cos424/papers/boosting-survey.pdf
-      
       \textit{Gradient Boost} es un método de aprendizaje automático para problemas de regresión y clasificación. La idea es generar un modelo de predicción en forma de un conjunto de modelos de predicción débiles, que son, por lo general, árboles de decisión. La forma en que el modelo es construido es mediante etapas, Construye el modelo mediante etapas, y los generaliza, permitiéndoles optimizar de manera arbitraria la función de pérdida.
       
     \end{description}
@@ -417,14 +408,27 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
     \begin{description}
     
       \item[Apriori] \hfill \\
-      The first item
+      %http://web.archive.org/web/20140108174403/https://p178-194.ujaen.es:522/~carlosmo/sites/default/files/doctorado.pdf
+      El algoritmo apriori, en minería de datos, se utiliza con el fin de encontrar reglas de asociación\footnote{En el área de minería de datos y aprendizaje automático, las reglas de asociación se utilizan con el objetivo de descubrir hechos que ocurren en común dentro de un determinado conjunto de datos. Se han investigado ampliamente diversos métodos para aprendizaje de reglas de asociación que han resultado ser muy interesantes para descubrir relaciones entre variables en grandes conjuntos de datos.} en un conjunto de datos. 
+      
+      Este algoritmo se encuentra basado en el conocimiento previo o “a priori” de los conjuntos frecuentes, lo que resulta útil para reducir el espacio de búsqueda y aumentar la eficiencia.
       
       \item[Eclat] \hfill \\
-      The second item
+      %http://repositorio.utp.edu.co/dspace/bitstream/11059/1339/1/006312G216.pdf
+      Eclat es un algoritmo de búsqueda en profundidad mediante el uso de la intersección conjunto.
+      
+      Se basa en realizar un agrupamiento entre los datos para aproximarse al conjunto de datos frecuentes maximales y luego emplear algoritmos eficientes para generar los datos frecuentes contenidos en cada grupo. Para el agrupamiento se proponen dos métodos, los que son empleados después de descubrir los conjuntos frecuentes de dos elementos: el primero, por clases de equivalencia: esta técnica agrupa los sets de datos que tienen el primer dato igual. El segundo, por la búsqueda de cliques maximales: se genera un grafo de equivalencia cuyos nodos son los datos, y los arcos conectan los datos de los 2- set de datos frecuentes, se agrupan los datos por aquellos que forman cliques maximales.
       
       \item[FP-Growth] \hfill \\
-      The third etc \ldots
+      %http://gredos.usal.es/xmlui/bitstream/handle/10366/83342/DIA_PinhoLucasJ_Métodosdeclasificación.pdf?sequence=1
+      El funcionamiento del algoritmo \textit{FP-Growth} se basa en la utilización de \textit{FP-Tree} o un árbol de patrones frecuentes. Este árbol almacena información acerca de conjuntos de datos frecuentes de forma compacta y así permite realizar consultas de manera más eficiente. Mediante el uso de esta estructura de almacenamiento, se reduce el esfuerzo para la obtención de reglas de asociación, ya que no es necesario generar los conjuntos de datos candidatos a frecuentes y tampoco verificar si ellos superan a un determinado umbral.
       
+      La estructura \textit{FP-Tree} consiste en un nodo raíz que posee una etiqueta de valor nulo, un conjunto de subárboles hijos del nodo raíz y una tabla-cabecera que almacena información acerca de los datos frecuentes. En cada entrada de la tabla, se almacena el nombre del dato y un apuntador para el primer nodo del árbol que lo posee. En cada nodo del árbol se almacena el nombre del dato que lo está ocupando, un contador referente a la frecuencia de este  y un apuntador para el próximo nodo del árbol que almacena el mismo nombre del dato.
+      
+      La primera etapa en la construcción de un \textit{FP-Tree} consiste en recorrer el conjunto en busca de datos frecuentes y, luego, contabilizar sus respectivas frecuencias. Los datos son ordenados de manera decreciente, de acuerdo con sus frecuencias. De esta forma aquellos de mayor frecuencia (los que van a ser más accedidos) van a ocupar los nodos de menor nivel (más cercanos a la raíz) en el árbol. Seguidamente se recorre el conjunto, solamente con los datos frecuentes ya ordenados, para componer cada rama del árbol.
+      
+      Entonces, lo que el algoritmo \textit{FP-Growth} hace es construir un \textit{FP-Tree} que represente los datos frecuentes de un conjunto y luego, recorrer dicha estructura en busca de los conjuntos de datos frecuentes. Para ello, el algoritmo realiza llamadas recursivas en los conjuntos de datos frecuentes que son encontrados a medida que se va recorriendo el árbol. Tal recorrido se realiza comenzando por el dato referenciado en la última entrada (el de menor frecuencia) en la tabla-cabecera. Las llamadas recursivas son realizadas en conjuntos de datos frecuentes que se obtienen a través de algún Patrón Condicional Base, el cual se refiere a un sub-patrón que ocurre debido a la ocurrencia de un determinado dato.
+
     \end{description}
     
     
@@ -432,13 +436,21 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
     \begin{description}
     
       \item[Vecino Más Cercano] \hfill \\
-      The first item
+     %http://halweb.uc3m.es/esp/Personal/personas/jmmarin/esp/GuiaSPSS/22conglj.pdf
+     El método del vecino más cercano es un método de conglomeración de datos que se basa en agrupar elementos más próximos. Comienza seleccionando y agrupando los dos elementos que se encuentran más cercanos para crear el primer conglomerado. Luego, la distancia de este conglomerado a los elementos restantes se calcula como la menor de las distancias entre cada elemento del conglomerado y el resto de los elementos. En los pasos sucesivos, la distancia entre dos conglomerados se calcula como la distancia de sus elementos más próximos. Así, la distancia entre el conglomerado $A$ y el conglomerado $B$ se calcula como se muestra en la Ecuación~\ref{vmcercano}, donde $d_{ij}$ es la distancia entre los elementos $i$, perteneciente al conglomerado $A$, y $j$, perteneciente al conglomerado $B$.
+     
+     \begin{equation}\label{vmcercano}
+     d{AB}=min(d_{ij})
+     \end{equation}
       
       \item[DBSCAN] \hfill \\
-      The second item
+      El DBSCAN o agrupamiento espacial basado en densidad de aplicaciones con ruido, es un algoritmo de agrupamiento de datos basado en densidad ya que tiene como objetivo encontrar un número de grupos (conglomerados) comenzando por una estimación de la distribución de densidad de los nodos correspondientes. 
       
-      \item[K-means] \hfill \\
-      The third etc \ldots
+      \item[K-Medias] \hfill \\
+      %http://pendientedemigracion.ucm.es/info/socivmyt/paginas/D_departamento/materiales/analisis_datosyMultivariable/21conglk_SPSS.pdf
+      El análisis de conglomerados con K-medias es un método de agrupación de casos basado en las distancias existentes entre ellos en un conjunto de variables (este método no permite agrupar variables).
+      
+      Este método comienza seleccionando los $k$ casos más distantes entre sí (el usuario debe determinar inicialmente el número $k$ de conglomerados que desea obtener). Luego, se inicia la lectura secuencial del archivo de datos, asignando cada caso al centro más próximo y actualizando el valor de los centros a medida que se van incorporando nuevos casos. Una vez que todos los casos han sido asignados a alguno de los $k$ conglomerados, se inicia un proceso iterativo para calcular el valor final de los centroides de cada uno de los conglomerados. 
       
     \end{description}
 \end{enumerate}
@@ -452,14 +464,25 @@ La validación de un modelo consta de la división del conjunto de datos entre u
 
 Existen múltiples métodos de validación cruzadas, a continuación se señalarán algunos:
     \begin{description}
-      \item[Hold-out Validation] \hfill \\
-      The first item
+      \item[Validación Hold-out] \hfill \\
+      Para evitar un sobre ajuste, se prefiere realizar un conjunto de pruebas independientes. Un enfoque natural consiste en dividir los datos en dos conjuntos que no se superpongan, uno para realizar el entrenamiento del modelo y otro para realizar su testeo. Los datos que se utilizan para el testeo son excluidos y no se consideran para el entrenamiento. 
+      
+      La validación \textit{Hold-out} evita que el conjunto de datos de entrenamiento y el conjunto de datos de prueba tengan elementos en común, y de esta forma entrega una estimación más precisa para el desempeño del algoritmo. La desventaja es que este procedimiento no utiliza todos los datos disponibles lo que hace que los resultados obtenidos sean altamente dependientes de la elección de los conjuntos de datos de entrenamiento y prueba. Los casos incluidos en el conjunto de prueba puede ser demasiado fácil o demasiado difícil de clasificar, lo que puede sesgar los resultados. Por otra parte, los datos en el conjunto de prueba pueden ser valiosos para el entrenamiento y si siempre son seleccionados para el conjunto de prueba nuevamente generarán resultados sesgados. Estos problemas pueden ser parcialmente abordados mediante la repetición de este método de validación para luego promediar los resultados, pero a menos que la repetición se lleva a cabo de una manera sistemática, algunos datos pueden ser incluidos en el conjunto de prueba varias veces mientras que otros no se incluyen en absoluto, o por el contrario algunos datos siempre pueden caer en la prueba y nunca tener la oportunidad de contribuir a la fase de aprendizaje. 
+      
       [grafico]
-      \item[K-fold Cross-Validation] \hfill \\
-      The second item
+      
+      \item[Validación cruzada con K-Permutaciones] \hfill \\
+      En la validación cruzada con K-Permutaciones se comienza dividiendo los datos en $k$ segmentos o partes de igual (o casi igual) tamaño. Posteriormente, se realizan k iteraciones de entrenamiento y de validación, de manera que en cada iteración se selecciona un segmento para la validación, y el restante $k-1$ se utilizan para el aprendizaje. Generalmente, los datos son estratificados antes de ser divididos en las $k$ partes.
+      
+      La estratificación es el proceso de reordenación de los datos como para asegurar que cada segmento es un buen representante de la totalidad. Por ejemplo, en un problema de clasificación binaria, donde cada clase comprende 50\% de los datos, lo mejor es organizar los datos de manera que en cada segmento, cada clase comprenda alrededor de la mitad de los casos.
+      
       [grafico]
+      
       \item[Leave-One-Out Cross-Validation] \hfill \\
-      The third etc \ldots
+     Este es un caso especial de la validación cruzada con k-permutaciones donde $k$ es igual al número de casos en los datos. En otras palabras, en cada iteración casi todos los datos, a excepción de una sola observación, se utilizan para la formación y el modelo se prueba se aplica solo a esa observación. 
+     
+     Una estimación obtenida con este método es conocido por ser casi imparcial pero tiene alta varianza, dando lugar a estimaciones poco fiables. Aún así es un método muy utilizado cuando los datos disponibles son muy raros.
+     
       [grafico]
     \end{description}
 
@@ -530,7 +553,7 @@ Para poder obtener toda esta información debemos, como primer paso, calcular la
 Para poder desarrollar este trabajo se deben integrar diferentes herramientas para realizar la transformación, preparación, modelamiento y validación de los datos.
 \subsection{Lenguaje de Programación Python}
 Python es un lenguaje de programación de alto nivel para resolver todo tipo de problemas. Este soporta programar en diferentes paradigmas y manejo automático del uso de recursos. Además tiene un énfasis en la legibilidad imponiendo un orden en el código.
-En general, las ventajas de Python son las siguientes:\\
+En general, las ventajas de Python son las siguientes:
 \begin{itemize}
   \item Intuitivo
   \item Flexible
@@ -564,6 +587,3 @@ Herramienta intuitiva de visualización y exploración de datos muy usado en la 
 Herramienta para el manejo de hojas de cálculo y datos estructurados de forma sencilla.\footnote{Ver más sobre Excel: https://products.office.com/en-us/excel/}
 \subsection{QGIS}
 Sistema de información geográfica de código libre para el manejo y análisis de datos con geo-refencia.\footnote{Ver más sobre QGIS: http://www.qgis.org/es/site/}
-\section{Conclusiones}
-
-Durante este capitulo se presentaron las herramientas estadísticas y computacionales, junto con la metodología de trabajo que llevaremos a cabo para lograr el objetivo del proyecto. Nos guiaremos por la metodología CRISP-DM dado su amplio uso en la minería de datos y usaremos herramientas potentes de código libre. Se utilizará Python y sus librería para todas las etapas de la metodología y en conjunto con herramientas de visualización potente para las áreas exploratorias y descriptivas que se vayan necesitando. En general este conjunto de herramientas

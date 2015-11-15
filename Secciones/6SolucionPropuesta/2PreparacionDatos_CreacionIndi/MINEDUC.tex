@@ -61,13 +61,37 @@
              Cuenta la cantidad de veces que el alumno $t$ se traslada de un establecimiento a otro durante el año $t$. La construcción se puede ver en la Ecuación~\ref{eq:cant-traslados-alu}
             \begin{equation}
               \centering
-              CANT\_TRASLADOS\_ALU_{j}^{t} = \mbox{COUNT}(SIT\_FIN\_R = \mbox{'T'} )
+              CANT\_TRASLADOS\_ALU_{j}^{t} = \mbox{Contar}(SIT\_FIN\_R_{j}^{t} = \mbox{'T'})
                 \label{eq:cant-traslados-alu}
               \end{equation}
-              \item[Tasa de Repitencia del Establecimiento al que Asiste el Alumno](TASA\_REPITENCIA\_RBD): Esta medida se define por la cantidad de alumnos que repiten sobre la cantidad de matrículas o alumnos totales en el establecimiento del alumno $j$ en el año $t$
-              \item[Tasa de Abandono del Establecimiento al que Asiste el Alumno](TASA\_ABANDONO\_RBD):Esta medida se define por la cantidad de alumnos que abandonan sobre la cantidad de matrículas o alumnos totales en el establecimiento del alumno $j$ en el año $t$
-              \item[Tasa de Deserción del Establecimiento al que Asiste el Alumno](TASA\_DESERCION\_RBD):Esta medida se define por la cantidad de alumnos que desertan al próximo año $t+1$ sobre la cantidad de matrículas o alumnos totales en el establecimiento del alumno $j$ en el año $t$
-              \item[Tasa de Traslados del Establecimiento al que Asiste el Alumno](TASA\_TRASLADOS\_RBD):Esta medida se define por la cantidad de alumnos que se trasladan sobre la cantidad de matrículas o alumnos totales en el establecimiento del alumno $j$ en el año $t$
+              \item[Tasa de Repitencia del Establecimiento al que Asiste el Alumno](TASA\_REPITENCIA\_RBD): Esta medida se define por la cantidad de alumnos que repiten sobre la cantidad de matrículas o alumnos totales en el establecimiento $r$ del alumno $j$ en el año $t$.La construcción se puede ver en la Ecuación~\ref{eq:tasa-repitencia-rbd}
+             \begin{equation}
+              \centering
+                TASA\_REPITENCIA\_RBD_{j}^{t} = \frac{\mbox{Contar}(REPITENTE\_ALU_{r}^{t})}
+                {\mbox{Contar}(MRUN_{r}^{t})}
+                \label{eq:tasa-repitencia-rbd}
+              \end{equation}
+              \item[Tasa de Abandono del Establecimiento al que Asiste el Alumno](TASA\_ABANDONO\_RBD):Esta medida se define por la cantidad de alumnos que abandonan sobre la cantidad de matrículas o alumnos totales en el establecimiento $r$ del alumno $j$ en el año $t$.La construcción se puede ver en la Ecuación~\ref{eq:tasa-abandono-rbd}
+              \begin{equation}
+              \centering
+                TASA\_ABANDONO\_RBD_{j}^{t} = \frac{\mbox{Contar}(ABANDONA\_ALU_{r}^{t})}
+                {\mbox{Contar}(MRUN_{r}^{t})}
+                \label{eq:tasa-abandono-rbd}
+              \end{equation}
+              \item[Tasa de Deserción del Establecimiento al que Asiste el Alumno](TASA\_DESERCION\_RBD):Esta medida se define por la cantidad de alumnos que desertan al próximo año $t+1$ sobre la cantidad de matrículas o alumnos totales en el establecimiento $r$ del alumno $j$ en el año $t$.La construcción se puede ver en la Ecuación~\ref{eq:tasa-desercion-rbd}
+             \begin{equation}
+              \centering
+                TASA\_DESERCION\_RBD_{j}^{t} = \frac{\mbox{Contar}(DESERTA\_ALU_{r}^{t})}
+                {\mbox{Contar}(MRUN_{r}^{t})}
+                \label{eq:tasa-desercion-rbd}
+              \end{equation}
+              \item[Tasa de Traslados del Establecimiento al que Asiste el Alumno](TASA\_TRASLADOS\_RBD):Esta medida se define por la cantidad de alumnos que se trasladan sobre la cantidad de matrículas o alumnos totales en el establecimiento $r$ del alumno $j$ en el año $t$.La construcción se puede ver en la Ecuación~\ref{eq:tasa-traslados-rbd}
+              \begin{equation}
+              \centering
+                TASA\_TRASLADOS\_RBD_{j}^{t} = \frac{\mbox{Suma}(CANT\_TRASLADOS\_ALU_{r}^{t})}
+                {\mbox{Contar}(MRUN_{r}^{t})}
+                \label{eq:tasa-traslados-rbd}
+              \end{equation}
             \end{longdescription}
         Además, se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
             \begin{itemize}
@@ -94,73 +118,130 @@
         Este conjunto de datos contiene características de los docentes de los establecimientos basados en cantidad a nivel general. Este conjunto de datos no se utilizará para la creación de los indicadores.
         
         \item[Información Anual de la Subvención Escolar Preferencial] \hfill \\
-         se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+         Se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
             \begin{itemize}
                 \item Identificador único del establecimiento (RBD)\footnote{Solamente para facilitar el cruzamiento de los datos}
                 \item Indice calculado del SNED(INDICE\_SNED\_RBD)
                 \item Tipo de SNED(SEL\_SNED\_RBD)
             \end{itemize}
         \item[Información del SEP] \hfill \\
-        se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+        Se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
             \begin{itemize}
-              \item Identificador único del establecimiento (RBD)\footnote{Solamente para facilitar el cruzamiento de datos durante la creación de la muestra de estudio.}
+              \item Identificador único del establecimiento (RBD)
               \item Prioridad del beneficio SEP (PRIO\_SEP\_RBD)
               \item Beneficiario o no de SEP(BEN\_SEP\_RBD)
               \item Clasificación del SEP(CLASIFICACION\_SEP\_RBD)
               \item Si existe convenio SEP(CONVENIO\_SEP\_RBD)
             \end{itemize}
         \item[Directorio de Establecimientos] \hfill \\
-            \begin{longdescription}
-                \item[Cantidad de Matrículas de Género Femenino](MAT\_MUJ\_RBD):
-                \item[Cantidad de Matrículas de Género Masculino](MAT\_HOM\_RBD):
-                \item[Cantidad de Matrículas de Educación Básica](MAT\_BASICA\_RBD):
-                \item[Cantidad de Matrículas de Educación Media]
-                (MAT\_MEDIA\_RBD):
-                \item[Cantidad de Cursos Impartidos]
-                (CANT\_CURSOS\_RBD):
-                \item[Cantidad de Docentes de Género Femenino]
-                (CANT\_DOC\_F\_RBD):
-                \item[Cantidad de Docentes de Género Masculino]
-                (CANT\_DOC\_M\_RBD):
-            \end{longdescription} 
-            Además, se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+            Se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
             \begin{itemize}
-              \item Identificador único del Alumno (MRUN)\footnote{Solamente para facilitar el cruzamiento de datos durante la creación de la muestra de estudio.}
+              \item Identificador único del establecimiento (RBD)
               \item Código de la dependencia (COD\_DEPE\_RBD)
               \item Rango de pago de la matrícula anual del establecimiento (PAGO\_MATRICULA\_RBD)
               \item Rango de pago del pago mensual del establecimiento (PAGO\_MENSUAL\_RBD)
               \item Si ejecuta el programa de integración escolar\footnote{[cita] que es pie y link para mas info} (CONVENIO\_PIE\_RBD)
-            \end{itemize}     
-\item[Información Anual de los Cargos de Docentes] \hfill \\
+            \end{itemize}   
+        \item[Matrículas de los Establecimientos] \hfill \\
+        Contiene información de las matrículas registradas durante el año en los establecimientos. Concentra información de las matrículas desagregadas y los cursos totales de los establecimientos.
+            \begin{longdescription}
+                \item[Cantidad de Cursos Impartidos]
+                (CANT\_CURSOS\_RBD): Cuenta la cantidad de cursos que se imparten en el año $t$ en el establecimiento del alumno $j$.La construcción se puede ver en la Ecuación~\ref{eq:cant-cursos-rbd}
+              \begin{equation}
+              \centering
+                TASA\_TRASLADOS\_RBD_{j}^{t} = CUR\_SIM\_TOT_ + CUR\_COMB\_TOT
+                \label{eq:cant-cursos-rbd}
+              \end{equation}
+                
+            \end{longdescription} 
+            Se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+            \begin{itemize}
+              \item Identificador único del establecimiento (RBD)
+              \item Cantidad de Matrículas de Género Femenino (MAT\_MUJ\_RBD)
+              \item Cantidad de Matrículas de Género Masculino (MAT\_HOM\_RBD)
+              \item Cantidad de Matrículas de Educación Básica (MAT\_BASICA\_RBD)
+              \item Cantidad de Matrículas de Educación Media(MAT\_MEDIA\_RBD)
+            \end{itemize}
+            \item[Información Anual de los Docentes] \hfill \\
+            \begin{longdescription}
+                \item[Cantidad de Docentes de Género Femenino]
+                (CANT\_DOC\_F\_RBD):
+                Este indicador se construye sumando la cantidad de docentes de género femenino divido por el total de docentes que posee el establecimiento donde asiste el alumno $j$ en el año $t$.La construcción se puede ver en la Ecuación~\ref{eq:cant-docf-rbd}
+              \begin{equation}
+              \centering
+                CAT\_DOC\_F\_RBD_{j}^{t} = Contar(CLAVE) \; \mbox{cuando} \; DOC\_GENERO = 2
+                \label{eq:cant-docf-rbd}
+              \end{equation}
+                \item[Cantidad de Docentes de Género Masculino]
+                (CANT\_DOC\_M\_RBD):
+                 Este indicador se construye sumando la cantidad de docentes de género masculino divido por el total de docentes que posee el establecimiento donde asiste el alumno $j$ en el año $t$.La construcción se puede ver en la Ecuación~\ref{eq:cant-docm-rbd}
+                  \begin{equation}
+                  \centering
+                    CAT\_DOC\_M\_RBD_{j}^{t} = Contar(CLAVE) \; \mbox{cuando} \; DOC\_GENERO = 1
+                    \label{eq:cant-docm-rbd}
+                  \end{equation}
+                \item[Porcentaje de Horas Lectivas\footnote{[cita] que son horas lectivas} de Profesores](PORC\_HORAS\_LECTIVAS\_DOC\_RBD): Corresponde a la cantidad de horas lectivas divido en las horas totales del contrato de todos los profesores del establecimiento al que asiste el alumno.
+                
+                \item[Promedio de la Edad de Titulación de Docentes]
+                (PROM\_EDAD\_TITULACION\_DOC\_RBD):Corresponde al promedio de la edad de titulación de los profesores que imparten clases en el establecimiento del alumno.
+                
+                \item[Promedio de la Edad de Docentes]
+                (PROM\_EDAD\_DOC\_RBD):Corresponde al promedio de la edad de los profesores que imparten clases en el establecimiento del alumno.
+                
+                \item[Promedio de los Años de Servicio de Docentes]
+                (PROM\_ANOS\_SERVICIO\_DOC\_RBD):Corresponde al promedio de los años de servicio en el establecimiento de los profesores que imparten clases en el establecimiento del alumno
+                
+                \item[Promedio de Estudio de Docentes]
+                (PROM\_ANOS\_ESTUDIOS\_DOC\_RBD):Corresponde al promedio de los años de titulación de los profesores que imparten clases en el establecimiento del alumno.
+                
+                %\item[Porcentaje de Docentes Sin Mención]
+                (PROM\_SIN\_MENCION\_DOC\_RBD):
+                Además, se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
+                \begin{itemize}
+                  \item Identificador único del establecimiento (RBD)\footnote{Solamente para facilitar el cruzamiento de datos durante la creación de la muestra de estudio.}
+                \end{itemize}
+        \end{longdescription}
+        \item[Información Anual de la Dotación Docente] \hfill \\
         Este conjunto de datos se utilizara para crear diferentes indicadores por establecimiento($RBD$) de sus docentes.
         Acá se encuentra información por docente que trabaja en el establecimiento dado informando su título profesional, horas de trabajo por contrato y edad de titulación entre otros. Para ver el libro de código completo dirigirse a la Figura~\ref{fig:lb-iacd} en el Anexo~\ref{an:lb}.
             \begin{longdescription}
-                \item[Horas de Profesores-Aula\footnote{[cita]} por Alumno](PROF\_AULA\_H\_MAT\_RBD):
+                   % \item[Cantidad de Profesores Taxi\footnote{{cita}profesores taxi} por](PROF\_TAXI\_H\_MAT\_RBD): Cantidad de profesores taxi que contiene el colegio
+                \item[Horas de Profesores-Aula por Alumno](PROF\_AULA\_H\_MAT\_RBD): Cantidad de horas dedicadas en la sala de clases por alumno que asiste al establecimiento del alumno $j$ en el año $t$.
+                La construcción se puede ver en la Ecuación~\ref{eq:prof-aula-rbd}
+                  \begin{equation}
+                  \centering
+                    PROF\_AULA\_H\_MAT\_RBD_{j}^{t} = \frac{HH\_A}{MAT\_TOTAL}
+                    \label{eq:prof-aula-rbd}
+                  \end{equation}
                 
-                \item[Horas de Profesores-Pedagógicos\footnote{[cita]} por Alumno](PRO\_PEDA\_H\_MAT\_RBD):
+                \item[Horas de Profesores-Jefe de Unidad Pedagógicos\footnote{Jefe(a) de UTP: persona que lidera el equipo que cumple funciones técnico-pedagógicas.} por Alumno](PROF\_PEDA\_H\_MAT\_RBD): Cantidad de horas por contrato dedicadas a la pedagogía por alumno que asiste al establecimiento del alumno $j$ en el año $t$.
+                La construcción se puede ver en la Ecuación~\ref{eq:prof-peda-rbd}
+                  \begin{equation}
+                  \centering
+                    PROF\_PEDA\_H\_MAT\_RBD_{j}^{t} = \frac{HH\_JUTP}{MAT\_TOTAL}
+                    \label{eq:prof-peda-rbd}
+                  \end{equation}
+                \item[Horas de Profesores-Inspectores\footnote{Inspector General: persona que forma parte de la unidad técnico-pedagógica, encargado de: gestionar el desarrollo profesional del equipo docente y asistentes de la educación, gestionar recursos humanos, gestionar la interacción y la convivencia escolar, gestionar redes sociales.} por Alumno](PROF\_INSP\_H\_MAT\_RBD): Cantidad de horas por contrato dedicadas a la supervisión e inspección por alumno que asiste al establecimiento del alumno $j$ en el año $t$.
+                La construcción se puede ver en la Ecuación~\ref{eq:prof-insp-rbd}
+                  \begin{equation}
+                  \centering
+                    PROF\_INSP\_H\_MAT\_RBD_{j}^{t} = \frac{HH\_IG}{MAT\_TOTAL}
+                    \label{eq:prof-insp-rbd}
+                  \end{equation}
                 
-                \item[Horas de Profesores-Inspectores\footnote{[cita]} por Alumno](PRO\_INSP\_H\_MAT\_RBD):
+                \item[Horas de Profesores-Orientadores \footnote{Orientador(a): persona que forma parte de la unidad tecnico-pedagógica, encargado de: orientar a los estudiantes y sus familias, orientar a los estudiantes hacia su desarrollo futuro, gestionar la interacción y la convivencia escolar, prevenir situaciones de riesgo psicosocial y gestionar redes sociales.} por Alumno](PROF\_ORI\_H\_MAT\_RBD): Cantidad de horas dedicadas a la orientación de alumnos por alumno que asiste al establecimiento del alumno $j$ en el año $t$.La construcción se puede ver en la Ecuación~\ref{eq:prof-ori-rbd}
+                  \begin{equation}
+                  \centering
+                    PROF\_ORI\_H\_MAT\_RBD_{j}^{t} = \frac{HH\_IG}{MAT\_TOTAL}
+                    \label{eq:prof-ori-rbd}
+                  \end{equation}
                 
-                \item[Horas de Profesores-Orientadores \footnote{[cita]} por Alumno](PRO\_ORI\_H\_MAT\_RBD):
-                
-                \item[Horas de Profesores por   Alumno](PRO\_TOT\_H\_MAT\_RBD):
-                
-                \item[Porcentaje de Horas Lectivas\footnote{[cita]} de Profesores](PORC\_HORAS\_LECTIVAS\_DOC\_RBD):
-                
-                \item[Promedio de la Edad de Titulación de Docentes]
-                (PROM\_EDAD\_TITULACION\_DOC\_RBD):
-                
-                \item[Promedio de la Edad de Docentes]
-                (PROM\_EDAD\_DOC\_RBD):
-                
-                \item[Promedio de los Años de Servicio de Docentes]
-                (PROM\_ANOS\_SERVICIO\_DOC\_RBD):
-                
-                \item[Promedio de Estudio de Docentes]
-                (PROM\_ANOS\_ESTUDIOS\_DOC\_RBD):
-                
-                \item[Porcentaje de Docentes Sin Mención]
-                (PROM\_SIN\_MENCION\_DOC\_RBD):
+                \item[Horas de Profesores por Alumno](PROF\_TOT\_H\_MAT\_RBD): Cantidad de horas por contrato de profesores por alumno que asiste al establecimiento del alumno $j$ en el año $t$.La construcción se puede ver en la Ecuación~\ref{eq:prof-tot-rbd}
+                  \begin{equation}
+                  \centering
+                    PROF\_TOT\_H\_MAT\_RBD_{j}^{t} = \frac{HH\_TOT}{MAT\_TOTAL}
+                    \label{eq:prof-tot-rbd}
+                  \end{equation}
             \end{longdescription}
         Además, se utilizarán los siguientes campos que ya existen en el conjunto de datos, pero que no han sido intervenidos:
             \begin{itemize}
