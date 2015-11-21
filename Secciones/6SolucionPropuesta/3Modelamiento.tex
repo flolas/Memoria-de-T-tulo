@@ -8,13 +8,48 @@ El criterio para eliminar estas variables están basadas en la evidencia en estu
 Otros criterios que se pueden utilizar para seleccionar las variables de entrada están incorporadas en los algoritmos de aprendizaje automatizados, por tanto, se señalará más adelante. Por el momento utilizaremos las variables que se muestran en la Tabla~\ref{tab:selvar} como variables de entrada para el modelo de predicción.
 
 \subsection{Selección de Algoritmo de Aprendizaje Automatizado}
-Para poder seleccionar el algoritmo de aprendizaje automatizado que se utilizará en el modelo de predicción, tenemos que realizar una comparación en base a una medida comparable entre diferentes técnicas y aproximaciones para lograr predicciones.Lo que se desea predecir es la deserción escolar al próximo año y esta información se contiene en la variable $DESERTA_ALU$ y se utilizarán las variables de entradas señaladas en la Tabla~\ref{tab:selvar}
-\\El procedimiento para seleccionar será el siguiente:
+Para poder seleccionar el algoritmo de aprendizaje automatizado que se utilizará en el modelo de predicción, tenemos que realizar una comparación en base a una medida comparable entre diferentes técnicas y aproximaciones para lograr las predicciones.Lo que se desea predecir es la deserción escolar al próximo año y esta información se contiene en la variable $DESERTA_ALU$, donde a través de variables de entradas señaladas en la Tabla~\ref{tab:selvar} se desea predecir el valor de la variable de salida $DESERTA_ALU$
+\\El procedimiento para seleccionar el algoritmo de aprendizaje automatizado será el siguiente:
 \begin{enumerate}
-\item Selección de algoritmos de aprendizaje automatizados viables obteniendo una lista $a_1,a_2,a_3 ... a_n$ de algoritmos a probar.
-\item Entrenamiento de cada uno de los modelos de predicción utilizando el algoritmo de aprendizaje automatizado y buscando sus hiper-parámetros más cercanos al óptimo
+\item Selección de algoritmos de aprendizaje automatizados viables obteniendo una lista $a_1,a_2,a_3 ... a_n$ de algoritmos a probar
+\item Prueba de cada uno de los modelos de predicción utilizando el algoritmo de aprendizaje automatizado y buscando sus hiper-parámetros más cercanos al óptimo
 \item Medición del desempeño en base al conjunto obtenido por la validación cruzada interna
 \item Selección de un algoritmo de aprendizaje automatizado en base a un \textit{benchmarking} de los resultados del paso anterior
 \end{enumerate}
 \subsection{Creación del Modelo de Predicción}
-\subsection{Presentación del Sistema de Predicción de la Deserción Escolar(SPDE)}
+Una vez seleccionado el mejor algoritmo de aprendizaje automatizado, una última prueba involucra al poder de generalización del modelo de predicción creado. Esto es muy importante realizarlo debido a que puede que, a través del procedimiento de selección del modelo, se generen sesgos en el entrenamiento del modelo de predicción, pues al escoger el que entrega el mejor desempeño en base a la predicción del conjunto de entrenamiento se puede estar incluyendo un par de parámetros y algoritmo de aprendizaje automatizado que se ajustan muy bien a los datos entregados, pero no así a los datos que el modelo no conoce.\footnote{Esto también se hace referencia como al sobre-ajuste(\textit{overfitting}) de un modelo de predicción} Debido a que en nuestro procedimiento se selección de modelo se hizo solamente utilizando la porción interna de la división de los conjuntos de datos de la validación cruzada, ahora para probar el poder de generalización del modelo de predicción, utilizaremos la validación externa. En la Tabla~\ref{tab:conf-gene} podemos ver el resultado de la clasificación del modelo de predicción en el conjunto de prueba externo. Si lo comparamos con el resultado de la Tabla~\ref{tab:conf-sel-mod}, se puede concluir que el error de generalización\footnote{Esto nosotros lo definimos como el desempeño del conjunto de entrenamiento menos el desempeño del conjunto de prueba.} es de un $X\%$. El error de generalización nos señala que el modelo de predicción tiene un buen poder de generalización.
+
+Finalmente, dicho lo anterior, podemos concluir que el modelo de predicción posee un poder de predicción del $X\%$ para predecir casos futuros. Esto claramente se podría mejorar si se logra obtener mayor volumen de datos, y además, una mayor capacidad computacional para entrenar el modelo de predicción con estos.
+\subsection{Presentación del Sistema de Predicción de la Deserción Escolar}
+Ahora una vez creado el modelo de predicción tenemos que lograr que este modelo tenga la capacidad para funcionar con otros sistemas, en especifico, con un sistema o plataforma que sea capaz de visualizar los datos que predice el modelo de predicción. Para esto lo que se debe hacer es utilizar algún método para poder darle capacidad de interacción al modelo de predicción. Nosotros optamos por incrustar una API\footnote{Una API(\textit{Application Programming Interface}) es un conjunto de funciones de programación que permiten interactuar de forma sencilla con algún sistema o programa. En otras palabras es una capa de abstracción para comunicarse con otros componentes} para realizar futuras comunicaciones en tiempo real con el modelo de predicción.
+
+Para esto, se trabajó con una librería de Python llamada Flask que tiene la capacidad para recibir peticiones HTTP\footnote{Protocolo usado en transacciones web para visualizar y enviar información desde un navegador} y enviar datos mediante el mismo protocolo. Además se utilizó la librería Joblib que lo que permite es hacer persistente al modelo de predicción dando la posibilidad de guardar el modelo en un archivo para después ser cargado cuando sea necesario.
+En el API se implementó el método 'predict', que permite enviar información de un alumno al modelo a través de una página web para después entregar la información de predicción a la persona que hizo la petición. Otro método util para el modelo, que en este caso no se implementó, es el de 'train' que se utiliza para entrenar con nuevos casos al modelo de forma agregada, es decir, se van acumulando los casos pasados del alumno, pues si a futuro cambian los patrones de la deserción el modelo no quede obsoleto.\footnote{Esto se decidió no implementar, puesto que el algoritmo utilizado en este trabajo para entrenar al modelo no permite esto. Esto en la literatura se refiere al procedimiento de \textit{partial-fit}}.
+
+El método 'predict' que se implementó recibe las variables de entrada a través de una solicitud HTTP POST\footnote{Esto es una solicitud HTTP de envío de información hacia el servidor HTTP que maneja la API} de los parámetros siguientes:
+\begin{enumerate}
+\item Características personales del Alumno
+    \begin{itemize}
+    \item MRUN
+    \item SOBRE_EDAD_ALU
+    \item PROM_GRAL_RANK
+    \item ASISTENCIA_RANK
+    \end{itemize}
+\item Características del contexto familiar y convivencia del Alumno
+    \begin{itemize}
+    \item EDU_SUP_P
+    \item EDU_SUP_M
+    \item ING_HOGAR
+    \item GSE_MANZANA_ALU
+    \end{itemize}
+\item Características del contexto familiar y convivencia del Alumno
+    \begin{itemize}
+    \item SELECCION_RBD
+    \item GSE_MANZANA_RBD
+    \end{itemize}
+\end{enumerate}
+La respuesta a esta solicitud HTTP POST entrega dos parámetros en formato JSON\footnote{JavaScript Object Notation(JSON) es un formato de datos ligeros para el intercambio fácil de información entre diferentes sistemas.En conjunto con el formato de datos XML, se utiliza mucho para salida de información(\textit{endpoints}) de las API}
+Se excluyeron un conjunto de variables seleccionadas del modelo original solamente para efectos de demostración de la capa de abstracción.El código utilizado para implementar esto se puede revisar en el Anexo~\ref{an:cspde}.De ahora en adelante, el modelo de predicción se señala como el Sistema de Predicción de la Deserción Escolar(SPDE).
+
+Para mostrar el funcionamiento del SPDE utilizaremos dos casos de prueba que pueden ser vistos en la Tabla~\ref{tab:test-spde}
+\cuadro{6SolucionPropuesta/testSistema}

@@ -511,21 +511,24 @@ Validación con retención & \begin{tabular}[c]{@{}c@{}}Conjunto de entrenamient
 \subsection{Afinación de los Parámetros del Modelo}
 La mayoría de los modelos poseen parámetros que definen diferentes atributos de este. Estos parámetros normalmente se determinan \textit{a priori}. Existen métodos que, en conjunto con la validación cruzada, logran además, encontrar los parámetros que más se acerquen al óptimo. Esto se hace con una técnica llamada Búsqueda Aleatoria de Grilla [cita]. Lo que hace la Búsqueda Aleatoria de Grilla es, a través de una distribución de probabilidad dada, crear una grilla de estos valores e ir probando $N$ valores de forma aleatoria hasta que se acerque al óptimo. En general, siempre se obtiene algo mejor, pero es difícil llegar al óptimo, dado la naturaleza del problema de búsqueda en optimización, donde la limitante para hacer una búsqueda exhaustiva es la capacidad computacional.
 [grafico]
+
 \subsection{Medición del Desempeño del Modelo}
 
-Para evaluar el desempeño de un modelo se pueden utilizar diferentes medidas. Para nuestro estudio solamente señalaremos las más importantes que son la precisión y la exhaustividad.La precisión cuando hablamos de una tarea de clasificación se define como la proporción de las observaciones que son clasificados correctamente y la exhaustividad es la proporción de observaciones relevantes correctamente clasificadas.
+Para evaluar el desempeño de un modelo se pueden utilizar diferentes medidas. Para nuestro estudio, solamente señalaremos aquellas más importantes que son la precisión y la exhaustividad. La precisión, cuando hablamos de una tarea de clasificación, se define como la proporción de las observaciones que son clasificados correctamente y la exhaustividad es la proporción de observaciones relevantes correctamente clasificadas.
+
+La Figura~\ref{fig:precision} muestra gráficamente la forma en que se evalúa la precisión y exhaustividad de un modelo. Es posible observar que en un proceso de reconocimiento de patrones y de recuperación de información mediante el uso de  clasificación, la precisión es la fracción de casos recuperados que son relevantes, mientras que la exhaustividad es la fracción de los casos pertinentes que se recuperan. Es por esto que tanto la precisión como la exhaustividad son medidas de relevancia.
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/Precision}
-      \caption{Descripción gráfica de presición y exhaustividad.}
+      \caption{Descripción gráfica de precisión y exhaustividad.}
     \label{fig:precision}
 \end{figure}
 
 
 % https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/440px-Precisionrecall.svg.png
 
-Para poder obtener toda esta información debemos, como primer paso, calcular la llamada \textit[matriz de confusión] dónde resume el resultado de la tarea de clasificación.
+Para poder obtener toda esta información debemos, como primer paso, calcular la llamada \textit[matriz de confusión], la cual resume el resultado obtenido en la tarea de clasificación.
 
 [grafico] 
 %rehacer tabla con colores señalando que es error tipo I y II: https://en.wikipedia.org/wiki/Confusion_matrix
