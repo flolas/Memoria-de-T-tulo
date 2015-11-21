@@ -1,6 +1,20 @@
 \section{Modelamiento}
-A continuación en esta sección mostraremos el procedimiento de la creación y selección del modelo
+A continuación en esta sección mostraremos el procedimiento de la creación y selección del modelo para lograr con los objetivos del trabajo.
+Este procedimiento se divide en tres etapas relevantes, para finalmente presentar el Sistema de Predicción de la Deserción Escolar(SPDE).
 \subsection{Selección de Variables de Entrada}
-\subsection{Selección de Modelo de Predicción}
-\subsection{Creación del Modelo}
+Para partir con la selección de las variables de entrada que se utilizarán en el modelo de predicción, primero debemos eliminar las variables nominales y escalares que no sean de utilidad \textit{a priori} para el modelo.
+El criterio para eliminar estas variables están basadas en la evidencia en estudios anteriores, la naturaleza de la variable y la calidad de la variable. Las variables que se eliminaron y sus razones se pueden ver en la Tabla~\ref{tab:delvar}.
+
+Otros criterios que se pueden utilizar para seleccionar las variables de entrada están incorporadas en los algoritmos de aprendizaje automatizados, por tanto, se señalará más adelante. Por el momento utilizaremos las variables que se muestran en la Tabla~\ref{tab:selvar} como variables de entrada para el modelo de predicción.
+
+\subsection{Selección de Algoritmo de Aprendizaje Automatizado}
+Para poder seleccionar el algoritmo de aprendizaje automatizado que se utilizará en el modelo de predicción, tenemos que realizar una comparación en base a una medida comparable entre diferentes técnicas y aproximaciones para lograr predicciones.Lo que se desea predecir es la deserción escolar al próximo año y esta información se contiene en la variable $DESERTA_ALU$ y se utilizarán las variables de entradas señaladas en la Tabla~\ref{tab:selvar}
+\\El procedimiento para seleccionar será el siguiente:
+\begin{enumerate}
+\item Selección de algoritmos de aprendizaje automatizados viables obteniendo una lista $a_1,a_2,a_3 ... a_n$ de algoritmos a probar.
+\item Entrenamiento de cada uno de los modelos de predicción utilizando el algoritmo de aprendizaje automatizado y buscando sus hiper-parámetros más cercanos al óptimo
+\item Medición del desempeño en base al conjunto obtenido por la validación cruzada interna
+\item Selección de un algoritmo de aprendizaje automatizado en base a un \textit{benchmarking} de los resultados del paso anterior
+\end{enumerate}
+\subsection{Creación del Modelo de Predicción}
 \subsection{Presentación del Sistema de Predicción de la Deserción Escolar(SPDE)}
