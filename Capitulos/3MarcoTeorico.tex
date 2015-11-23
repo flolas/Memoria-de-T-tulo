@@ -172,7 +172,7 @@ Los atributos estudiados para este trabajo se presentan en el Cuadro~\ref{tab:at
 De este documento se puede concluir que las reglas que se muestran en el Cuadro~\ref{tab:treecol} generadas por el árbol de decisión son consistentes con la realidad observada y la teoría que hay de fondo con los resultados del árbol de decisión, y que, por tanto, el modelo predictivo es capaz de apoyar la toma de decisiones al desentrañar los factores que se evidencia el abandono para crear planes de retención y mitigación de la deserción. Se hace énfasis en que una de las mayores dificultades está en la calidad de los datos y que existen varios atributos poco útiles.
 
 \subsubsection{El creciente costo de no asistir a la universidad. Año 2014.}
-En base a los resultados de una encuesta nacional del \textit{Pew Research Center}, que contempla a 2.002 adultos complementado por un análisis de los datos económicos de la Oficina del Censo de Estados Unidos, se obtiene que los jóvenes con una carrera universitaria actualmente superan a sus pares que no la tienen en cuanto a bienestar económico y logros relacionados con su carrera. Más aún, cuando los adultos jóvenes de hoy se comparan con las generaciones anteriores, se genera una gran disparidad en los resultados económicos entre quienes están graduados de la universidad y quienes solo están graduados de la segundaria (o menos). 
+En base a los resultados de una encuesta nacional del \textit{Pew Research Center}, que contempla a 2.002 adultos complementado por un análisis de los datos económicos de la Oficina del Censo de Estados Unidos, se obtiene que los jóvenes con una carrera universitaria actualmente superan a sus pares que no la tienen en cuanto a bienestar económico y logros relacionados con su carrera. Más aún, cuando los adultos jóvenes de hoy se comparan con las generaciones anteriores, se genera una gran disparidad en los resultados económicos entre quienes están graduados de la universidad y quienes solo están graduados de la secundaria (o menos). 
 
 Además de la brecha económica que se encuentra entre los sueldos de quienes poseen un título universitario y quienes no lo poseen, los jóvenes de la generación del milenio que poseen un título universitario plantean que el puesto en que se encuentran actualmente es sólo un trampolín para aspirar a algo mejor, y que consideran que estudiar valió la pena, que es una inversión que ya está dando sus frutos. 
 
@@ -220,8 +220,97 @@ Un mayor nivel de educación se asoció inversamente con la mortalidad de los ad
 
 Se concluye que la mortalidad atribuible al bajo nivel de educación es comparable en magnitud a la mortalidad atribuible a las personas ex fumadores. La investigación existente sugiere que una parte sustancial de la asociación entre la educación y la mortalidad es causal. Por lo tanto, las políticas que aumentan la educación podrían reducir significativamente la mortalidad de adultos.
 
+\subsection{Metodologías de minería de datos}
+
+La cantidad de datos ha ido aumentando de forma exponencial debido a los avances en la tecnología de la computación necesitando que la búsqueda de conocimiento sea de forma automatizada.
+
+La minería de datos es un proceso que se ideó pensando en descubrir información valiosa dentro de una gran cantidad de datos\footnote{Para este trabajo definimos datos como información textual o numérica con alguna estructura dada} como flujo de entrada y nos entrega conocimiento.\footnote{Esto es una analogía a la industria de la minería donde se extrae los minerales rocosos donde una parte de esta es valiosa}
+
+La minería de datos, tal como es posible observar en la Figura\ref{fig:datamining}, tiene como finalidad generar conocimiento  valioso a partir de un conjunto de datos, la que luego es utilizada para la toma de decisiones o para la comprensión de un fenómeno, y se realiza a través de diferentes tareas que se pueden realizar con los diferentes algoritmos disponibles que los señalaremos posteriormente.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figuras/DM}
+      \caption{Proceso de Minería de Datos.}
+    \label{fig:datamining}
+\end{figure}
+
+%http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
+
+Para realizar minería de datos se han establecido diferentes metodologías para asegurar un resultado coherente con lo que se busca obtener. Existen diferentes metodologías que serán mencionadas y descritas brevemente a continuación.
+
+\subsubsection{KDD}
+
+%[cita] http://www.csd.uwo.ca/faculty/ling/cs435/fayyad.pdf
+
+La metodología \textit{Knowledge Discovery in Databases} o Proceso de Extracción del Conocimiento, tal como su nombre lo dice, es un proceso no trivial de descubrimiento de conocimiento e información potencialmente útil dentro de los datos contenidos en algún repositorio de información (cita de Han, J.; Kamber M. (2001). Data Mining: Concepts ans Techniques. Morgan Kaufmann Publishers, USA.). 
+
+Es un proceso iterativo que explora de forma exhaustiva altos volúmenes de datos con el fin de determinar relaciones. De esta manera es posible extraer información de calidad que se puede utilizar para generar modelos con los datos. 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figuras/KDD}
+      \caption{Etapas de la metodología KDD.}
+    \label{fig:kdd}
+\end{figure}
+
+Como muestra la Figura~\ref{fig:kdd}, el proceso de extracción del conocimiento consta de cinco etapas:
+\begin{description}
+  \item[1. Selección de Datos:] se determinan las fuentes de datos y el tipo de información a utilizar, es cuando los datos relevantes para el análisis son extraídos de la o las fuentes de datos.
+  \item[2. Pre-Procesamiento:] se procede a preparar y limpiar los datos extraídos desde las distintas fuentes de datos seleccionadas anteriormente. Este paso es fundamental para las fases posteriores.Para manejar datos faltantes, inconsistentes o que estén fuera de rango se utilizan diversas estrategias con el fin de obtener una estructura de datos adecuada para su posterior transformación.
+  \item[3. Transformación:] consiste en el tratamiento preliminar de los datos, transformando y generando nuevas variables con una estructura de datos apropiada a partir de las ya existentes. Se realizan operaciones de agregación o normalización, consolidando los datos de una forma necesaria para la fase siguiente. 
+  \item[4. Minería de Datos:] consiste en el modelamiento propiamente tal, para lo que se aplican métodos inteligentes con el fin de extraer patrones desconocidos, válidos, nuevos, potencialmente útiles y comprensibles y que están "ocultos" en los datos.
+  \item[5. Interpretación y Evaluación:] finalmente se identifican los patrones obtenidos y que son realmente interesantes, además de evaluar los resultados obtenidos.
+\end{description}
+
+\subsubsection{SEMMA}
+La metodología SEMMA, acrónimo de \textit{Sample, Explore, Modify, Model, Assess}, se define como un proceso de selección, exploración y modelamiento de grandes cantidades de datos para descubrir patrones de negocios desconocidos. 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figuras/SEMMA}
+      \caption{Etapas de la metodología SEMMA.}
+    \label{fig:semma}
+\end{figure}
+
+En la Figura~\ref{fig:semma} es posible observar que esta metodología consta de cinco etapas:
+\begin{description}
+  \item[1. Muestreo:] es la etapa inicial, en la cual se procede a preparar los datos para su posterior exploración. En esta etapa es común la utilización del nodo de partición (especialmente si se quiere realizar árboles de decisión o redes neuronales). 
+  \item[2. Exploración:] en esta etapa, como lo dice su nombre, se procede a explorar los datos, por lo que es una de las más trabajosas. Se tiene un nodo que permite explorar gráficamente los datos y otro de selección de variables que permite eliminar aquellos datos de entrada que no tienen relación con la variable objetivo, inclusive se puede realizar un análisis de conglomerados o una segmentación.
+  \item[3. Modificación:] en esta etapa el foco es la selección y transformación de variables y datos que servirán para la posterior construcción de modelos. Entre otras tareas, destaca la reducción de dimensión y la imputación de datos perdidos o anómalos.
+  \item[4. Modelamiento:] en esta etapa se procede a la selección de modelos. Esta elección depende esencialmente de los datos y variables que se tienen, y de obtener modelos fácilmente entendibles. Entre los modelos está la regresión, la regresión logística, árboles de decisión, análisis factorial discriminante, redes neuronales, entre otros. Se puede aplicar más de uno a la vez, para luego comparar los resultados obtenidos.
+  \item[5. Evaluación:] etapa final en la cual se procede a comparar los modelos aplicados y los resultados que se obtienen de ellos. 
+\end{description}
+[cita]
+
+\subsubsection{CRISP-DM}
+La metodología CRISP-DM o \textit{Cross-Industry Standard Process for Data Mining} es un estándar para los proyectos de minería de datos que incluye un modelo y una guía, estructurados en fases que pueden ser bidireccionales, es decir, al desarrollar una fase es posible revisar parcial o totalmente las anteriores. 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.99\textwidth]{Figuras/CRISP}
+      \caption{Etapas de la metodología CRISP-DM.}
+    \label{fig:crisp}
+\end{figure}
+
+Como es posible observar en la Figura~\ref{fig:crisp}, esta metodología estructura el proceso en seis fases cuya sucesión no es necesariamente rígida. Cada fase se descompone en varias tareas generales de segundo nivel. Las tareas generales se proyectan a tareas específicas, pero en ningún momento se propone como realizarlas. Es decir, CRISP-DM establece un conjunto de tareas y actividades para cada fase del proyecto pero no especifica cómo llevarlas a cabo.
+
+Las fases son: 
+\begin{description}
+  \item[1. Comprensión del Negocio:] fase inicial cuyo objetivo es la comprensión de los objetivos y requisitos del cliente, para luego convertir este conocimiento en objetivos técnicos y en un plan de proyecto. 
+  \item[2. Comprensión de los Datos:] el objetivo es establecer un primer contacto con el problema, por lo que requiere una recolección inicial de datos para familiarizarse con ellos, identificar su calidad y establecer las relaciones más evidentes para luego definir las primeras hipótesis. Esta fase junto a las próximas dos, son las que demandan el mayor esfuerzo y tiempo en un proyecto de minería de datos.
+  \item[3. Preparación de los Datos:] una vez efectuada la recolección inicial de datos, se procede a su preparación para adaptarlos a las técnicas de minería de datos que posteriormente se utilicen. Este proceso incluye tareas generales de selección de datos a los que se va a aplicar una determinada técnica de modelado, limpieza de datos, generación de variables adicionales, integración de diferentes orígenes de datos y cambios de formato.
+  \item[4. Modelamiento:] se seleccionan las técnicas de modelado apropiadas para el proyecto. Esta selección se debe realizar en función de los siguientes criterios: que sea apropiada al problema, disponer de los datos adecuados, cumplir con los requisitos del problema, tiempo adecuado para obtener un modelo y conocimiento de la técnica. 
+  \item[5. Evaluación:] se procede a la evaluación del modelo considerando el cumplimiento de los criterios de éxito del problema. Además, debe considerarse que la fiabilidad calculada para el modelo se aplique sólo para los datos sobre los que se realizó el análisis. Es preciso revisar el proceso, teniendo en cuenta los resultados obtenidos, para poder repetir algún paso anterior, en el que se haya posiblemente cometido algún error. Es importante considerar que se pueden emplear múltiples herramientas para la interpretación de los resultados. Luego, si el modelo generado es válido en función de los criterios de éxito establecidos en la fase anterior, se procede a la explotación del modelo.
+  \item[6. Implementación:] luego de que el modelo ha sido construido y validado, se procede a transformar el conocimiento obtenido en acciones dentro del proceso de negocio.
+\end{description}
+
+[cita] 
+%http://oldemarrodriguez.com/yahoo_site_admin/assets/docs/Documento_CRISP-DM.2385037.pdf
+
+
 \section{Paradigmas}
-En la sección anterior se presetaron los documentos más importantes que avalan los objetivos de este estudio. 
+En la sección anterior se presentaron los documentos más importantes que avalan los objetivos de este estudio. 
 En base a ellos es posible notar que hay ciertas visiones y deducciones que se presentan, de diferentes formas, en más de un documento. La finalidad de esta sección es analizar algunos de estos puntos en común, a los que llamaremos paradigmas, ya que formarán parte del conjunto de conocimientos que forman una visión del fenómeno de la deserción escolar en Chile. Estos permitirán determinar las direcciones en que se desarrollará este estudio y establecer sus límites. 
 
 \subsection{Deserción escolar como un proceso}
@@ -232,8 +321,14 @@ Este proceso no es posible explicarlo sin considerar elementos de distintas índ
 De lo anterior deriva el hecho que la deserción es un proceso distinto para cada uno de los alumnos que finalmente deciden dejar el sistema educacional, pero en base a los estudios es posible afirmar que se van generando patrones en los cuales existen factores en común. 
 
 \subsection{Tres niveles de factores que explican el proceso de deserción escolar en Chile}
-Otro punto importante a considerar luego de la revisión bibliográfica, y del análisis de la deserción como un proceso, son los factores que generan esta situación y el orígen de estos. Es importante mencionar que en un fenómeno tan complejo como la deserción escolar, ningún elemento o factor explicativo considerado por si sólo tiene el peso suficiente para dar cuenta por completo de esto. 
-Es posible definir tres grupos de factores según de dónde estos provienen, del contexto del establecimiento o intraescolares, factores personales del alumno y factores provenientes de su ambiente familiar. 
+Otro punto importante a considerar luego de la revisión bibliográfica, y del análisis de la deserción como un proceso, son los factores que generan esta situación y el origen de estos. El Cuadro~\ref{tab:resumen} presenta un resumen de los factores relevantes encontrados en la literatura revisada. 
+
+\cuadro{ResumenFactores}
+
+Es importante mencionar que en un fenómeno tan complejo como la deserción escolar, ningún elemento o factor explicativo considerado por si sólo tiene el peso suficiente para dar cuenta por completo de esto. 
+
+En base a los documentos ya mencionados y resumidos en el Cuadro~\ref{tab:resumen}, es posible tener una idea previa con respecto a los factores que influyen en la decisión de desertar. También, es posible definir preliminar tres grupos de factores según de dónde estos provienen, del contexto del establecimiento o intraescolares, factores personales del alumno y factores provenientes de su ambiente familiar. Estos se presentan a grandes rasgos a continuación. 
+
 \subsubsection{Factores Intraescolares}
 Los factores intraescolares son aquellos que caracterizan al establecimiento educacional al que asiste el alumno, como si este es municipal o particular subvencionado, el ambiente considerando violencia, consumo y tráfico de drogas, un mal comportamiento en el colegio, problemas graves con compañeros y profesores, dónde está ubicado, la cantidad de matrículas, entre otros.  Además se considera aquí todo lo relativo a los docentes; como su nivel de educación, los títulos que poseen, la cantidad de horas lectivas que realizan, en cuántos colegios realizan clases, los años de trayectoria que llevan, entre otros. 
 \subsubsection{Factores Personales}

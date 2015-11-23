@@ -1,98 +1,11 @@
 \chapter{Metodología}
 \label{ch:metodologia}
 
-A lo largo de este capítulo señalaremos con qué métodos y herramientas lograremos, con éxito, el objetivo de este trabajo. Estas estarán basadas en la experiencia de trabajos previos revisados en el Capitulo~\ref{ch:marcoteorico} y metodologías ampliamente utilizadas en la minería de datos [cita] para la obtención de información valiosa en los datos de forma efectiva.
+A lo largo de este capítulo se señalará con qué métodos y herramientas será posible lograr con éxito el objetivo de este trabajo. Estas estarán basadas en la experiencia de trabajos previos revisados en el Capitulo~\ref{ch:marcoteorico} y metodologías ampliamente utilizadas en la minería de datos [cita] para la obtención de información valiosa en los datos de forma efectiva.
 
-\section{Minería de Datos}
-La cantidad de datos ha ido aumentando de forma exponencial debido a los avances en la tecnología de la computación necesitando que la búsqueda de conocimiento sea de forma automatizada.
+\section{Selección de una metodología}
 
-La minería de datos es un proceso que se ideó pensando en descubrir información valiosa dentro de una gran cantidad de datos\footnote{Para este trabajo definimos datos como información textual o numérica con alguna estructura dada} como flujo de entrada y nos entrega conocimiento.\footnote{Esto es una analogía a la industria de la minería donde se extrae los minerales rocosos donde una parte de esta es valiosa}
-
-La minería de datos, tal como es posible observar en la Figura\ref{fig:datamining}, tiene como finalidad generar conocimiento  valioso a partir de un conjunto de datos, la que luego es utilizada para la toma de decisiones o para la comprensión de un fenómeno, y se realiza a través de diferentes tareas que se pueden realizar con los diferentes algoritmos disponibles que los señalaremos posteriormente.
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=0.9\textwidth]{Figuras/DM}
-      \caption{Proceso de Minería de Datos.}
-    \label{fig:datamining}
-\end{figure}
-
-%http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
-
-Para realizar minería de datos se han establecido diferentes metodologías para asegurar un resultado coherente con lo que se busca obtener. Existen diferentes metodologías que serán mencionadas y descritas brevemente a continuación.
-
-\subsection{KDD}
-
-%[cita] http://www.csd.uwo.ca/faculty/ling/cs435/fayyad.pdf
-
-La metodología \textit{Knowledge Discovery in Databases} o Proceso de Extracción del Conocimiento, tal como su nombre lo dice, es un proceso no trivial de descubrimiento de conocimiento e información potencialmente útil dentro de los datos contenidos en algún repositorio de información (cita de Han, J.; Kamber M. (2001). Data Mining: Concepts ans Techniques. Morgan Kaufmann Publishers, USA.). 
-
-Es un proceso iterativo que explora de forma exhaustiva altos volúmenes de datos con el fin de determinar relaciones. De esta manera es posible extraer información de calidad que se puede utilizar para generar modelos con los datos. 
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=0.9\textwidth]{Figuras/KDD}
-      \caption{Etapas de la metodología KDD.}
-    \label{fig:kdd}
-\end{figure}
-
-Como muestra la Figura~\ref{fig:kdd}, el proceso de extracción del conocimiento consta de cinco etapas:
-\begin{description}
-  \item[1. Selección de Datos:] se determinan las fuentes de datos y el tipo de información a utilizar, es cuando los datos relevantes para el análisis son extraídos de la o las fuentes de datos.
-  \item[2. Pre-Procesamiento:] se procede a preparar y limpiar los datos extraídos desde las distintas fuentes de datos seleccionadas anteriormente. Este paso es fundamental para las fases posteriores.Para manejar datos faltantes, inconsistentes o que estén fuera de rango se utilizan diversas estrategias con el fin de obtener una estructura de datos adecuada para su posterior transformación.
-  \item[3. Transformación:] consiste en el tratamiento preliminar de los datos, transformando y generando nuevas variables con una estructura de datos apropiada a partir de las ya existentes. Se realizan operaciones de agregación o normalización, consolidando los datos de una forma necesaria para la fase siguiente. 
-  \item[4. Minería de Datos:] consiste en el modelamiento propiamente tal, para lo que se aplican métodos inteligentes con el fin de extraer patrones desconocidos, válidos, nuevos, potencialmente útiles y comprensibles y que están "ocultos" en los datos.
-  \item[5. Interpretación y Evaluación:] finalmente se identifican los patrones obtenidos y que son realmente interesantes, además de evaluar los resultados obtenidos.
-\end{description}
-
-\subsection{SEMMA}
-La metodología SEMMA, acrónimo de \textit{Sample, Explore, Modify, Model, Assess}, se define como un proceso de selección, exploración y modelamiento de grandes cantidades de datos para descubrir patrones de negocios desconocidos. 
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=0.9\textwidth]{Figuras/SEMMA}
-      \caption{Etapas de la metodología SEMMA.}
-    \label{fig:semma}
-\end{figure}
-
-En la Figura~\ref{fig:semma} es posible observar que esta metodología consta de cinco etapas:
-\begin{description}
-  \item[1. Muestreo:] es la etapa inicial, en la cual se procede a preparar los datos para su posterior exploración. En esta etapa es común la utilización del nodo de partición (especialmente si se quiere realizar árboles de decisión o redes neuronales). 
-  \item[2. Exploración:] en esta etapa, como lo dice su nombre, se procede a explorar los datos, por lo que es una de las más trabajosas. Se tiene un nodo que permite explorar gráficamente los datos y otro de selección de variables que permite eliminar aquellos datos de entrada que no tienen relación con la variable objetivo, inclusive se puede realizar un análisis de conglomerados o una segmentación.
-  \item[3. Modificación:] en esta etapa el foco es la selección y transformación de variables y datos que servirán para la posterior construcción de modelos. Entre otras tareas, destaca la reducción de dimensión y la imputación de datos perdidos o anómalos.
-  \item[4. Modelamiento:] en esta etapa se procede a la selección de modelos. Esta elección depende esencialmente de los datos y variables que se tienen, y de obtener modelos fácilmente entendibles. Entre los modelos está la regresión, la regresión logística, árboles de decisión, análisis factorial discriminante, redes neuronales, entre otros. Se puede aplicar más de uno a la vez, para luego comparar los resultados obtenidos.
-  \item[5. Evaluación:] etapa final en la cual se procede a comparar los modelos aplicados y los resultados que se obtienen de ellos. 
-\end{description}
-[cita]
-
-\subsection{CRISP-DM}
-La metodología CRISP-DM o \textit{Cross-Industry Standard Process for Data Mining} es un estándar para los proyectos de minería de datos que incluye un modelo y una guía, estructurados en fases que pueden ser bidireccionales, es decir, al desarrollar una fase es posible revisar parcial o totalmente las anteriores. 
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=0.99\textwidth]{Figuras/CRISP}
-      \caption{Etapas de la metodología CRISP-DM.}
-    \label{fig:crisp}
-\end{figure}
-
-Como es posible observar en la Figura~\ref{fig:crisp}, esta metodología estructura el proceso en seis fases cuya sucesión no es necesariamente rígida. Cada fase se descompone en varias tareas generales de segundo nivel. Las tareas generales se proyectan a tareas específicas, pero en ningún momento se propone como realizarlas. Es decir, CRISP-DM establece un conjunto de tareas y actividades para cada fase del proyecto pero no especifica cómo llevarlas a cabo.
-
-Las fases son: 
-\begin{description}
-  \item[1. Comprensión del Negocio:] fase inicial cuyo objetivo es la comprensión de los objetivos y requisitos del cliente, para luego convertir este conocimiento en objetivos técnicos y en un plan de proyecto. 
-  \item[2. Comprensión de los Datos:] el objetivo es establecer un primer contacto con el problema, por lo que requiere una recolección inicial de datos para familiarizarse con ellos, identificar su calidad y establecer las relaciones más evidentes para luego definir las primeras hipótesis. Esta fase junto a las próximas dos, son las que demandan el mayor esfuerzo y tiempo en un proyecto de minería de datos.
-  \item[3. Preparación de los Datos:] una vez efectuada la recolección inicial de datos, se procede a su preparación para adaptarlos a las técnicas de minería de datos que posteriormente se utilicen. Este proceso incluye tareas generales de selección de datos a los que se va a aplicar una determinada técnica de modelado, limpieza de datos, generación de variables adicionales, integración de diferentes orígenes de datos y cambios de formato.
-  \item[4. Modelamiento:] se seleccionan las técnicas de modelado apropiadas para el proyecto. Esta selección se debe realizar en función de los siguientes criterios: que sea apropiada al problema, disponer de los datos adecuados, cumplir con los requisitos del problema, tiempo adecuado para obtener un modelo y conocimiento de la técnica. 
-  \item[5. Evaluación:] se procede a la evaluación del modelo considerando el cumplimiento de los criterios de éxito del problema. Además, debe considerarse que la fiabilidad calculada para el modelo se aplique sólo para los datos sobre los que se realizó el análisis. Es preciso revisar el proceso, teniendo en cuenta los resultados obtenidos, para poder repetir algún paso anterior, en el que se haya posiblemente cometido algún error. Es importante considerar que se pueden emplear múltiples herramientas para la interpretación de los resultados. Luego, si el modelo generado es válido en función de los criterios de éxito establecidos en la fase anterior, se procede a la explotación del modelo.
-  \item[6. Implementación:] luego de que el modelo ha sido construido y validado, se procede a transformar el conocimiento obtenido en acciones dentro del proceso de negocio.
-\end{description}
-
-[cita] 
-%http://oldemarrodriguez.com/yahoo_site_admin/assets/docs/Documento_CRISP-DM.2385037.pdf
-
-\subsection{Selección de una metodología}
-
-Para poder cumplir con los objetivos del trabajo debemos seleccionar una metodología de minería de datos. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.[cita]A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad [cita] http://www.kdnuggets.com/2014/10/crisp-dm-top-methodology-analytics-data-mining-data-science-projects.html
+Para poder cumplir con los objetivos del trabajo es necesario seleccionar una de las metodologías de minería de datos presentadas en el capítulo Capitulo~\ref{ch:marcoteorico}. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.[cita]A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad [cita] http://www.kdnuggets.com/2014/10/crisp-dm-top-methodology-analytics-data-mining-data-science-projects.html
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -122,7 +35,7 @@ Para poder cumplir con los objetivos del trabajo debemos seleccionar una metodol
 \label{tab:metodos}
 \end{table}
 
-En base al Cuadro~\ref{tab:metodos}, donde se compara de forma resumida cada metodología para la minería de datos, la seleccionada para desarrollar este proyecto será la metodología CRISP-DM.
+En el Cuadro~\ref{tab:metodos} se realiza una comparación de forma resumida cada metodología para la minería de datos, donde es posible observar que si bien KDD posee 9 etapas y CRISP-DM 6, esta última resume y complementa las etapas que KDD contiene. Por otro lado, SEMMA posee sólo 5 etapas, y no cuenta con una que permita entender y conocer desde el principio el problema que se abordará, ni una última en la cual implementar el modelo. Es por esto que la metodología seleccionada para desarrollar este proyecto es CRISP-DM.
 
 
 \subsection{Utilidad}
@@ -486,6 +399,8 @@ Existen múltiples métodos de validación cruzadas, a continuación se señalar
       [grafico]
     \end{description}
 
+El Cuadro~\ref{tab:mvalidacion} muestra un resumen de los pros y contra de los diferentes métodos de validación descritos anteriormente... \textcolor{red}{Ayuda con qué decir aquí :S}
+
 % Please add the following required packages to your document preamble:
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[H]
@@ -503,7 +418,7 @@ Validación con retención & \begin{tabular}[c]{@{}c@{}}Conjunto de entrenamient
 \end{tabular}
 }
 \caption{Pros y contras de diferentes métodos de validación.}
-\label{mvalidacion}
+\label{tab:mvalidacion}
 \end{table}
 
 % [tabla] Cross-Validation. Table 1. Pros and Cons of different validation methods
@@ -528,7 +443,9 @@ La Figura~\ref{fig:precision} muestra gráficamente la forma en que se evalúa l
 
 % https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/440px-Precisionrecall.svg.png
 
-Para poder obtener toda esta información debemos, como primer paso, calcular la llamada \textit[matriz de confusión], la cual resume el resultado obtenido en la tarea de clasificación.
+Para poder obtener toda esta información debemos, como primer paso, calcular la matriz de confusión\footnote{En el campo de \textit{machine learning}, una matriz de confusión, también conocida como tabla de contingencia o una matriz de error, es una tabla específica que permite la visualización del desempeño de un algoritmo, típicamente un aprendizaje supervisado (en el aprendizaje no supervisado por lo general se llama una matriz de juego). Cada columna de la matriz representa las instancias de una clase predicha, mientras que cada fila representa las instancias de una clase real. El nombre deriva del hecho que hace que sea fácil de ver si el sistema está confundiendo dos clases.}, la cual tiene como objetivo resumir el resultado obtenido en la tarea de clasificación. 
+
+En el Cuadro~\ref{tab:mconfusion} se presenta la forma en que se lee una matriz de confusión. Esta da a conocer el número de predicciones correctas, llamados verdadero positivo y verdadero negativo, para cada clasificación y el número de predicciones incorrectas. Estas últimas, las predicciones incorrectas dan origen a dos importantes errores. El error tipo I o falso positivo, se define como el rechazo incorrecto de una verdadera hipótesis nula, mientras que el error tipo II o falso negativo, se define como el hecho de no haber rechazado una hipótesis nula falsa. En otras palabras, un error de tipo I es la detección de un efecto que realmente no está presente, mientras que un error de tipo II está fallando para detectar un efecto que está presente.
 
 [grafico] 
 %rehacer tabla con colores señalando que es error tipo I y II: https://en.wikipedia.org/wiki/Confusion_matrix
@@ -545,7 +462,7 @@ Para poder obtener toda esta información debemos, como primer paso, calcular la
 \multicolumn{1}{|c|}{} & \begin{tabular}[c]{@{}c@{}}Condición de \\ predicción negativa\end{tabular} & \begin{tabular}[c]{@{}c@{}}Falso negativo\\ (Error tipo II)\end{tabular} & Verdadero negativo \\ \hline
 \end{tabular}
 \caption{Matriz de confusión.}
-\label{mconfusion}
+\label{tab:mconfusion}
 \end{table}
 
 

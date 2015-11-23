@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|l|l|l|}
+\hline
+\textbf{Ranking} & \textbf{Algoritmo} & \textbf{Desempeño(recall)} & \textbf{Tiempo(s)} \\ \hline
+1 & AdaBoost & 89,71\% $\pm$ 0,98\% & 67 \\ \hline
+2 & Random Forest & 89,58\% $\pm$ 0,79\% & 55 \\ \hline
+3 & Support Vector Machine with Polynomial Kernel & 88,38\% $\pm$ 0,82\% & 488 \\ \hline
+4 & GradientBoosting & 88,19\% $\pm$ 0,94\% & 149 \\ \hline
+5 & Perceptron(SGD) & 87,31\% $\pm$ 7,92\% & 6 \\ \hline
+6 & Support Vector Machine with Linear Kernel(SGD) & 85,43\% $\pm$ 10,26\% & 6 \\ \hline
+7 & Support Vector Machine with RBF Kernel & 84,52\% $\pm$ 1,12\% & 850 \\ \hline
+8 & Neural Network(1 / 1 Tanh / 1) & 84,14\% $\pm$ 3,15\% & 486 \\ \hline
+9 & Naive-Bayes & 74,60\% $\pm$ 9,05\% & 1 \\ \hline
+\end{tabular}
+}
+\caption{Resultado de la selección del algoritmo de aprendizaje automatizado. El ranking se mide en base al desempeño que corresponde al \textit{recall} o exhaustividad al clasificar la clase de desertores.}
+\label{tab:smodelr}
+\end{table}

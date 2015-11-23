@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Algoritmo} & \textbf{Tipo} & \textbf{(Des)Ventaja} \\ \hline
+Naive-Bayes & \begin{tabular}[c]{@{}l@{}}Lineal;\\ No-Lineal\footnote{Depende de los datos}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Complejidad baja; \\ fácil de implementar\end{tabular} \\ \hline
+Regresión Logística & Lineal & \begin{tabular}[c]{@{}l@{}}Complejidad baja;\\ fácil de implementar\end{tabular} \\ \hline
+Árboles de Decisión & No-Lineal & \begin{tabular}[c]{@{}l@{}}Muestra la importancia de variables; \\ Complejidad media;\\ Desempeño con alta varianza\end{tabular} \\ \hline
+Bosques Aleatorios & No-Lineal & \begin{tabular}[c]{@{}l@{}}Desempeño con baja varianza; \\ Complejidad media\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}SVM con\\ Kernel RBF\end{tabular} & No-Lineal & \begin{tabular}[c]{@{}l@{}}Complejidad muy alta;\\ Buen poder de clasificación\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}SVM con\\ Kernel Lineal\end{tabular} & Lineal & Complejidad media \\ \hline
+\begin{tabular}[c]{@{}l@{}}SVM con\\ Kernel Polinómico\end{tabular} & No-Lineal & \begin{tabular}[c]{@{}l@{}}Complejidad muy alta;\\ Buen poder de clasificación\end{tabular} \\ \hline
+GradientBoosting & No-Lineal & Complejidad media \\ \hline
+AdaBoost & No-Lineal & Complejidad media \\ \hline
+Perceptron & Lineal & Complejidad baja \\ \hline
+Red Neuronal & No-Lineal & \begin{tabular}[c]{@{}l@{}}Complejidad alta; Flexible;\\ Buen poder de clasificación\end{tabular} \\ \hline
+\end{tabular}
+\caption{Lista de algoritmos tentativos para utilizar en el modelo de predicción}
+\label{tab:lista-algo}
+\end{table}

@@ -61,7 +61,13 @@ En base a lo estudiado en el Capitulo~\ref{ch:marcoteorico} sabemos que para uti
 \item Imputación de valores perdidos por variable\footnote{Para variables nominales se utilizó la mediana de los valores de la variable y para variables escalares se utilizó el promedio de los valores de la variable. }
 \item Escalamiento uniforme entre un $-1$ y $1$ a variables de escala,nominales y ordinales.\footnote{La escala se calcula por variable, es decir, cada variable posee su escala 1 a -1 en función del valor máximo y mínimo respectivamente.}
 \end{enumerate}
-
+Para esto, gracias a la librería scikit-learn, se puede modelar el preprocesamiento a través de un \textit{pipeline}, es decir, un conjunto de procesos unidos por "cañerías" donde estas representan los flujos de datos. Este \textit{pipeline} como se ve en la Figura~\ref{fig:pipeline} entran los datos a un proceso automático que detecta el tipo de dato, y en base a esto se realizan las etapas señaladas anteriormente. Gracias al pipeline, permite tener una mejor visualización de lo que ocurre con los datos y abstraer esta información para incorporarla, en el futuro, al modelo de predicción obteniendo así una herramienta completa capaz de preprocesar, predecir y presentar los resultados de forma autónoma y unificada.
+\begin{figure}[H]
+  \centering
+    \includegraphics[trim=0cm 9cm 0cm 0cm,,scale=0.5]{Figuras/6SolucionPropuesta/Pipeline.pdf}
+      \caption{Pipeline creado para el preprocesamiento de los datos}
+    \label{fig:pipeline}
+\end{figure}
 Una vez realizada esta última etapa, podemos proseguir con los siguientes pasos para poder lograr nuestro objetivo. Finalmente la muestra de estudio se compone de aproximadamente \textbf{260.000 alumnos del sistema regular escolar de escuelas municipales y subvencionadas de 3º Básico a 4º Medio del Gran Santiago}.
 
 
