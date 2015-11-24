@@ -1,2 +1,63 @@
 \chapter{Obtención de datos desde la página web del MIME}
 \label{ap:obtencionmime}
+El MIME es una página web(\url{http://www.mime.mineduc.cl/mvc/mime/portada}) que tiene como finalidad concentrar toda la información de la educación solamente en un punto. De acá se comparte toda la información del Centro de Estudios del MINEDUC, pero tiene la particularidad de que tiene mayor información y actualizada. Lamentablemente esta información se muestra en una página web lo que dificulta su procesamiento.
+
+Para poder utilizar estos datos, se desarolló un \textit{script} que recoge la información de la página web y la ordena de forma estructurada en un archivo JSON y finalmente se convierte a CSV(separado por comas).
+
+Ese \textit{script} se desarrolló utilizando la última tecnología para resolver este tipo de problemas. Se utilizó el lenguaje de programación \textit{Javacript} que tiene la particularidad de llevarse muy bien con las páginas webs, por tanto facilitar su lectura automatizada.
+
+A continuación se cita la documentación del \textit{script}\\
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+Instalación
+Pre-Requisitos
+Python 2.6 o mayor(\url{https://www.python.org/download/releases/2.6/})
+PhantomJS 1.8.2(\url{http://phantomjs.org/download.html})
+Requisitos
+CasperJS 1.1(\url{http://casperjs.readthedocs.org/en/latest/installation.html})
+
+USO
+Windows
+Abrir cmd.exe
+Escribir casperjs path/mime.js
+Linux/Mac
+Abrir terminal
+Escribir casperjs path/mime.js
+
+CONSIDERACIONES
+
+El script lee un archivo con RBD’s en formato CSV llamado ‘Lista_RBD.csv’ que debe estar en el mismo directorio que ‘mime.js’, finalmente cuando termina su ejecución crea un archivo ‘output_establecimientos.json’ de la información de los establecimientos que fueron consultados.
+
+Finalmente, para convertir el JSON a un CSV, se puede utilizar la página \url{http://www.convertcsv.com/json-to-csv.htm}
+    }%
+}
+El código utilizado es el siguiente
+%\inputminted[%breaklines,mathescape,linenos,numbersep=5pt,frame=single,numbersep=5pt,xleftmargin=0pt]{javascript}{Codigo/mime.js}
+*acá va el código, se eliminó para no alentar el Latex*
+
+De esta información, lo que se utilizaron fueron las siguientes variables:
+\begin{enumerate}
+\item Selección de alumnos al momento de la admisión al establecimiento(SELECCION\_RBD)
+\item Becas Disponibles en el establecimiento (BECAS\_DISP\_RBD)
+\item Índice de uso de infraestructura tecnológica del establecimiento (PSU\_PROM\_2013\_RBD)
+\item Índice de gestión de las tecnologías de la información del establecimiento (IND\_GTI\_RBD)
+\item Cantidad promedio de alumnos por curso del establecimiento (PROM\_ALU\_CUR\_RBD)
+\item Cantidad de vacantes disponibles en el curso de entrada del establecimiento (VACANTES\_CUR\_IN\_RBD)
+\end{enumerate}
+
+De las variables anteriores, la única que se construyo de forma manual fue la variable que identifica si selecciona o no el establecimiento.
+
+Lo que se realizó fue tomar toda la información respecto a los requerimientos que informan los establecimientos en base a la postulación, se ordenaron y estandarizaron\footnote{Esto es, específicamente, dejar todo en minúsculas, eliminar categorias duplicadas y ordenar por parentesco} los resultados y se tomó el siguiente conjunto de requisitos, que si el establecimiento señala que lo usa, se le asigna el valor uno a la variable SELECCION\_RBD, de lo contrario queda como 0.//
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+'examen de ingreso'\\
+'exámenes desde séptimo'\\
+'postulantes rinden prueba de selección'\\
+'test admisión'\\
+'test de habilidades'\\
+'test de habilidades e intereses'\\
+'test habilidades básicas'\\
+'evaluación integral'
+    }%
+}//
+Basta con que al menos una de las que está en la lista el establecimiento la utilice para catalogarlo como establecimiento que selecciona a sus postulantes. Lo que capta esta variable en particular, son los establecimientos que seleccionan en base al desempeño académicos del postulante, cosa que ha sido muy cuestionado en la contingencia, pues es una forma de discriminación hacia los postulantes.
