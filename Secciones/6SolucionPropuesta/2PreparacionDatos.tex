@@ -49,9 +49,20 @@ En la Figura~\ref{fig:venn} se presenta el diagrama de Venn\footnote{Representac
 \end{figure}
 Finalmente como vemos en la Figura~\ref{fig:venn} se obtiene una muestra de 260.000 estudiantes geo-referenciados del Gran Santiago con 93 columnas que representan indicadores o información de identificación de los alumnos.Desde ahora en adelante llamaremos variables a las columnas que no sean de identificación. Para ver un resumen del conjunto de datos y el libro de código, visitar el Anexo~\ref{an:muestra}
 \subsection{Exploración y validación de la Muestra de Estudio}
-Dado los problemas heredados del conjunto de datos de encuestas SIMCE estamos trabajando con una muestra de los alumnos de los establecimientos, no toda la población. Si bien la muestra representa aproximadamente un 30\% de la población de alumnos del Gran Santiago, debido a que el SIMCE no se da en todos los años es necesario hacer una revisión por grado de la tasa de deserción para evaluar la representatividad de la muestra obtenida. En la Figura~\ref{fig:deserciongradomuestra} se puede observar la distribución de la tasa de deserción por grado de la muestra Podemos notar que desde 3º Básico la tasa de deserción de la muestra se aproxima a la tasa de deserción de la población. Esto se puede explicar por que el SIMCE se da a partir de ese curso, por tanto es válido no tener alumnos de 1º básico a 2º básico. Entonces desde ahora, solamente vamos a trabajar con alumnos de 3º Básico a 4º Medio de establecimientos municipalizados y subvencionados del Gran Santiago.
-Finalmente, al utilizar solamente alumnos de 3º Básico en adelante se eliminaron de la muestra aproximadamente $725$ alumnos, siendo marginal respecto al tamaño de la muestra total\footnote{Claramente, esto puede ser un factor que influyó en que la tasa de deserción esté distorsionada para esos grados.}
-
+Dado los problemas heredados del conjunto de datos de encuestas SIMCE estamos trabajando con una muestra de los alumnos de los establecimientos, no toda la población. Si bien la muestra representa aproximadamente un 30\% de la población de alumnos del Gran Santiago, debido a que el SIMCE no se da en todos los años es necesario hacer una revisión por grado de la tasa de deserción para evaluar la representatividad de la muestra obtenida. En la Figura~\ref{fig:deserciongradomuestra} se puede observar la distribución de la tasa de deserción por grado de la muestra Podemos notar que desde 5º Básico la tasa de deserción de la muestra se aproxima a la tasa de deserción de la población. Esto se puede explicar por que el SIMCE se da a partir de ese curso, por tanto es válido no tener alumnos de 1º básico a 2º básico. Entonces desde ahora, solamente vamos a trabajar con alumnos de 5º Básico a 4º Medio de establecimientos municipalizados y subvencionados del Gran Santiago.
+Finalmente, al utilizar solamente alumnos de 5º Básico en adelante se eliminaron de la muestra aproximadamente $725$ alumnos, siendo marginal respecto al tamaño de la muestra total\footnote{Claramente, esto puede ser un factor que influyó en que la tasa de deserción esté distorsionada para esos grados.}
+\begin{figure}[H]
+  \centering
+    \includegraphics[trim=0cm 0cm 0cm 0cm,scale=0.5]{Figuras/6SolucionPropuesta/testdist1.png}
+      \caption{Distribución de la tasa de deserción por grado de la muestra de estudio.}
+    \label{fig:deserciongradomuestra}
+\end{figure}
+%\begin{figure}[H]
+%  \centering
+%    \includegraphics[trim=0cm 0cm 0cm 0cm,scale=0.2]{Figuras/6SolucionPropuesta/testdist2.png}
+%      \caption{Cantidad de alumnos por grado en la muestra de estudio.}
+%    \label{fig:deserciongradomuestra2}
+%\end{figure}
 
 \subsection{Pre-procesamiento de la Muestra de Estudio}
 En base a lo estudiado en el Capitulo~\ref{ch:marcoteorico} sabemos que para utilizar un algoritmo de aprendizaje automatizado se deben realizar diferentes procedimientos a los datos para que estos sean legibles para el algoritmo. El procedimiento de dos etapas que se le aplicará a las columnas disponibles\footnote{Para ver una lista de estas con su categorización por medida ver el Cuadro~\ref{tab:caract-var} en el Anexo~\ref{an:muestra}} que no sean de identificación son los siguientes:
@@ -68,6 +79,6 @@ Para esto, gracias a la librería scikit-learn, se puede modelar el preprocesami
       \caption{Pipeline creado para el preprocesamiento de los datos}
     \label{fig:pipeline}
 \end{figure}
-Una vez realizada esta última etapa, podemos proseguir con los siguientes pasos para poder lograr nuestro objetivo. Finalmente la muestra de estudio se compone de aproximadamente \textbf{260.000 alumnos del sistema regular escolar de escuelas municipales y subvencionadas de 3º Básico a 4º Medio del Gran Santiago}.
+Una vez realizada esta última etapa, podemos proseguir con los siguientes pasos para poder lograr nuestro objetivo. Finalmente la muestra de estudio se compone de aproximadamente \textbf{260.000 alumnos del sistema regular escolar de escuelas municipales y subvencionadas de 5º Básico a 4º Medio del Gran Santiago}.
 
 
