@@ -39,7 +39,7 @@ Al ver las importancias relativas de cada atributo podemos ver que ahora el prot
 Esto nos señala que, efectivamente, el promedio general, la asistencia y la sobre edad, poseen mucho más de información que las variables mostradas en la Figura~\ref{fig:impo-parcial}. También señala que como no bajó el poder de clasificación significa mente, se cumple la hipótesis de qué la sobre edad, el percentil del promedio general y la asistencia son linealmente dependientes de las demás variables y por esto que el algoritmo les da mayor importancia a estas. Podríamos considerar redundante las variables señaladas en la Figura~\ref{fig:impo-parcial}.
 Ahora si analizamos la capacidad explicativa del modelo de predicción anterior, notamos que la variables que más importan son variables, prácticamente, de largo plazo y muy difíciles de intervenir. Por ejemplo, la escolaridad superior de los padres no es algo que se pueda cambiar, pues ya es demasiado tarde en el momento que el modelo muestra estas razones como explicaciones a la deserción. Ocurre lo mismo con el grupo socioeconomico, pues como este es el grupo socioeconomico del barrio, estos raramente cambian al corto plazo.
 
-Finalmente, otro análisis interesante que sirve de corroboración de lo señalado anteriormente, es evaluar las razones de deserción separadamente por educación básica y media. En la Figura~\ref{fig:clas-basica} y Figura~\ref{fig:clas-media} se encuentran los reportes de clasificación utilizando la educación básica y media respectivamente.
+Finalmente, otro análisis interesante está en evaluar la importancia de los atributos separadamente por educación básica y media. En la Figura~\ref{fig:clas-basica} y Figura~\ref{fig:clas-media} se encuentran los reportes de clasificación utilizando los datos de solamente la educación básica y media respectivamente. Al comparar ambas figuras podemos ver que para la educación media la importancia son las mismos, pero estos difieren en magnitud. Lo que podemos ver es que el grupo socioeconomico del barrio del alumno, sube en magnitud y aporta casi al mismo nivel que si los padres poseen eduacción superior. De esto se puede desprender de que en la educación media los alumnos están en un periodo de edad donde obtienen mayor independencia en su vida, por tanto, es muy importante el barrio por donde transita. Además, existe una hipotesis[cita] que se señala que, en general, en los sectores de grupos socioeconomicos bajos, existe mayor delicuencia en estos. Aquí también puede haber una mayor importancia entre grupo socioeconomio del barrio del alumno y lo que ocurre allí para detectar casos de deserción escolar en estudiantes de educación media.
 
 \begin{figure}[H]
   \centering
@@ -69,6 +69,3 @@ Además, en la Figura~\ref{fig:impo-basica} y Figura~\ref{fig:impo-media} la imp
       \caption{Importancia de las variables de entrada del modelo de predicción utilizando Bosques Aleatorios de la educación media sin las variables de sobre-edad y percentiles del promedio general y asistencia}
     \label{fig:impo-media}
 \end{figure}
-
-\subsection{Contraste de hipótesis relevantes}
-\subsection{¿Deserción escolar o abandono escolar?}
