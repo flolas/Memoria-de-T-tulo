@@ -47,6 +47,10 @@
 \newcommand{\cuadro}[1]{\import{Cuadros/}{#1.tex}}
 \newcommand{\figura}[1]{\import{Figuras/}{#1.tex}}
 \renewcommand{\thefootnote}{\arabic{footnote}}
+\newcommand{\includeCroppedPdf}[2][]{%
+    \IfFileExists{./#2-crop.pdf}{}{%
+        \immediate\write18{pdfcrop #2 #2-crop.pdf}}%
+    \includegraphics[#1]{#2-crop.pdf}}
 % Fin de funciones
 
 % Márgenes y otros
@@ -109,7 +113,7 @@
 \anexo{AnexoC}
 \anexo{AnexoD}
 \anexo{AnexoE}
-\anexo{AnexoF}
+\anexo{AnexoG}
 \appendix
 \addcontentsline{toc}{chapter}{Apéndice}
 \chapter*{Apéndice}

@@ -22,7 +22,7 @@ Para poder cumplir con los objetivos del trabajo es necesario seleccionar una de
 {\color[HTML]{000000} Número de pasos} & {\color[HTML]{000000} 9} & {\color[HTML]{000000} 6} & {\color[HTML]{000000} 5} \\ \hline
 {\color[HTML]{000000} } & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Desarrollo y comprensión \\ de la aplicación\end{tabular}} & {\color[HTML]{000000} Entendimiento del negocio} & {\color[HTML]{000000} ------} \\ \cline{2-4} 
 {\color[HTML]{000000} } & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Creación de un conjunto \\ de datos objetivo\end{tabular}} & {\color[HTML]{000000} } & {\color[HTML]{000000} Muestreo} \\ \cline{2-2} \cline{4-4} 
-{\color[HTML]{000000} } & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Limpieza de datos \\ y pre-procesamiento\end{tabular}} & \multirow{-2}{*}{{\color[HTML]{000000} Entendimiento de los datos}} & {\color[HTML]{000000} Exporación} \\ \cline{2-4} 
+{\color[HTML]{000000} } & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Limpieza de datos \\ y pre-procesamiento\end{tabular}} & \multirow{-2}{*}{{\color[HTML]{000000} Entendimiento de los datos}} & {\color[HTML]{000000} Exploración} \\ \cline{2-4} 
 {\color[HTML]{000000} } & {\color[HTML]{000000} Transformación de los datos} & {\color[HTML]{000000} Preparación de los datos} & {\color[HTML]{000000} Modificación} \\ \cline{2-4} 
 {\color[HTML]{000000} } & \begin{tabular}[c]{@{}c@{}}Selección de las tareas de \\ minería de datos adecuadas\end{tabular} &  &  \\ \cline{2-2}
 {\color[HTML]{000000} } & \begin{tabular}[c]{@{}c@{}}Selección del algoritmo de \\ minería de datos adecuado\end{tabular} &  &  \\ \cline{2-2}
@@ -38,7 +38,7 @@ Para poder cumplir con los objetivos del trabajo es necesario seleccionar una de
 En el Cuadro~\ref{tab:metodos} se realiza una comparación de forma resumida cada metodología para la minería de datos, donde es posible observar que si bien KDD posee 9 etapas y CRISP-DM 6, esta última resume y complementa las etapas que KDD contiene. Por otro lado, SEMMA posee sólo 5 etapas, y no cuenta con una que permita entender y conocer desde el principio el problema que se abordará, ni una última en la cual implementar el modelo. Es por esto que la metodología seleccionada para desarrollar este proyecto es CRISP-DM.
 
 
-\subsection{Utilidad}
+\subsection{Aplicaciones}
 
 \subsubsection{Clasificación y Regresión}
 La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.[cita] %http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
@@ -96,19 +96,21 @@ Los procedimientos utilizados en esta etapa son los siguientes:
   Cuando se tiene muchos datos a veces resulta útil agruparlos para lograr una reducción de estos mejorando su calidad.
   \item[Estructuración de Datos]
   Hay veces donde los datos no  vienen estructurados de la misma forma o simplemente no hay estructura dada. para poder realizar un trabajo de minería de datos es necesario tener un estándar en la estructura de los datos. Por ejemplo, cuando se obtiene información de una página web, esta generalmente no posee una estructura dada, sino que, hay que crearle una para que sea legible y si se tienen más fuentes de datos, es necesario unificar la estructura en una sola.
-  \item[Normalización y Discretización de Datos]
-  Para que el modelamiento entregue resultados coherentes con la realidad, es sumamente necesario normalizar, discretizar y vectorizar los datos.\\
-  La normalización es un procedimiento donde se modifica la escala de los datos logrando que todos tengan una escala de magnitudes similares donde la distancia representará la información y no la magnitud. Generalmente se normaliza utilizando el siguiente procedimiento matemático:
-  [formula]
+  \item[Normalización y vectorización de Datos]
+  Para que el modelamiento entregue resultados coherentes con la realidad, es sumamente necesario normalizar y vectorizar los datos.\\
+  La normalización es un procedimiento donde se modifica la escala de los datos logrando que todos tengan una escala de magnitudes similares donde la distancia representará la información y no la magnitud. Generalmente se normaliza utilizando una escala uniforme establecimiento el mínimo y el máximo en la escala. \\Para esto se utiliza la siguiente formula que terminaría con una variable con valores entre [0,1]:
+  \begin{equation*}
+  \centering
+        z^{\prime}_{i}=\frac{x_i-\min(x)}{\max(x)-\min(x)}
+  \end{equation*}
+  Otra posibilidad es establecer los límites de la variable utilizando una transformación y la variable quedaría con los valores entre [a, b]:
+  \begin{equation*}
+  \centering
+       z_i=a + \frac{(x_i-\min(x))(b - a)}{\max(x)-\min(x)}
+  \end{equation*}
+  Finalmente, la vectorización de los datos implica el uso de algoritmos que son capaces de manejar datos que no poseen magnitud, es decir, categorías para transformarlos numérico que sea legible para el modelo.
   
-  Otra forma de normalizar, que más bien se habla de escalamiento, es utilizando una escala uniforme establecimiento el mínimo y el máximo en la escala. Matemáticamente se puede ver lo siguiente:
-  [formula]
-  
-  Finalmente la discretización y vectorización de los datos implica el uso de algoritmos que son capaces de manejar datos que no poseen magnitud, es decir, categorías para transformarlos en algo numérico que sea legible para el modelo.
-  
-  La discretización es un procedimiento que lo hace es asignarle números a las categorías, es decir, si tenemos una variable que contiene las siguientes categorías $\{\textrm{Santiago, La Florida, Lo Espejo}\}$ el algoritmo transformará está información en $\{1,2,3\}$. 
-  
-  La vectorización es también un procedimiento para transformar categorías, pero es aún más útil, puesto que separa cada categoría en una nueva variable donde se señala si se presenta o no cierta categoría. Utilizando el ejemplo anterior donde tenemos una variable categórica con las siguientes categorías $\{\textrm{Santiago, La Florida, Lo Espejo}\}$, al realizar la vectorización, el algoritmo como se puede ver en la Figura~\ref{fig:vect} crea 3 variables dónde cada una indica si la observación es de Santiago, La Florida ó Lo Espejo de forma separada, dónde $1$ señala que presenta esa característica y $0$ cuando no la presenta.
+  La vectorización es procedimiento para transformar categorías de texto o numéricas, separa cada categoría en una nueva variable donde se señala si se presenta o no cierta categoría. Utilizando el ejemplo anterior donde tenemos una variable categórica con las siguientes categorías $\{\textrm{Santiago, La Florida, Lo Espejo}\}$, al realizar la vectorización, el algoritmo como se puede ver en la Figura~\ref{fig:vect} crea tres variables dónde cada una indica si la observación es de Santiago, La Florida ó Lo Espejo de forma separada, dónde $1$ señala que presenta esa característica y $0$ cuando no la presenta.
     \begin{table}[H]
     \centering
     \begin{tabular}{l|c|c|c|}
@@ -122,7 +124,7 @@ Los procedimientos utilizados en esta etapa son los siguientes:
     \label{fig:vect}
     \end{table}
       
-  Todo esto se utiliza por que normalmente los algoritmos de aprendizaje automático requieren el uso de variables numéricas donde la distancia entre los datos es la que se compara, por tanto, no tendría sentido utilizar variables categóricas de texto ni tampoco usar dos variables que tengan diferentes escalas, puesto que los resultados entregados por este estarían influenciados por la variable que tenga la escala más grande.\footnote{Existen métodos que automáticamente manejan estos conflictos. Se hablará de estos más adelante.}
+  Todo esto se utiliza por que normalmente los algoritmos de aprendizaje automático requieren el uso de variables numéricas donde la distancia entre los datos es la que se compara, por tanto, no tendría sentido utilizar variables categóricas de texto ni tampoco usar dos variables que tengan diferentes escalas, puesto que los resultados entregados por este estarían influenciados por la variable que tenga la escala más grande.\footnote{Existen métodos que automáticamente manejan estos conflictos.}
 
 \end{description}
 La importancia de este proceso se puede resumir en tres puntos:
@@ -133,7 +135,18 @@ La importancia de este proceso se puede resumir en tres puntos:
 \end{enumerate}
 [cita]
 %http://www.cs.ccsu.edu/~markov/ccsu_courses/datamining-3.html
-
+\subsection{Limpieza y validación de los Datos}
+La limpieza y validación de datos es un paso muy importante, puesto que si se entregan datos erróneos o anómalos\footnote{Un dato anomalo se puede originar debido al error humano o estadístico. Por ejemplo, un promedio de algún alumno que se calculó mal o se anoto mal } al algoritmo de aprendizaje automatizado, es probable que el modelo de predicción no represente lo que debe. La limpieza de datos se puede realizar utilizando diferentes métodos manuales y automatizados\footnote{Existen los llamados \textit{outlier detectors} que básicamente son algoritmos de aprendizaje automatizados que buscan datos que no se ajustan al conjunto}. Para este trabajo, haremos una limpieza manual trabajando con diagramas de caja enfocándonos específicamente en la tasa de deserción.
+Un diagrama de caja es una visualización de un conjunto de datos donde representa una columna o variable basado en cuartiles, se muestra el 25\%, 50\%, 75\% de los datos.
+En la Figura~\ref{fig:outlier} se muestra un diagrama de caja con datos anómalos, estos son los puntos que se escapan de la linea. Nuestra limpieza de datos se basa en eliminar estos datos,
+\begin{figure}
+  \centering
+    \includegraphics[width=0.7\textwidth]{Figuras/outlier1}
+      \caption{Diagrama de caja y datos anómalos}
+    \label{fig:outlier}
+\end{figure}
+%http://academic.uprm.edu/wrolke/esma3102/graphs/outlier1.png
+Finalmente, la validación de los datos es otra área importante, esta tiene que ver con que los datos efectivamente tengan el tipo de dato que corresponde y que los datos sean coherentes con lo que deben representar. Para esto, se utilizan las herramientas automáticas de Pandas para detectar anomalías en el tipo de datos y para ver la coherencia de los datos con lo que quieren representar se hará una revisión de esto cuando se haga la exploración de los datos.
 \subsection{Algoritmos de Aprendizaje Automatizado}
 Para poder obtener información de los datos, se necesita analizar la información. Lamentablemente cuando tenemos demasiados datos, es imposible obtener información de forma rápida. Debido a esto, se plantearon diferentes algoritmos que buscan automáticamente lo relevante de los datos.
 A continuación señalaremos y haremos un breve resumen de los algoritmos más utilizados para la minería de datos.
@@ -423,10 +436,23 @@ Validación con retención & \begin{tabular}[c]{@{}c@{}}Conjunto de entrenamient
 
 % [tabla] Cross-Validation. Table 1. Pros and Cons of different validation methods
 
-\subsection{Afinación de los Parámetros del Modelo}
-La mayoría de los modelos poseen parámetros que definen diferentes atributos de este. Estos parámetros normalmente se determinan \textit{a priori}. Existen métodos que, en conjunto con la validación cruzada, logran además, encontrar los parámetros que más se acerquen al óptimo. Esto se hace con una técnica llamada Búsqueda Aleatoria de Grilla [cita]. Lo que hace la Búsqueda Aleatoria de Grilla es, a través de una distribución de probabilidad dada, crear una grilla de estos valores e ir probando $N$ valores de forma aleatoria hasta que se acerque al óptimo. En general, siempre se obtiene algo mejor, pero es difícil llegar al óptimo, dado la naturaleza del problema de búsqueda en optimización, donde la limitante para hacer una búsqueda exhaustiva es la capacidad computacional.
-[grafico]
-
+\subsection{Afinación de los Hiper-parámetros del Modelo}
+La mayoría de los modelos poseen parámetros que definen diferentes atributos de este. Estos parámetros normalmente se determinan \textit{a priori}. Existen métodos que logran llegar al mejor conjunto de parámetros posible. Existen dos métodos muy relacionados para realizar esto. el primero se llama Búsqueda de Grilla Exhaustiva, y el segundo, Búsqueda de Grilla Aleatoria\citep{Bergstra}. Lo que realizan estos métodos es un procedimiento llamado \textit{trial and error}, es decir, en base a prueba y error se encuentran los mejores parámetros. El primer método se señala cuando se hace una búsqueda exhaustiva, es decir, se entrega un conjunto grande de parámetros y se va entrenando un modelo de predicción con cada parámetro hasta encontrar el mejor. El segundo método, menos costoso computacionalmente, se realiza la búsqueda de parámetros utilizando una distribución de probabilidad y se prueban $N$ conjuntos de esa muestra. Este método claramente no puede asegurar el óptimo, pero sí mejorar la capacidad de predicción de un modelo de predicción.En la literatura anteriormente citada, se señala que se debe preferir al método aleatorio, pues es mucho más eficiente y fácil de implementar.
+Estos métodos son muy utilizados para la minería de datos, sobre todo para algoritmos que poseen muchos parámetros y se escogen arbitrariamente.
+En general, los siguientes parámetros\footnote{Se señalan generalmente como hiper-parámetros de modelo de predicción, debido a que los parámetros del modelo de predicción son los que se ajustan cuando se entrena el modelo y el objetivo de este método es optimizar los parámetros \textit{a priori}} son optimizados utilizando esta herramienta o heurística:
+\begin{itemize}
+\item Tasa de Aprendizaje(\textit{Learning Rate})\footnote{La tasa de aprendizaje de un algoritmo de aprendizaje automatizado señala qué tan rápido el algoritmo converge a una solución}
+\item Cantidad de Estimadores\footnote{Algunos modelos de predicción pueden contener más de un estimador, como hemos visto anteriormente}
+\item Parámetros de Regularización(L2, L1)\footnote{Los parámetros de regularización se utilizan para minimizar el sobre-ajuste es}
+\end{itemize}
+En la Figura~\ref{fig:gridsearch} podemos observar la diferencia de los métodos comentados, en el lado izquierdo se encuentra el método de búsqueda exhaustiva de grilla y en el lado derecho se encuentra la búsqueda de grilla aleatoria. De este gráfico se puede desprender que se pueden obtener valores más importantes en el método aleatorio, puesto que se seleccionan los puntos de forma aleatoria.
+       \begin{figure}[]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Figuras/gridsearchbad.jpg}
+         \caption{Comparación entre Búsqueda de Grilla Exhaustiva y Aleatoria[cita]}
+         \label{fig:gridsearch}
+      \end{figure}
+%http://cs231n.github.io/neural-networks-3/
 \subsection{Medición del Desempeño del Modelo}
 
 Para evaluar el desempeño de un modelo se pueden utilizar diferentes medidas. Para nuestro estudio, solamente señalaremos aquellas más importantes que son la precisión y la exhaustividad. La precisión, cuando hablamos de una tarea de clasificación, se define como la proporción de las observaciones que son clasificados correctamente y la exhaustividad es la proporción de observaciones relevantes correctamente clasificadas.
@@ -443,11 +469,9 @@ La Figura~\ref{fig:precision} muestra gráficamente la forma en que se evalúa l
 
 % https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/440px-Precisionrecall.svg.png
 
-Para poder obtener toda esta información debemos, como primer paso, calcular la matriz de confusión\footnote{En el campo de \textit{machine learning}, una matriz de confusión, también conocida como tabla de contingencia o una matriz de error, es una tabla específica que permite la visualización del desempeño de un algoritmo, típicamente un aprendizaje supervisado (en el aprendizaje no supervisado por lo general se llama una matriz de juego). Cada columna de la matriz representa las instancias de una clase predicha, mientras que cada fila representa las instancias de una clase real. El nombre deriva del hecho que hace que sea fácil de ver si el sistema está confundiendo dos clases.}, la cual tiene como objetivo resumir el resultado obtenido en la tarea de clasificación. 
+Para poder obtener toda esta información debemos, como primer paso, calcular la matriz de confusión\footnote{En el campo de minería de datos y estadística, una matriz de confusión, también conocida como tabla de contingencia o una matriz de error, es una tabla específica que permite la visualización del desempeño de un algoritmo, típicamente un aprendizaje supervisado (en el aprendizaje no supervisado por lo general se llama una matriz de juego). Cada columna de la matriz representa las instancias de una clase predicha, mientras que cada fila representa las instancias de una clase real. El nombre deriva del hecho que hace que sea fácil de ver si el sistema está confundiendo dos clases.}, la cual tiene como objetivo resumir el resultado obtenido en la tarea de clasificación. 
 
-En el Cuadro~\ref{tab:mconfusion} se presenta la forma en que se lee una matriz de confusión. Esta da a conocer el número de predicciones correctas, llamados verdadero positivo y verdadero negativo, para cada clasificación y el número de predicciones incorrectas. Estas últimas, las predicciones incorrectas dan origen a dos importantes errores. El error tipo I o falso positivo, se define como el rechazo incorrecto de una verdadera hipótesis nula, mientras que el error tipo II o falso negativo, se define como el hecho de no haber rechazado una hipótesis nula falsa. En otras palabras, un error de tipo I es la detección de un efecto que realmente no está presente, mientras que un error de tipo II está fallando para detectar un efecto que está presente.
-
-[grafico] 
+En el Cuadro~\ref{tab:mconfusion} se presenta la forma en que se lee una matriz de confusión. Esta da a conocer el número de predicciones correctas, llamados verdadero positivo y verdadero negativo\footnote{Esto a veces se les llama clase, en nuestro caso particular la condición positiva se define como la clase desertora, y la condición negativa es la clase no desertora o retenida}, para cada clasificación y el número de predicciones incorrectas. Estas últimas, las predicciones incorrectas dan origen a dos importantes errores. El error tipo I o falso positivo, se define como el rechazo incorrecto de una verdadera hipótesis nula, mientras que el error tipo II o falso negativo, se define como el hecho de no haber rechazado una hipótesis nula falsa. En otras palabras, un error de tipo I es la detección de un efecto que realmente no está presente, mientras que un error de tipo II está fallando para detectar un efecto que está presente.
 %rehacer tabla con colores señalando que es error tipo I y II: https://en.wikipedia.org/wiki/Confusion_matrix
 
 % Please add the following required packages to your document preamble:
@@ -461,10 +485,10 @@ En el Cuadro~\ref{tab:mconfusion} se presenta la forma en que se lee una matriz 
 \multicolumn{1}{|c|}{\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Condición\\ de \\ predicción\end{tabular}}} & \begin{tabular}[c]{@{}c@{}}Condición de \\ predicción positiva\end{tabular} & Verdadero positivo & \begin{tabular}[c]{@{}c@{}}Falso positivo\\ (Error tipo I)\end{tabular} \\ \cline{2-4} 
 \multicolumn{1}{|c|}{} & \begin{tabular}[c]{@{}c@{}}Condición de \\ predicción negativa\end{tabular} & \begin{tabular}[c]{@{}c@{}}Falso negativo\\ (Error tipo II)\end{tabular} & Verdadero negativo \\ \hline
 \end{tabular}
-\caption{Matriz de confusión.}
+\caption{Matriz de confusión}
 \label{tab:mconfusion}
 \end{table}
-
+Finalmente, podemos ver que para el caso especifico de la predicción de la deserción escolar el interés está en detectar deserción, por tanto, nuestra condición positiva sería la retención, y la negativa la deserción. Bajo este supuesto, el error tipo uno se define como 'Un alumno que desertó, pero fue clasificado como retenido o no desertor' y el error tipo dos se define como 'Un alumno que no desertó, pero fue clasificado como desertor'. Por tanto, el error más grave para nuestro caso especifico, es el de tipo dos, pues el objetivo precisamente del sistema es lograr predecir la deserción. Es por esta razón que finalmente nuestra medición para realizar las comparaciones será la exhaustividad de la detección de la condición negativa.
 
 [cita] 
 %http://www.flinders.edu.au/science_engineering/fms/School-CSEM/publications/tech_reps-research_artfcts/TRRA_2007.pdf
@@ -498,7 +522,7 @@ Python se basa en paquetes o librerías para poder distribuir soluciones especif
   \item[IPython] \hfill \\
   Shell interactiva para Python para poder explorar y trabajar en la memoria. Simula el estilo de MatLab y R.
 \end{description}
-Todas las liberías utilizadas en este proyecto, incluido Python son de código libre y de libertad de uso.
+Todas las librerias utilizadas en este proyecto, incluido Python son de código libre y de libertad de uso.
 \subsection{PyCharm}
 Interfaz de desarrollo para Python basado en Eclipse.\footnote{Ver más sobre PyCharm: https://www.jetbrains.com/pycharm/Py}
 \subsection{Tableau}
