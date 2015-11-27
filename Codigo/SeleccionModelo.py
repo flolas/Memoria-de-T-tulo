@@ -176,13 +176,29 @@ def report(grid_scores, n_top=1):
 
 # In[ ]:
 
-r = pd.read_csv('/Users/felipelolas/PycharmProjects/FracasoEscolarChile/DatasetsProcesados/SIMCE/ALU/SIMCE_GEO_2013-2014.csv', header=0, sep='|', decimal='.')
+r = pd.read_csv('SIMCE_GEO_2013-2014.csv',
+ header=0, sep='|', decimal='.')
 r = r.drop(r.columns[[0,29]],1)
 r = r.fillna(-999, axis=0)
-cols = ['MRUN','COD_COM_ALU','NOM_COM_ALU','SIT_FIN_R','EDAD_ALU','CODINE11','LAT_MANZANA_ALU','LON_MANZANA_ALU','RIESGO_DESERCION_RBD','DIR_RBD','LAT_MANZANA_RBD','LON_MANZANA_RBD',
-        'CONVIVENCIA_2M_RBD','CONVIVENCIA_4B_RBD','CONVIVENCIA_6B_RBD','CONVIVENCIA_8B_RBD','AUTOESTIMA_MOTIVACION_2M_RBD','AUTOESTIMA_MOTIVACION_4B_RBD','AUTOESTIMA_MOTIVACION_6B_RBD',
-        'AUTOESTIMA_MOTIVACION_8B_RBD','PARTICIPACION_2M_RBD','PARTICIPACION_4B_RBD','PARTICIPACION_6B_RBD','PARTICIPACION_8B_RBD','IVE_MEDIA_RBD','IVE_BASICA_RBD',
-        'PSU_PROM_2013_RBD','CPAD_DISP','DGV_RBD','NOM_RBD','NOM_COM_RBD','COD_COM_RBD','RBD','PROM_GRAL','ASISTENCIA','LET_CUR','CLASIFICACION_SEP_RBD','MAT_TOTAL_RBD', 'MAT_MEDIA_RBD', 'MAT_BASICA_RBD','PROF_INSP_H_MAT_RBD','PROF_ORI_H_MAT_RBD','TIPO_ESTAB_MAT_RBD','POB_FLOT_RBD','VACANTES_CUR_IN_RBD','CANT_DOC_RBD']
+cols = ['MRUN','COD_COM_ALU','NOM_COM_ALU','SIT_FIN_R',
+'EDAD_ALU','CODINE11','LAT_MANZANA_ALU','LON_MANZANA_ALU',
+'RIESGO_DESERCION_RBD','DIR_RBD','LAT_MANZANA_RBD','LON_MANZANA_RBD',
+'CONVIVENCIA_2M_RBD','CONVIVENCIA_4B_RBD','CONVIVENCIA_6B_RBD',
+'CONVIVENCIA_8B_RBD',
+'AUTOESTIMA_MOTIVACION_2M_RBD',
+'AUTOESTIMA_MOTIVACION_4B_RBD',
+'AUTOESTIMA_MOTIVACION_6B_RBD',
+'AUTOESTIMA_MOTIVACION_8B_RBD','PARTICIPACION_2M_RBD',
+'PARTICIPACION_4B_RBD','PARTICIPACION_6B_RBD',
+'PARTICIPACION_8B_RBD','IVE_MEDIA_RBD','IVE_BASICA_RBD',
+'PSU_PROM_2013_RBD','CPAD_DISP','DGV_RBD',
+'NOM_RBD','NOM_COM_RBD',
+'COD_COM_RBD','RBD','PROM_GRAL'
+,'ASISTENCIA','LET_CUR','CLASIFICACION_SEP_RBD',
+'MAT_TOTAL_RBD', 'MAT_MEDIA_RBD', 'MAT_BASICA_RBD',
+'PROF_INSP_H_MAT_RBD','PROF_ORI_H_MAT_RBD',
+'TIPO_ESTAB_MAT_RBD','POB_FLOT_RBD',
+'VACANTES_CUR_IN_RBD','CANT_DOC_RBD']
 data = r.drop(cols,1)
 data = data.drop(data.filter(like="IMPARTE").columns,1)
 output_data = data[['ABANDONA_ALU','DESERTA_ALU','ABANDONA_2014_ALU']]
@@ -192,11 +208,13 @@ data = data.drop(['ABANDONA_ALU','DESERTA_ALU','ABANDONA_2014_ALU'],1)
 # ## Preprocessing Pandas Dataframe
 
 # In[ ]:
-
-ordinal_integer_cols = ['CANT_TRASLADOS_ALU','CANT_DELITOS_COM_ALU','CANT_CURSOS_RBD','CANT_DELITOS_MANZANA_RBD',
-                   'CANT_DOC_M_RBD','CANT_DOC_F_RBD','PAGO_MATRICULA_RBD','PAGO_MENSUAL_RBD',
-                   'SEL_SNED_RBD','BECAS_DISP_RBD','PROM_ALU_CUR_RBD','CANT_DELITOS_COM_RBD',
-                   'EDU_P','EDU_M','ING_HOGAR']
+ordinal_integer_cols = ['CANT_TRASLADOS_ALU','CANT_DELITOS_COM_ALU',
+'CANT_CURSOS_RBD','CANT_DELITOS_MANZANA_RBD',
+'CANT_DOC_M_RBD','CANT_DOC_F_RBD',
+'PAGO_MATRICULA_RBD','PAGO_MENSUAL_RBD',
+'SEL_SNED_RBD','BECAS_DISP_RBD',
+'PROM_ALU_CUR_RBD','CANT_DELITOS_COM_RBD',
+'EDU_P','EDU_M','ING_HOGAR']
 ordinal_float_data = data.loc[:, data.dtypes == float]
 ordinal_data = pd.concat([ordinal_float_data, data[ordinal_integer_cols]],axis=1)
 data = data.drop(ordinal_data.columns,1)
@@ -205,7 +223,8 @@ nominal_data = data.loc[:, data.dtypes == int]
 data = None
 ##Hacks para discretizar, no se puede usar en un Pipeline
 for i in nominal_string_data.columns:
-    nominal_string_data[i] = preprocessing.LabelEncoder().fit_transform(nominal_string_data[i])
+    nominal_string_data[i] = preprocessing.LabelEncoder()
+    .fit_transform(nominal_string_data[i])
 nominal_data = pd.concat([nominal_data, nominal_string_data],axis=1)
 data = pd.concat([ordinal_data, nominal_data],axis=1)
 
@@ -215,16 +234,23 @@ nominalSelector = ItemSelector(nominal_data.columns.values)
 recall_1_scorer = make_scorer(recall_score, pos_label=1,average='binary')
 recall_0_scorer = make_scorer(recall_score, pos_label=0,average='binary')
 roc_curve_scorer = make_scorer(roc_curve,pos_label=1)
-#m = ['SOBRE_EDAD_ALU','PROM_GRAL_RANK','ASISTENCIA_RANK','EDU_SUP_M','EDU_SUP_P','GSE_MANZANA_ALU','GSE_MANZANA_RBD','CONVIVENCIA_PROM_RBD',
-#'PAGO_MATRICULA_RBD','PAGO_MENSUAL_RBD','SELECCION_RBD','AUTOESTIMA_MOTIVACION_PROM_RBD','PARTICIPACION_PROM_RBD','EDU_P','EDU_M']
+#m = ['SOBRE_EDAD_ALU','PROM_GRAL_RANK','ASISTENCIA_RANK',
+#'EDU_SUP_M','EDU_SUP_P','GSE_MANZANA_ALU','GSE_MANZANA_RBD',
+#'CONVIVENCIA_PROM_RBD',
+#'PAGO_MATRICULA_RBD','PAGO_MENSUAL_RBD',
+#'SELECCION_RBD','AUTOESTIMA_MOTIVACION_PROM_RBD',
+#'PARTICIPACION_PROM_RBD',
+#'EDU_P','EDU_M']
 X = data
 y = output_data['DESERTA_ALU']
 random_state = 100
 np.random.seed(random_state)
-X_train_outer, X_test_outer, y_train_outer, y_test_outer = train_test_split(data, y, test_size=0.3, random_state=random_state, stratify=y) 
+X_train_outer, X_test_outer, y_train_outer, y_test_outer = train_test_split(data, y, test_size=0.3, 
+  random_state=random_state, stratify=y) 
 X_train_outer, y_train_outer = deleteRandom(X_train_outer, y_train_outer, col='DESERTA_ALU')
 estimators = [('Neural Network(1 / 1 Tanh / 1)', 
-              Classifier(layers=[Layer("Tanh", name="hidden0",units=50), Layer("Softmax")], n_iter=5, verbose=True),
+              Classifier(layers=[Layer("Tanh", name="hidden0",units=50), Layer("Softmax")], n_iter=5, 
+                verbose=True),
               {
               'estimator__hidden0__units': sp_randint(20, 30),
               'estimator__random_state': [random_state]
@@ -311,7 +337,9 @@ best_estimators.append(['Naive-Bayes', [np.mean(cvs), np.mean(cvs)], t.time() - 
 print(np.mean(cvs))
 print(np.std(cvs))
 for name, estimator, param_dist in estimators:
-    estimator, score, time, params = PerfGridSearchCV(estimator = estimator, n_iter_search = 20, param_distributions = param_dist, random_state = random_state, X_train = X_train_outer, y_train = y_train_outer, X_test = X_test_outer, y_test = y_test_outer, scoring='f1')
+    estimator, score, time, params = PerfGridSearchCV(estimator = estimator, n_iter_search = 20, 
+      param_distributions = param_dist, random_state = random_state, X_train = X_train_outer, 
+      y_train = y_train_outer, X_test = X_test_outer, y_test = y_test_outer, scoring='f1')
     best_estimators.append((name, score, time, estimator, params))
     #t.sleep(5)
 with open("output_model_selection.csv",'wb') as f:

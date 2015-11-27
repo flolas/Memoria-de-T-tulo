@@ -44,7 +44,8 @@
               \end{equation}
               \item[Edad del alumno] (EDAD\_ALU): La edad del alumno se calcula basada en la diferencia entre la fecha de nacimiento disponible en la columna $FEC\_NAC_\_ALU$ y el año actual $t$, utilizando el día y el mes donde se observa la información\footnote{30 de junio de cada año}. Para esto se utiliza una función especializada para calcular la diferencia entre dos fechas\footnote{Para el cálculo de la diferencia entre dos fechas, se utiliza la librería 'datetime' que está integrada a Python.}.
              
-              \item[Sobre-edad del alumno] (SOBRE\_EDAD\_ALU): Este indicador señala la cantidad de años que un alumno $j$ en particular está por sobre la edad respectiva a su grado, en este caso, como mejor aproximación usaremos el promedio de la edad de todos los alumnos del grado $COD\_GRADO$ representado por $g$, ya que al utilizar esto captamos mayor información de la adecuación del alumno con respecto a sus pares.[cita] La construcción se puede ver en la Ecuación~\ref{eq:sd}
+              \item[Sobre-edad del alumno] (SOBRE\_EDAD\_ALU): Este indicador señala la cantidad de años que un alumno $j$ en particular está por sobre la edad respectiva a su grado, en este caso, como mejor aproximación usaremos el promedio de la edad de todos los alumnos del grado $COD\_GRADO$ representado por $g$, ya que al utilizar esto captamos mayor información de la adecuación del alumno con respecto a sus pares.%[cita]
+              La construcción se puede ver en la Ecuación~\ref{eq:sd}
               \begin{equation}
               \centering
               SOBRE\_EDAD\_ALU_{j}^{t} = \left\{

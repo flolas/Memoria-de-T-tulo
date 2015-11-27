@@ -1,12 +1,12 @@
 \chapter{METODOLOGÍA}
 \label{ch:metodologia}
 
-A lo largo de este capítulo se señalará con qué métodos y herramientas será posible lograr con éxito el objetivo de este trabajo. Estas estarán basadas en la experiencia de trabajos previos revisados en el Capitulo~\ref{ch:marcoteorico} y metodologías ampliamente utilizadas en la minería de datos [cita] para la obtención de información valiosa en los datos de forma efectiva.
+A lo largo de este capítulo se señalará con qué métodos y herramientas será posible lograr con éxito el objetivo de este trabajo. Estas estarán basadas en la experiencia de trabajos previos revisados en el Capitulo~\ref{ch:marcoteorico} y metodologías ampliamente utilizadas en la minería de datos para la obtención de información valiosa en los datos de forma efectiva.
 
 \section{Minería de datos}
 
-Para poder cumplir con los objetivos del trabajo es necesario comenzar seleccionando una de las metodologías de minería de datos presentadas en el capítulo Capitulo~\ref{ch:marcoteorico}. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.\ref{shafique2014comparative}
-Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad.\ref{kdnuggets2014}
+Para poder cumplir con los objetivos del trabajo es necesario comenzar seleccionando una de las metodologías de minería de datos presentadas en el capítulo Capitulo~\ref{ch:marcoteorico}. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.\cite{shafique2014comparative}
+Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad.\cite{kdnuggets2014}
 
 \begin{table}[H]
 \centering
@@ -27,7 +27,7 @@ Además, se ha visto durante varios años que la metodología CRISP-DM es la má
 \multirow{-9}{*}{{\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}Nombre de cada\\ paso\end{tabular}}} & \begin{tabular}[c]{@{}c@{}}Utilización del conocimiento \\ descubierto\end{tabular} & Implementación & ------ \\ \hline
 \end{tabular}
 }
-\caption{Resumen de los procesos KDD, CRISP-SM y SEMMA.}
+\caption{Resumen de los procesos KDD, CRISP-SM y SEMMA}
 \label{tab:metodos}
 \end{table}
 
@@ -38,7 +38,7 @@ En el Cuadro~\ref{tab:metodos} se realiza una comparación de forma resumida cad
 En este apartado se presentan las diferentes herramientas que serán utilizadas posteriormente con el fin de conocer los datos que se reunirán. 
 
 \subsubsection{Clasificación y regresión}
-La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.\ref{datamining2010}
+La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.\cite{datamining2010}
 
 Matemáticamente podemos ver lo siguiente:\\
 Teniendo $N$ observaciones con variables $x_1, x_2, x_3, ... , x_i$ se busca predecir el valor de las variables $y_1, y_2, y_3, ... , y_j$ para las $N$ observaciones de forma independiente.
@@ -48,7 +48,7 @@ $f(x_1, x_2, x_3, ... , x_i) = y_1, y_2, y_3, ... , y_j$
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/Clasificacion}
-      \caption{Ejemplos de clasificación y regresión.\ref{scikitlearn2014}
+      \caption{Ejemplos de clasificación y regresión\cite{scikitlearn2014}}
     \label{fig:clasificacion}
 \end{figure}
 
@@ -58,7 +58,7 @@ El análisis de reglas asociativas busca descubrir patrones o asociaciones en ba
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.7\textwidth]{Figuras/Carrito}
-      \caption{Ejemplo del análisis del carrito de supermercado.%[cita]}
+      \caption{Ejemplo del análisis del carrito de supermercado}
     \label{fig:carrito}
 \end{figure}
 
@@ -73,12 +73,11 @@ Teniendo $N$ observaciones con variables $x_1, x_2, x_3, ... , x_i$ se buscan ag
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/Conglomerados}
-      \caption{Ejemplo de análisis de conglomerados.}
+      \caption{Ejemplo de análisis de conglomerados}
     \label{fig:conglomerado}
 \end{figure}
 
-Lo que se observa gráficamente en un análisis de conglomerados se muestra en la Figura~\ref{fig:conglomerado}, donde es posible ver que se generan grupos donde sus elementos sean lo más homogéneos posible, y los grupos entre ellos sean lo más heterogéneos posible. 
-%[cita] dataclusreview [revisar]
+Lo que se observa gráficamente en un análisis de conglomerados se muestra en la Figura~\ref{fig:conglomerado}, donde es posible ver que se generan grupos donde sus elementos sean lo más homogéneos posible, y los grupos entre ellos sean lo más heterogéneos posible. \cite{dataclusreview}
 
 \subsection{Transformación de los datos}
 La transformación de datos debe estar presente cuando se quiere aplicar minería de datos, ya que es un paso fundamental para que los datos sean legibles y válidos para los algoritmos del procedimiento del modelamiento.
@@ -91,24 +90,24 @@ Los procedimientos utilizados en esta etapa son los siguientes:
   \item[Estructuración de Datos]
   Hay veces donde los datos no  vienen estructurados de la misma forma o simplemente no hay estructura dada. para poder realizar un trabajo de minería de datos es necesario tener un estándar en la estructura de los datos. Por ejemplo, cuando se obtiene información de una página web, esta generalmente no posee una estructura dada, sino que, hay que crearle una para que sea legible y si se tienen más fuentes de datos, es necesario unificar la estructura en una sola.
   \item[Imputación de Datos]
-  Generalmente cuando se trabaja con muchos datos nos encontramos con datos faltantes en una observación. Una opción es eliminar directamente la observación completa, pero lamentablemente estaríamos perdiendo información valiosa. Sin embargo, existen métodos que se encargan de reparar estos datos.\ref{gelman2007missingdata} En general los más utilizados son los siguientes:
+  Generalmente cuando se trabaja con muchos datos nos encontramos con datos faltantes en una observación. Una opción es eliminar directamente la observación completa, pero lamentablemente estaríamos perdiendo información valiosa. Sin embargo, existen métodos que se encargan de reparar estos datos.\cite{gelman2007missingdata} En general los más utilizados son los siguientes:
  \begin{enumerate}[label=\itshape\alph*\upshape)]
   \item \textbf{Imputación del promedio}: lo que se hace este método lo que hace es calcular el promedio($\sum_{i=1}^N \frac{x_i}{N}$) de la columna y este se imputa a todos los datos faltantes de esa columna.
   \item \textbf{Imputación de la mediana}: este método funciona de la misma forma que el anterior, pero en vez del promedio, utiliza la mediana para imputar datos faltantes.
   \end{enumerate}
   En este trabajo utilizaremos los métodos anteriormente señalados en función del tipo de datos, es decir, si estamos frente a un dato ordinal o nominal, utilizaremos la imputación de la mediana, pues si utilizáramos el promedio nos daría una categoría promedio no existente. Para el caso de variables continuas con escala, simplemente imputaremos el promedio.
   \item[Normalización y vectorización de Datos]
-  Para que el modelamiento entregue resultados coherentes con la realidad, es sumamente necesario normalizar y vectorizar los datos.%[cita]
+  Para que el modelamiento entregue resultados coherentes con la realidad, es sumamente necesario normalizar y vectorizar los datos.
   La normalización es un procedimiento donde se modifica la escala de los datos logrando que todos tengan una escala de magnitudes similares donde la distancia representará la información y no la magnitud. Generalmente se normaliza utilizando una escala uniforme establecimiento el mínimo y el máximo en la escala. \\Para esto se utiliza la siguiente formula que terminaría con una variable con valores entre [0,1]:
-  \begin{equation*}
+  \begin{equation}
   \centering
         z^{\prime}_{i}=\frac{x_i-\min(x)}{\max(x)-\min(x)}
-  \end{equation*}
+  \end{equation}
   Otra posibilidad es establecer los límites de la variable utilizando una transformación y la variable quedaría con los valores entre [a, b]:
-  \begin{equation*}
+  \begin{equation}
   \centering
        z_i=a + \frac{(x_i-\min(x))(b - a)}{\max(x)-\min(x)}
-  \end{equation*}
+  \end{equation}
   Finalmente, la vectorización de los datos implica el uso de algoritmos que son capaces de manejar datos que no poseen magnitud, es decir, categorías para transformarlos numérico que sea legible para el modelo.
   
   La vectorización es procedimiento para transformar categorías de texto o numéricas, separa cada categoría en una nueva variable donde se señala si se presenta o no cierta categoría. Utilizando el ejemplo anterior donde tenemos una variable categórica con las siguientes categorías $\{\textrm{Santiago, La Florida, Lo Espejo}\}$, al realizar la vectorización, el algoritmo como se puede ver en la Figura~\ref{fig:vect} crea tres variables dónde cada una indica si la observación es de Santiago, La Florida ó Lo Espejo de forma separada, dónde $1$ señala que presenta esa característica y $0$ cuando no la presenta.
@@ -128,13 +127,12 @@ Los procedimientos utilizados en esta etapa son los siguientes:
   Todo esto se utiliza por que normalmente los algoritmos de aprendizaje automático requieren el uso de variables numéricas donde la distancia entre los datos es la que se compara, por tanto, no tendría sentido utilizar variables categóricas de texto ni tampoco usar dos variables que tengan diferentes escalas, puesto que los resultados entregados por este estarían influenciados por la variable que tenga la escala más grande.\footnote{Existen métodos que automáticamente manejan estos conflictos.}
 
 \end{description}
-La importancia de este proceso se puede resumir en tres puntos:
+La importancia de este proceso se puede resumir en tres puntos:\cite{dr.zdravkomarkov}
 \begin{enumerate}
   \item Los datos se obtienen del mundo real donde puede estar incompleta, con ruido y ser inconsistente
   \item La preparación de datos genera un conjunto de datos más pequeño que el original logrando menos tiempo de procesamiento en el proceso del modelamiento
   \item La preparación de datos genera conjuntos de datos de calidad mejorando los patrones encontrados
 \end{enumerate}
-%[cita] dr.zdravkomarkov
 \subsection{Limpieza y validación de los datos}
 La limpieza y validación de datos es un paso muy importante, puesto que si se entregan datos erróneos o anómalos\footnote{Un dato anomalo se puede originar debido al error humano o estadístico. Por ejemplo, un promedio de algún alumno que se calculó mal o se anoto mal } al algoritmo de aprendizaje automatizado, es probable que el modelo de predicción no represente lo que debe. La limpieza de datos se puede realizar utilizando diferentes métodos manuales y automatizados\footnote{Existen los llamados \textit{outlier detectors} que básicamente son algoritmos de aprendizaje automatizados que buscan datos que no se ajustan al conjunto}. Para este trabajo, haremos una limpieza manual trabajando con diagramas de caja enfocándonos específicamente en la tasa de deserción.
 Un diagrama de caja es una visualización de un conjunto de datos donde representa una columna o variable basado en cuartiles, se muestra el 25\%, 50\%, 75\% de los datos.
@@ -142,7 +140,7 @@ En la Figura~\ref{fig:outlier} se muestra un diagrama de caja con datos anómalo
 \begin{figure}
   \centering
     \includegraphics[width=0.7\textwidth]{Figuras/outlier1}
-      \caption{Diagrama de caja y datos anómalos}
+      \caption{Diagrama de caja y datos anómalos\cite{outlier1}}
     \label{fig:outlier}
 \end{figure}
 %outlier1
@@ -150,8 +148,6 @@ Finalmente, la validación de los datos es otra área importante, esta tiene que
 \subsection{Algoritmos de aprendizaje automatizado}
 Para poder obtener información de los datos, se necesita analizar la información. Lamentablemente cuando tenemos demasiados datos, es imposible obtener información de forma rápida. Debido a esto, se plantearon diferentes algoritmos que buscan automáticamente lo relevante de los datos.
 A continuación señalaremos y haremos un breve resumen de los algoritmos más utilizados para la minería de datos.
-
-%[cita] uru.edu [regresion logistica]
 
 \begin{enumerate}
   \item Clasificación y Regresión
@@ -165,21 +161,19 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       
       Para determinar qué tan buena es una regresión, es decir, cuán precisa es la recta con respecto a los datos, se define el coeficiente de determinación $R^2$. Se trata de un indicador estandarizado que toma valores entre 0 y 1, y da a conocer el porcentaje de datos que son explicados por la regresión. 
       
-      En la Figura~\ref{fig:dispersion} se ve un ejemplo de un diagrama de dispersión, donde se muestra el porcentaje de alcohol que contienen diferentes productos y sus precios. Junto a esto, se muestra también la recta de regresión lineal simple, representada por la ecuación $y=20,16+11,61x$, donde $y$ representa el precio y $x$ el porcentaje de alcohol. 
+      En la Figura~\ref{fig:dispersion} se ve un ejemplo de un diagrama de dispersión, donde se muestra el porcentaje de alcohol que contienen diferentes productos y sus precios. Junto a esto, se muestra también la recta de regresión lineal simple, representada por la ecuación $y=20,16+11,61x$, donde $y$ representa el precio y $x$ el porcentaje de alcohol.
       
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/Dispersion}
-         \caption{Ejemplo: porcentaje de de alcohol por precio.%[cita]}
+         \caption{Ejemplo: porcentaje de de alcohol por precio}
          \label{fig:dispersion}
     \end{figure}
-      
-      %[cita] socivmyt [regresión lineal]
       
       Para el ejemplo de la Figura~\ref{fig:dispersion}, $R^2=0,06$ lo que significa que el porcentaje de alcohol contenido en los productos explica sólo el 6\% de su precio. 
       
       \item[Regresión Logística] \hfill \\
-      El método de regresión logística es un modelo de regresión lineal en el cual la o las variables dependientes son binarias\footnote{Una variable binaria es aquella que adopta sólo dos valores posibles, como por ejemplo  éxito y fracaso, positivo y negativo, muerto y vivo, buen y mal desempeño,, aprobado o no aprobado.}
+      El método de regresión logística\cite{uru.edu} es un modelo de regresión lineal en el cual la o las variables dependientes son binarias\footnote{Una variable binaria es aquella que adopta sólo dos valores posibles, como por ejemplo  éxito y fracaso, positivo y negativo, muerto y vivo, buen y mal desempeño,, aprobado o no aprobado.}
       La finalidad de este método de regresión es explicar y predecir una variable categórica binaria\footnote{Las variables categóricas también se denominan variables cualitativas o variables de atributos. Una variable categórica binaria cuenta con dos atributos posibles.}.
       
       Este método es útil para modelar la probabilidad de un evento ocurriendo como función de otros factores.
@@ -212,21 +206,19 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/CurvaLog}
-         \caption{Curva logística.%[cita]}
+         \caption{Curva logística}
          \label{fig:curvalog}
     \end{figure}
-    %https://es.wikipedia.org/wiki/Función_log%C3%ADstica???? wikipedia????
-     
+
       \item[Máquina de Vectores de Soporte] \hfill \\
-      %[cita] betancourt2005maquinas
-      La máquina de vectores de soporte (SVM) es un conjunto de algoritmos de aprendizaje supervisado, es decir, una técnica de predicción. 
+      La máquina de vectores de soporte (SVM)\cite{betancourt2005maquinas} es un conjunto de algoritmos de aprendizaje supervisado, es decir, una técnica de predicción. 
       
       Una SVM comienza mapeando los puntos de entrada a un espacio de características de una dimensión mayor, es decir, si los datos se encuentran en $R^2$, son mapeados por la SVM a $R^3$ para encontrar un hiperplano capaz de separarlos en clases y maximizar el margen $m$ entre estas, como se muestra en la Figura~\ref{fig:svm}.
       
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/SVM}
-         \caption{La frontera de decisión debe estar tan lejos de los datos de ambas clases como sea posible.%[cita]}
+         \caption{La frontera de decisión debe estar tan lejos de los datos de ambas clases como sea posible}
          \label{fig:svm}
       \end{figure}
       
@@ -273,14 +265,12 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
        \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/RedNeuronal}
-         \caption{Vista gráfica de una red neuronal.  [cita]}
+         \caption{Vista gráfica de una red neuronal\cite{rominalaurabot2005}}
          \label{fig:redneuronal}
       \end{figure}
-      %http://materias.fi.uba.ar/7500/bot-tesisdegradoingenieriainformatica.pdf
 
       \item[Vecino Más Cercano] \hfill \\
-     %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.220.2882&rep=rep1&type=pdf
-     El método del vecino más cercano es uno de los métodos de clasificación más simples de los algoritmos para la predicción de clases. Este se basa en el aprendizaje supervisado, es decir, en la existencia de dos muestras: una de entrenamiento y otra de testeo. Gracias a la muestra de entrenamiento, que contiene casos ($x$) con sus respectivas etiquetas ($y$), posible hacer la predicción para los casos de la muestra de testeo.
+     El método del vecino más cercano\cite{elkan2011nearest} es uno de los métodos de clasificación más simples de los algoritmos para la predicción de clases. Este se basa en el aprendizaje supervisado, es decir, en la existencia de dos muestras: una de entrenamiento y otra de testeo. Gracias a la muestra de entrenamiento, que contiene casos ($x$) con sus respectivas etiquetas ($y$), posible hacer la predicción para los casos de la muestra de testeo.
      
      Específicamente, este método lo que hace es, dado un conjunto de datos de la forma $(x,y)$, transformarlos en una función de distancia. 
      
@@ -303,29 +293,26 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/Arbol}
-         \caption{Vista gráfica de un árbol de decisión.}
+         \caption{Vista gráfica de un árbol de decisión}
          \label{fig:arbol}
       \end{figure}
       
       Por ejemplo, si un dato posee los atributos color=rojo y forma=cuadrado, sería clasificado en la categoría B, como se muestra en la Figura~\ref{fig:arbol}. 
       
       \item[Bosques Aleatorios] \hfill \\
-      %http://machinelearning202.pbworks.com/w/file/fetch/60606349/breiman_randomforests.pdf
-      Los bosques aleatorios son un método de clasificación y predicción que consiste en la combinación de árboles de de decisión, en la que cada árbol depende de los valores de un vector aleatorio probado independientemente y con la misma distribución para cada uno de estos.
+      Los bosques aleatorios\cite{breiman2001random} son un método de clasificación y predicción que consiste en la combinación de árboles de de decisión, en la que cada árbol depende de los valores de un vector aleatorio probado independientemente y con la misma distribución para cada uno de estos.
       
       Este es un algoritmo que mejora la precisión en la clasificación mediante la incorporación de aleatoriedad en la construcción de cada clasificador individual. Esta aleatorización puede introducirse tanto en la partición del espacio (construcción del árbol), así como en la muestra de entrenamiento. Los bosques aleatorios comienzan con una técnica de aprendizaje automático estándar descrita anteriormente, árbol de decisión, que, en cuanto al conjunto, corresponde a un aprendizaje. Tal como fue descrito, en un árbol de decisión, una entrada se introduce en la parte superior y hacia abajo a medida que atraviesa el árbol de los datos, los cuales se acumulan en conjuntos más pequeños.
       
       Este método permite hacer de manera segura predicciones más precisas y sin la mayoría de los errores básicos comunes a otros métodos.
       
       \item[AdaBoost] \hfill \\
-      %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.329&rep=rep1&type=pdf 
-      El AdaBoost o \textit{Adaptive Boosting} es un método que construye una regla de clasificación final utilizando varios clasificadores menores, denominados “débiles” por su sencillez y escasa precisión. En solitario estos clasificadores débiles no constituirían un sistema de clasificación útil debido a su alta inexactitud, pero al usarlos en conjunto es posible construir un clasificador mucho más preciso. Los clasificadores débiles corresponden a reglas de clasificación simples y que entregan como resultado un valor de confianza, o confidencia, respecto a la predicción que están haciendo.
+      El AdaBoost\cite{collins2002logistic} o \textit{Adaptive Boosting} es un método que construye una regla de clasificación final utilizando varios clasificadores menores, denominados “débiles” por su sencillez y escasa precisión. En solitario estos clasificadores débiles no constituirían un sistema de clasificación útil debido a su alta inexactitud, pero al usarlos en conjunto es posible construir un clasificador mucho más preciso. Los clasificadores débiles corresponden a reglas de clasificación simples y que entregan como resultado un valor de confianza, o confidencia, respecto a la predicción que están haciendo.
       
       Los clasificadores débiles  generan resultados pobres, pero es posible  definir clasificadores mas robustos enlazando una serie de módulos como el de la figura,  incrementando de manera exponencial el éxito de detección. Aun cuando estos clasificadores fuertes  pueden llegar a una tasa de detección del 99\%, la tasa de falsos positivos puede ubicarse por encima de 30\%.
       
       \item[GradientBoost] \hfill \\
-      %https://www.cs.princeton.edu/courses/archive/spring07/cos424/papers/boosting-survey.pdf
-      \textit{Gradient Boost} es un método de aprendizaje automático para problemas de regresión y clasificación. La idea es generar un modelo de predicción en forma de un conjunto de modelos de predicción débiles, que son, por lo general, árboles de decisión. La forma en que el modelo es construido es mediante etapas, Construye el modelo mediante etapas, y los generaliza, permitiéndoles optimizar de manera arbitraria la función de pérdida.
+      \textit{Gradient Boost}\cite{schapire2003boosting} es un método de aprendizaje automático para problemas de regresión y clasificación. La idea es generar un modelo de predicción en forma de un conjunto de modelos de predicción débiles, que son, por lo general, árboles de decisión. La forma en que el modelo es construido es mediante etapas, Construye el modelo mediante etapas, y los generaliza, permitiéndoles optimizar de manera arbitraria la función de pérdida.
       
     \end{description}
     
@@ -334,20 +321,17 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
     \begin{description}
     
       \item[Apriori] \hfill \\
-      %http://web.archive.org/web/20140108174403/https://p178-194.ujaen.es:522/~carlosmo/sites/default/files/doctorado.pdf
-      El algoritmo apriori, en minería de datos, se utiliza con el fin de encontrar reglas de asociación\footnote{En el área de minería de datos y aprendizaje automático, las reglas de asociación se utilizan con el objetivo de descubrir hechos que ocurren en común dentro de un determinado conjunto de datos. Se han investigado ampliamente diversos métodos para aprendizaje de reglas de asociación que han resultado ser muy interesantes para descubrir relaciones entre variables en grandes conjuntos de datos.} en un conjunto de datos. 
+      El algoritmo apriori\cite{agrawal1994fast}, en minería de datos, se utiliza con el fin de encontrar reglas de asociación\footnote{En el área de minería de datos y aprendizaje automático, las reglas de asociación se utilizan con el objetivo de descubrir hechos que ocurren en común dentro de un determinado conjunto de datos. Se han investigado ampliamente diversos métodos para aprendizaje de reglas de asociación que han resultado ser muy interesantes para descubrir relaciones entre variables en grandes conjuntos de datos.} en un conjunto de datos. 
       
       Este algoritmo se encuentra basado en el conocimiento previo o “a priori” de los conjuntos frecuentes, lo que resulta útil para reducir el espacio de búsqueda y aumentar la eficiencia.
       
       \item[Eclat] \hfill \\
-      %http://repositorio.utp.edu.co/dspace/bitstream/11059/1339/1/006312G216.pdf
       Eclat es un algoritmo de búsqueda en profundidad mediante el uso de la intersección conjunto.
       
       Se basa en realizar un agrupamiento entre los datos para aproximarse al conjunto de datos frecuentes maximales y luego emplear algoritmos eficientes para generar los datos frecuentes contenidos en cada grupo. Para el agrupamiento se proponen dos métodos, los que son empleados después de descubrir los conjuntos frecuentes de dos elementos: el primero, por clases de equivalencia: esta técnica agrupa los sets de datos que tienen el primer dato igual. El segundo, por la búsqueda de cliques maximales: se genera un grafo de equivalencia cuyos nodos son los datos, y los arcos conectan los datos de los 2- set de datos frecuentes, se agrupan los datos por aquellos que forman cliques maximales.
       
       \item[FP-Growth] \hfill \\
-      %http://gredos.usal.es/xmlui/bitstream/handle/10366/83342/DIA_PinhoLucasJ_Métodosdeclasificación.pdf?sequence=1
-      El funcionamiento del algoritmo \textit{FP-Growth} se basa en la utilización de \textit{FP-Tree} o un árbol de patrones frecuentes. Este árbol almacena información acerca de conjuntos de datos frecuentes de forma compacta y así permite realizar consultas de manera más eficiente. Mediante el uso de esta estructura de almacenamiento, se reduce el esfuerzo para la obtención de reglas de asociación, ya que no es necesario generar los conjuntos de datos candidatos a frecuentes y tampoco verificar si ellos superan a un determinado umbral.
+      El funcionamiento del algoritmo \textit{FP-Growth}\cite{pinho2010metodos} se basa en la utilización de \textit{FP-Tree} o un árbol de patrones frecuentes. Este árbol almacena información acerca de conjuntos de datos frecuentes de forma compacta y así permite realizar consultas de manera más eficiente. Mediante el uso de esta estructura de almacenamiento, se reduce el esfuerzo para la obtención de reglas de asociación, ya que no es necesario generar los conjuntos de datos candidatos a frecuentes y tampoco verificar si ellos superan a un determinado umbral.
       
       La estructura \textit{FP-Tree} consiste en un nodo raíz que posee una etiqueta de valor nulo, un conjunto de subárboles hijos del nodo raíz y una tabla-cabecera que almacena información acerca de los datos frecuentes. En cada entrada de la tabla, se almacena el nombre del dato y un apuntador para el primer nodo del árbol que lo posee. En cada nodo del árbol se almacena el nombre del dato que lo está ocupando, un contador referente a la frecuencia de este  y un apuntador para el próximo nodo del árbol que almacena el mismo nombre del dato.
       
@@ -358,11 +342,10 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
     \end{description}
     
     
-  \item Análisis de Conglomerados
+  \item Análisis de Conglomerados\cite{dataclusreview}
     \begin{description}
     
       \item[Vecino Más Cercano] \hfill \\
-     %http://halweb.uc3m.es/esp/Personal/personas/jmmarin/esp/GuiaSPSS/22conglj.pdf
      El método del vecino más cercano es un método de conglomeración de datos que se basa en agrupar elementos más próximos. Comienza seleccionando y agrupando los dos elementos que se encuentran más cercanos para crear el primer conglomerado. Luego, la distancia de este conglomerado a los elementos restantes se calcula como la menor de las distancias entre cada elemento del conglomerado y el resto de los elementos. En los pasos sucesivos, la distancia entre dos conglomerados se calcula como la distancia de sus elementos más próximos. Así, la distancia entre el conglomerado $A$ y el conglomerado $B$ se calcula como se muestra en la Ecuación~\ref{vmcercano}, donde $d_{ij}$ es la distancia entre los elementos $i$, perteneciente al conglomerado $A$, y $j$, perteneciente al conglomerado $B$.
      
      \begin{equation}\label{vmcercano}
@@ -373,7 +356,6 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       El DBSCAN o agrupamiento espacial basado en densidad de aplicaciones con ruido, es un algoritmo de agrupamiento de datos basado en densidad ya que tiene como objetivo encontrar un número de grupos (conglomerados) comenzando por una estimación de la distribución de densidad de los nodos correspondientes. 
       
       \item[K-Medias] \hfill \\
-      %http://pendientedemigracion.ucm.es/info/socivmyt/paginas/D_departamento/materiales/analisis_datosyMultivariable/21conglk_SPSS.pdf
       El análisis de conglomerados con K-medias es un método de agrupación de casos basado en las distancias existentes entre ellos en un conjunto de variables (este método no permite agrupar variables).
       
       Este método comienza seleccionando los $k$ casos más distantes entre sí (el usuario debe determinar inicialmente el número $k$ de conglomerados que desea obtener). Luego, se inicia la lectura secuencial del archivo de datos, asignando cada caso al centro más próximo y actualizando el valor de los centros a medida que se van incorporando nuevos casos. Una vez que todos los casos han sido asignados a alguno de los $k$ conglomerados, se inicia un proceso iterativo para calcular el valor final de los centroides de cada uno de los conglomerados. 
@@ -384,7 +366,7 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
 
 \subsection{Validación del modelo}
 
-Una vez obtenido un modelo, es necesario validar que el modelo es capaz de generalizar para observaciones nuevas. El gran problema que puede ocurrir con un modelo es el sobre-ajuste, es decir, el modelo se ajusta perfectamente a los datos entregados, pero al momento de evaluar datos nuevos, entrega información incorrecta. Esto se puede ver muy fácilmente para una regresión. En el gráfico se ve que el modelo se ajusta muy bien a los datos entregados [grafico], pero no así con los datos nuevos [grafico].Para evitar el sobre-ajuste, es necesario realizar un procedimiento llamado validación cruzada.
+Una vez obtenido un modelo, es necesario validar que el modelo es capaz de generalizar para observaciones nuevas. El gran problema que puede ocurrir con un modelo es el sobre-ajuste\cite{Ng97preventingof}, es decir, el modelo se ajusta perfectamente a los datos entregados, pero al momento de evaluar datos nuevos, entrega información incorrecta. Esto se puede ver muy fácilmente para una regresión. En el gráfico se ve que el modelo se ajusta muy bien a los datos entregados, pero no así con los datos nuevos. Para evitar el sobre-ajuste, es necesario realizar un procedimiento llamado validación cruzada.
 
 La validación de un modelo consta de la división del conjunto de datos entre un conjunto llamado 'conjunto de entrenamiento' y 'conjunto de prueba'. Solamente se entrena el modelo con el conjunto de entrenamiento, mientras que el conjunto de prueba se utiliza para ver el verdadero desempeño del modelo y obteniendo el error de entrenamiento y el error de prueba. El problema de esto es que estos errores no son buenos estimadores del desempeño de la generalización del modelo, puesto que los conjuntos no cambian Para obtener un buen estimador se utiliza la validación cruzada, que, como lo señala su nombre, es lo mismo que la validación, pero se agregan pasos iterativos que van permutando el conjunto de entrenamiento y de prueba para obtener un error promedio que si es representativo del problema.
 
@@ -394,26 +376,17 @@ Existen múltiples métodos de validación cruzadas, a continuación se señalar
       Para evitar un sobre ajuste, se prefiere realizar un conjunto de pruebas independientes. Un enfoque natural consiste en dividir los datos en dos conjuntos que no se superpongan, uno para realizar el entrenamiento del modelo y otro para realizar su testeo. Los datos que se utilizan para el testeo son excluidos y no se consideran para el entrenamiento. 
       
       La validación \textit{Hold-out} evita que el conjunto de datos de entrenamiento y el conjunto de datos de prueba tengan elementos en común, y de esta forma entrega una estimación más precisa para el desempeño del algoritmo. La desventaja es que este procedimiento no utiliza todos los datos disponibles lo que hace que los resultados obtenidos sean altamente dependientes de la elección de los conjuntos de datos de entrenamiento y prueba. Los casos incluidos en el conjunto de prueba puede ser demasiado fácil o demasiado difícil de clasificar, lo que puede sesgar los resultados. Por otra parte, los datos en el conjunto de prueba pueden ser valiosos para el entrenamiento y si siempre son seleccionados para el conjunto de prueba nuevamente generarán resultados sesgados. Estos problemas pueden ser parcialmente abordados mediante la repetición de este método de validación para luego promediar los resultados, pero a menos que la repetición se lleva a cabo de una manera sistemática, algunos datos pueden ser incluidos en el conjunto de prueba varias veces mientras que otros no se incluyen en absoluto, o por el contrario algunos datos siempre pueden caer en la prueba y nunca tener la oportunidad de contribuir a la fase de aprendizaje. 
-      
-      [grafico]
-      
       \item[Validación cruzada con K-Permutaciones] \hfill \\
       En la validación cruzada con K-Permutaciones se comienza dividiendo los datos en $k$ segmentos o partes de igual (o casi igual) tamaño. Posteriormente, se realizan k iteraciones de entrenamiento y de validación, de manera que en cada iteración se selecciona un segmento para la validación, y el restante $k-1$ se utilizan para el aprendizaje. Generalmente, los datos son estratificados antes de ser divididos en las $k$ partes.
       
       La estratificación es el proceso de reordenación de los datos como para asegurar que cada segmento es un buen representante de la totalidad. Por ejemplo, en un problema de clasificación binaria, donde cada clase comprende 50\% de los datos, lo mejor es organizar los datos de manera que en cada segmento, cada clase comprenda alrededor de la mitad de los casos.
-      
-      [grafico]
-      
+     
       \item[Leave-One-Out Cross-Validation] \hfill \\
      Este es un caso especial de la validación cruzada con k-permutaciones donde $k$ es igual al número de casos en los datos. En otras palabras, en cada iteración casi todos los datos, a excepción de una sola observación, se utilizan para la formación y el modelo se prueba se aplica solo a esa observación. 
      
      Una estimación obtenida con este método es conocido por ser casi imparcial pero tiene alta varianza, dando lugar a estimaciones poco fiables. Aún así es un método muy utilizado cuando los datos disponibles son muy raros.
-     
-      [grafico]
+
     \end{description}
-
-El Cuadro~\ref{tab:mvalidacion} muestra un resumen de los pros y contra de los diferentes métodos de validación descritos anteriormente... \textcolor{red}{Ayuda con qué decir aquí :S}
-
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -428,14 +401,12 @@ Validación con retención & \begin{tabular}[c]{@{}c@{}}Conjunto de entrenamient
 \begin{tabular}[c]{@{}c@{}}Validación cruzada con \\ k-permutaciones repetidas\end{tabular} & Varias estimaciones del desempeño & Varianza subestimada \\ \hline
 \end{tabular}
 }
-\caption{Pros y contras de diferentes métodos de validación.}
+\caption{Pros y contras de diferentes métodos de validación}
 \label{tab:mvalidacion}
 \end{table}
 
-% [tabla] Cross-Validation. Table 1. Pros and Cons of different validation methods
-
 \subsection{Afinación de los hiper-parámetros del modelo}
-La mayoría de los modelos poseen parámetros que definen diferentes atributos de este. Estos parámetros normalmente se determinan \textit{a priori}. Existen métodos que logran llegar al mejor conjunto de parámetros posible. Existen dos métodos muy relacionados para realizar esto. el primero se llama Búsqueda de Grilla Exhaustiva, y el segundo, Búsqueda de Grilla Aleatoria\citep{Bergstra}. Lo que realizan estos métodos es un procedimiento llamado \textit{trial and error}, es decir, en base a prueba y error se encuentran los mejores parámetros. El primer método se señala cuando se hace una búsqueda exhaustiva, es decir, se entrega un conjunto grande de parámetros y se va entrenando un modelo de predicción con cada parámetro hasta encontrar el mejor. El segundo método, menos costoso computacionalmente, se realiza la búsqueda de parámetros utilizando una distribución de probabilidad y se prueban $N$ conjuntos de esa muestra. Este método claramente no puede asegurar el óptimo, pero sí mejorar la capacidad de predicción de un modelo de predicción.En la literatura anteriormente citada, se señala que se debe preferir al método aleatorio, pues es mucho más eficiente y fácil de implementar.
+La mayoría de los modelos poseen parámetros que definen diferentes atributos de este. Estos parámetros normalmente se determinan \textit{a priori}. Existen métodos que logran llegar al mejor conjunto de parámetros posible. Existen dos métodos muy relacionados para realizar esto. el primero se llama Búsqueda de Grilla Exhaustiva, y el segundo, Búsqueda de Grilla Aleatoria\cite{Bergstra}. Lo que realizan estos métodos es un procedimiento llamado \textit{trial and error}, es decir, en base a prueba y error se encuentran los mejores parámetros. El primer método se señala cuando se hace una búsqueda exhaustiva, es decir, se entrega un conjunto grande de parámetros y se va entrenando un modelo de predicción con cada parámetro hasta encontrar el mejor. El segundo método, menos costoso computacionalmente, se realiza la búsqueda de parámetros utilizando una distribución de probabilidad y se prueban $N$ conjuntos de esa muestra. Este método claramente no puede asegurar el óptimo, pero sí mejorar la capacidad de predicción de un modelo de predicción.En la literatura anteriormente citada, se señala que se debe preferir al método aleatorio, pues es mucho más eficiente y fácil de implementar.
 Estos métodos son muy utilizados para la minería de datos, sobre todo para algoritmos que poseen muchos parámetros y se escogen arbitrariamente.
 En general, los siguientes parámetros\footnote{Se señalan generalmente como hiper-parámetros de modelo de predicción, debido a que los parámetros del modelo de predicción son los que se ajustan cuando se entrena el modelo y el objetivo de este método es optimizar los parámetros \textit{a priori}} son optimizados utilizando esta herramienta o heurística:
 \begin{itemize}
@@ -447,20 +418,19 @@ En la Figura~\ref{fig:gridsearch} podemos observar la diferencia de los métodos
        \begin{figure}[]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/gridsearchbad.jpg}
-         \caption{Comparación entre Búsqueda de Grilla Exhaustiva y Aleatoria[cita]}
+         \caption{Comparación entre Búsqueda de Grilla Exhaustiva y Aleatoria\cite{cs231n}}
          \label{fig:gridsearch}
       \end{figure}
-%http://cs231n.github.io/neural-networks-3/
 \subsection{Medición del desempeño del modelo}
 
 Para evaluar el desempeño de un modelo se pueden utilizar diferentes medidas. Para nuestro estudio, solamente señalaremos aquellas más importantes que son la precisión y la exhaustividad. La precisión, cuando hablamos de una tarea de clasificación, se define como la proporción de las observaciones que son clasificados correctamente y la exhaustividad es la proporción de observaciones relevantes correctamente clasificadas.
 
-La Figura~\ref{fig:precision} muestra gráficamente la forma en que se evalúa la precisión y exhaustividad de un modelo. Es posible observar que en un proceso de reconocimiento de patrones y de recuperación de información mediante el uso de  clasificación, la precisión es la fracción de casos recuperados que son relevantes, mientras que la exhaustividad es la fracción de los casos pertinentes que se recuperan. Es por esto que tanto la precisión como la exhaustividad son medidas de relevancia.
+La Figura~\ref{fig:precision} muestra gráficamente la forma en que se evalúa la precisión y exhaustividad de un modelo. Es posible observar que en un proceso de reconocimiento de patrones y de recuperación de información mediante el uso de  clasificación, la precisión es la fracción de casos recuperados que son relevantes, mientras que la exhaustividad es la fracción de los casos pertinentes que se recuperan. Es por esto que tanto la precisión como la exhaustividad son medidas de relevancia.\cite{Fawcett2006861}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/Precision}
-      \caption{Descripción gráfica de precisión y exhaustividad.%[cita] preex}
+      \caption{Descripción gráfica de precisión y exhaustividad\cite{preex}}
     \label{fig:precision}
 \end{figure}
 
@@ -480,8 +450,7 @@ En el Cuadro~\ref{tab:mconfusion} se presenta la forma en que se lee una matriz 
 \caption{Matriz de confusión}
 \label{tab:mconfusion}
 \end{table}
-Finalmente, podemos ver que para el caso especifico de la predicción de la deserción escolar el interés está en detectar deserción, por tanto, nuestra condición positiva sería la retención, y la negativa la deserción. Bajo este supuesto, el error tipo uno se define como 'Un alumno que desertó, pero fue clasificado como retenido o no desertor' y el error tipo dos se define como 'Un alumno que no desertó, pero fue clasificado como desertor'. Por tanto, el error más grave para nuestro caso especifico, es el de tipo dos, pues el objetivo precisamente del sistema es lograr predecir la deserción. Es por esta razón que finalmente nuestra medición para realizar las comparaciones será la exhaustividad de la detección de la condición negativa.
-%[cita] powers2011evaluation
+Finalmente, podemos ver que para el caso especifico de la predicción de la deserción escolar el interés está en detectar deserción, por tanto, nuestra condición positiva sería la retención, y la negativa la deserción. Bajo este supuesto, el error tipo uno se define como 'Un alumno que desertó, pero fue clasificado como retenido o no desertor' y el error tipo dos se define como 'Un alumno que no desertó, pero fue clasificado como desertor'. Por tanto, el error más grave para nuestro caso especifico, es el de tipo dos, pues el objetivo precisamente del sistema es lograr predecir la deserción. Es por esta razón que finalmente nuestra medición para realizar las comparaciones será la exhaustividad de la detección de la condición negativa.\cite{powers2011evaluation}
 
 \section{Herramientas computacionales}
 Para poder desarrollar este trabajo se deben integrar diferentes herramientas para realizar la transformación, preparación, modelamiento y validación de los datos.

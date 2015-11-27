@@ -226,7 +226,7 @@ Se concluye que la mortalidad atribuible al bajo nivel de educación es comparab
 
 \subsection{Metodologías de minería de datos}
 
-La cantidad de datos ha ido aumentando de forma exponencial debido a los avances en la tecnología de la computación necesitando que la búsqueda de conocimiento sea de forma automatizada.
+La cantidad de datos ha ido aumentando de forma exponencial debido a los avances en la tecnología de la computación necesitando que la búsqueda de conocimiento sea de forma automatizada.\cite{datamining2010}
 
 La minería de datos es un proceso que se ideó pensando en descubrir información valiosa dentro de una gran cantidad de datos\footnote{Para este trabajo definimos datos como información textual o numérica con alguna estructura dada} como flujo de entrada y nos entrega conocimiento.\footnote{Esto es una analogía a la industria de la minería donde se extrae los minerales rocosos donde una parte de esta es valiosa}
 
@@ -235,25 +235,20 @@ La minería de datos, tal como es posible observar en la Figura\ref{fig:datamini
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/DM}
-      \caption{Proceso de Minería de Datos.}
+      \caption{Proceso de Minería de Datos}
     \label{fig:datamining}
 \end{figure}
-
-%[cita] datamining2010
 
 Para realizar minería de datos se han establecido diferentes metodologías para asegurar un resultado coherente con lo que se busca obtener. Existen diferentes metodologías que serán mencionadas y descritas brevemente a continuación.
 
 \subsubsection{KDD}
-
-%[cita] usamafay
-
-La metodología \textit{Knowledge Discovery in Databases} o Proceso de Extracción del Conocimiento, tal como su nombre lo dice, es un proceso no trivial de descubrimiento de conocimiento e información potencialmente útil dentro de los datos contenidos en algún repositorio de información (cita de Han, J.; Kamber M. (2001). Data Mining: Concepts ans Techniques. Morgan Kaufmann Publishers, USA.). 
+La metodología \textit{Knowledge Discovery in Databases}\cite{usamafay} o Proceso de Extracción del Conocimiento, tal como su nombre lo dice, es un proceso no trivial de descubrimiento de conocimiento e información potencialmente útil dentro de los datos contenidos en algún repositorio de información (cita de Han, J.; Kamber M. (2001). Data Mining: Concepts ans Techniques. Morgan Kaufmann Publishers, USA.). 
 Es un proceso iterativo que explora de forma exhaustiva altos volúmenes de datos con el fin de determinar relaciones. De esta manera es posible extraer información de calidad que se puede utilizar para generar modelos con los datos.
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/KDD}
-      \caption{Etapas de la metodología KDD.}
+      \caption{Etapas de la metodología KDD}
     \label{fig:kdd}
 \end{figure}
 
@@ -284,7 +279,7 @@ En la Figura~\ref{fig:semma} es posible observar que esta metodología consta de
   \item[4. Modelamiento:] en esta etapa se procede a la selección de modelos. Esta elección depende esencialmente de los datos y variables que se tienen, y de obtener modelos fácilmente entendibles. Entre los modelos está la regresión, la regresión logística, árboles de decisión, análisis factorial discriminante, redes neuronales, entre otros. Se puede aplicar más de uno a la vez, para luego comparar los resultados obtenidos.
   \item[5. Evaluación:] etapa final en la cual se procede a comparar los modelos aplicados y los resultados que se obtienen de ellos. 
 \end{description}
-[cita]
+%[cita]
 
 \subsubsection{CRISP-DM}
 La metodología CRISP-DM o \textit{Cross-Industry Standard Process for Data Mining} es un estándar para los proyectos de minería de datos que incluye un modelo y una guía, estructurados en fases que pueden ser bidireccionales, es decir, al desarrollar una fase es posible revisar parcial o totalmente las anteriores. 
@@ -296,7 +291,7 @@ La metodología CRISP-DM o \textit{Cross-Industry Standard Process for Data Mini
     \label{fig:crisp}
 \end{figure}
 
-Como es posible observar en la Figura~\ref{fig:crisp}, esta metodología estructura el proceso en seis fases cuya sucesión no es necesariamente rígida. Cada fase se descompone en varias tareas generales de segundo nivel. Las tareas generales se proyectan a tareas específicas, pero en ningún momento se propone como realizarlas. Es decir, CRISP-DM establece un conjunto de tareas y actividades para cada fase del proyecto pero no especifica cómo llevarlas a cabo.
+Como es posible observar en la Figura~\ref{fig:crisp}, esta metodología estructura el proceso en seis fases cuya sucesión no es necesariamente rígida. Cada fase se descompone en varias tareas generales de segundo nivel. Las tareas generales se proyectan a tareas específicas, pero en ningún momento se propone como realizarlas. Es decir, CRISP-DM establece un conjunto de tareas y actividades para cada fase del proyecto pero no especifica cómo llevarlas a cabo.\cite{josegallardo}
 
 Las fases son: 
 \begin{description}
@@ -307,7 +302,6 @@ Las fases son:
   \item[5. Evaluación:] se procede a la evaluación del modelo considerando el cumplimiento de los criterios de éxito del problema. Además, debe considerarse que la fiabilidad calculada para el modelo se aplique sólo para los datos sobre los que se realizó el análisis. Es preciso revisar el proceso, teniendo en cuenta los resultados obtenidos, para poder repetir algún paso anterior, en el que se haya posiblemente cometido algún error. Es importante considerar que se pueden emplear múltiples herramientas para la interpretación de los resultados. Luego, si el modelo generado es válido en función de los criterios de éxito establecidos en la fase anterior, se procede a la explotación del modelo.
   \item[6. Implementación:] luego de que el modelo ha sido construido y validado, se procede a transformar el conocimiento obtenido en acciones dentro del proceso de negocio.
 \end{description}
-%[cita] josegallardo
 \section{Paradigmas}
 En la sección anterior se presentaron los documentos más importantes que avalan los objetivos de este estudio. 
 En base a ellos es posible notar que hay ciertas visiones y deducciones que se presentan, de diferentes formas, en más de un documento. La finalidad de esta sección es analizar algunos de estos puntos en común, a los que llamaremos paradigmas, ya que formarán parte del conjunto de conocimientos que forman una visión del fenómeno de la deserción escolar en Chile. Estos permitirán determinar las direcciones en que se desarrollará este estudio y establecer sus límites. 
