@@ -28,7 +28,7 @@ Se cruzan todos los conjuntos de datos que contienen indicadores individualizado
 Se cruzan todos los conjuntos de datos que contienen indicadores individualizados por el RBD. Acá se obtiene la entidad 'Establecimiento' a través de varios cruzamientos de conjuntos de datos. Además, de los profesores se obtiene la entidad 'Docente' que está relacionada con los establecimientos.
 \cuadro{6SolucionPropuesta/cruceRBD}
 \item \textbf{Geo-referenciación de los conjuntos de datos} \hfill \\
-Se utiliza la información del CIT para geo-referenciar a los alumnos y establecimientos con la finalidad de incluir información territorial a estos. Es decir, se agrega la entidad 'Manzana' a las otras entidades.
+Se utiliza la información del CIT para georeferenciar a los alumnos y establecimientos con la finalidad de incluir información territorial a estos. Es decir, se agrega la entidad 'Manzana' a las otras entidades.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -38,20 +38,28 @@ Se utiliza la información del CIT para geo-referenciar a los alumnos y establec
     \label{fig:rel}
 \end{figure}
 
-En la Figura~\ref{fig:rel} se muestran las diferentes entidades: 'Establecimiento', 'Alumno', 'Manzana' y 'Docente'. Se obtienen dos conjuntos diferentes, uno que reúne la información de los alumnos con geo-referenciación y sus indicadores territoriales, y otro con información de establecimientos con indicadores territoriales también.
+En la Figura~\ref{fig:rel} se muestran las diferentes entidades: 'Establecimiento', 'Alumno', 'Manzana' y 'Docente'. Se obtienen dos conjuntos diferentes, uno que reúne la información de los alumnos con georeferenciación y sus indicadores territoriales, y otro con información de establecimientos con indicadores territoriales también.
 
-En la Figura~\ref{fig:venn} se presenta el diagrama de Venn\footnote{Representación gráfica de las relaciones existentes entre diferentes conjuntos} simplificado.para ver el resultado del procedimiento de cruzamiento de tablas\footnote{Este se hace a través de la función \textit{join} de Pandas que lo que hace es juntar dos tablas utilizando un índice especifico.}
+En la Figura~\ref{fig:venn} se presenta el diagrama de Venn\footnote{Representación gráfica de las relaciones existentes entre diferentes conjuntos} simplificado.para ver el resultado del procedimiento de cruzamiento de tablas\footnote{Este se hace a través de la función \textit{join} de Pandas que lo que hace es juntar dos tablas utilizando un índice especifico.}.
 \begin{figure}[H]
   \centering
     \includegraphics[trim=0cm 5cm 0cm 0cm,,scale=0.5]{Figuras/6SolucionPropuesta/Venn.pdf}
       \caption{Diagrama de Venn de la composición de la Muestra de Estudio}
     \label{fig:venn}
 \end{figure}
-Finalmente, como se ve en la Figura~\ref{fig:venn}, se obtuvo una muestra de 260.000 estudiantes geo-referenciados del Gran Santiago con 93 columnas que representan indicadores o información de identificación de los alumnos. Desde ahora en adelante llamaremos variables a las columnas que no sean de identificación. Para ver un resumen del conjunto de datos y el libro de código, visitar el Anexo~\ref{an:muestra}.
+Finalmente, como se ve en la Figura~\ref{fig:venn}, se obtuvo una muestra de 260.000 estudiantes georeferenciados del Gran Santiago con 93 columnas que representan indicadores o información de identificación de los alumnos. Desde ahora en adelante llamaremos variables a las columnas que no sean de identificación. Para ver un resumen del conjunto de datos y el libro de código, ver el Anexo~\ref{an:muestra}.
 
-\subsection{Exploración y validación de la Muestra de Estudio}
+\subsection{Exploración y validación de la muestra de estudio}
+Se realizaron diferentes visualizaciones de algunas variables de la muestra de estudio, debido a la gran cantidad de visualizaciones, estas se colocaron en el Anexo~\ref{an:explod}. Para ver las distribuciones de la tasa de deserción en base a los grados o cursos de los diferentes tipos de enseñanza, estos se puede observar en la Figura~\ref{fig:tdg}, además la Figura~\ref{fig:cme} muestra que existen aproximadamente un 30\% de establecimientos municipales, mientras que un 70\% son subvencionados. Otra cosa interesante que se evidencia es en la Figura~\ref{fig:tdm}, donde se puede ver que a mayor escolaridad de la madre del alumno, menor es la tasa de deserción para ese conjunto de alumnos, también en la Figura~\ref{fig:came} se puede observar que la tasa de deserción está estrechamente relacionada con la edad del alumno. 
+
+\begin{figure}
+  \centering
+  \includeCroppedPdf[scale=1.5,angle=90,page=5]{Figuras/6SolucionPropuesta/eexploracion}
+      \caption{Distribución de la tasa de deserción en base al grado de un alumno agrupado por tipo de educación}
+    \label{fig:tdg}
+\end{figure}
 Dado los problemas heredados del conjunto de datos de encuestas SIMCE, estamos trabajando sólo con una muestra de los alumnos de los establecimientos y no con toda la población. Si bien la muestra representa aproximadamente un 30\% de la población de alumnos del Gran Santiago, debido a que la prueba SIMCE no realiza todos los años es necesario hacer una revisión por grado de la tasa de deserción para evaluar la representatividad de la muestra obtenida. En la Figura~\ref{fig:deserciongradomuestra} se puede observar la distribución de la tasa de deserción por grado de la muestra. Podemos notar que desde 5º básico la tasa de deserción de la muestra se aproxima a la tasa de deserción de la población. Esto se puede explicar por que el SIMCE se da a partir de ese curso, por tanto es válido no tener alumnos de 1º básico a 4º básico. Entonces desde ahora solamente vamos a trabajar con alumnos de 5º Básico a 4º Medio de establecimientos municipalizados y subvencionados del Gran Santiago.
-Finalmente, al utilizar solamente alumnos de 5º Básico en adelante se debió eliminar aproximadamente $725$ alumnos de la muestra, siendo marginal respecto al tamaño de la muestra total\footnote{Claramente, esto puede ser un factor que influyó en que la tasa de deserción esté distorsionada para esos grados.}
+Finalmente, al utilizar solamente alumnos de 5º Básico en adelante se debió eliminar aproximadamente 725 alumnos de la muestra, siendo marginal respecto al tamaño de la muestra total\footnote{Claramente, esto puede ser un factor que influyó en que la tasa de deserción esté distorsionada para esos grados.}.
 \begin{figure}[H]
   \centering
     \includegraphics[trim=0cm 0cm 0cm 0cm,scale=0.5]{Figuras/6SolucionPropuesta/testdist1.png}
@@ -65,6 +73,28 @@ Finalmente, al utilizar solamente alumnos de 5º Básico en adelante se debió e
 %    \label{fig:deserciongradomuestra2}
 %\end{figure}
 
+\subsection{Limpieza de la Muestra de Estudio}
+Para realizar la limpieza de la muestra se hizo una revisión de la tasa de deserción en un diagrama de cajas de los establecimientos, en la Figura~\ref{fig:boxplotdes} se pueden observar la distribución de la tasa de deserción y la tasa de abana dono de los establecimientos. Se eliminaron todos los puntos o establecimientos que están sobre la linea. Además, se hicieron diferentes revisiones de otras variables antes de la creación de los indicadores, como por ejemplo la asistencia, el promedio general, edades de los alumnos y se establecieron los siguientes limites para todas estas variables eliminando los datos anómalos. En el Cuadro~\ref{tab:cedam} se pueden ver los criterios de limpieza de datos utilizados.
+\begin{figure}[]
+  \centering
+    \includegraphics[trim=0cm 0cm 0cm 0cm,scale=0.9]{Figuras/6SolucionPropuesta/esm.png}
+      \caption{Diagrama de caja de la tasa de deserción y la tasa de abandono de los establecimientos en la muestra de estudio}
+    \label{fig:boxplotdes}
+\end{figure}
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Variable} & \textbf{Criterio} \\ \hline
+PROM\_GRAL & Mayor a 1.0 y bajo 7.0 \\ \hline
+ASISTENCIA & Mayor a 0 y bajo 100 \\ \hline
+TASA\_DESERCION\_RBD & Hasta 0.035 \\ \hline
+EDAD\_ALU & Mayor a 4 y bajo 21 \\ \hline
+\end{tabular}
+\caption{Criterios para excluir datos anómalos de la muestra de estudio}
+\label{tab:cedam}
+\end{table}
+
 \subsection{Pre-procesamiento de la Muestra de Estudio}
 En base a lo estudiado en el Capitulo~\ref{ch:marcoteorico} sabemos que para utilizar un algoritmo de aprendizaje automatizado se debe realizar diferentes procedimientos a los datos para que estos sean legibles para el algoritmo. El procedimiento de cuatro etapas que se le aplicará a las columnas disponibles\footnote{Para ver una lista de estas con su categorización por medida ver el Cuadro~\ref{tab:caract-var} en el Anexo~\ref{an:muestra}} que no sean de identificación son los siguientes:
 \begin{enumerate}[label=\Roman*]
@@ -74,7 +104,7 @@ En base a lo estudiado en el Capitulo~\ref{ch:marcoteorico} sabemos que para uti
 \item Escalamiento uniforme entre $-1$ y $1$ a variables de escala, nominales y ordinales.\footnote{La escala se calcula por variable, es decir, cada variable posee su escala 1 a -1 en función del valor máximo y mínimo respectivamente.}
 \end{enumerate}
 
-Para esto, gracias a la librería scikit-learn, se puede modelar el pre-procesamiento a través de un \textit{pipeline}, es decir, un conjunto de procesos unidos por "cañerías" donde estas representan los flujos de datos. En este \textit{pipeline}, como se ve en la Figura~\ref{fig:pipeline}, entran los datos a un proceso automático que detecta el tipo de dato, y en base a esto se realizan las etapas señaladas anteriormente. La utilización del \textit{pipeline} permite tener una mejor visualización de lo que ocurre con los datos y abstraer esta información para incorporarla, en el futuro, al modelo de predicción obteniendo así una herramienta completa que sea capaz de preprocesar, predecir y presentar los resultados de forma autónoma y unificada.
+Para esto, gracias a la librería scikit-learn, se puede modelar el pre-procesamiento a través de un \textit{pipeline}, es decir, un conjunto de procesos unidos por `cañerías' donde estas representan los flujos de datos. En este \textit{pipeline}, como se ve en la Figura~\ref{fig:pipeline}, entran los datos a un proceso automático que detecta el tipo de dato, y en base a esto se realizan las etapas señaladas anteriormente. La utilización del \textit{pipeline} permite tener una mejor visualización de lo que ocurre con los datos y abstraer esta información para incorporarla, en el futuro, al modelo de predicción obteniendo así una herramienta completa que sea capaz de preprocesar, predecir y presentar los resultados de forma autónoma y unificada.
 
 \begin{figure}[H]
   \centering
@@ -83,6 +113,6 @@ Para esto, gracias a la librería scikit-learn, se puede modelar el pre-procesam
     \label{fig:pipeline}
 \end{figure}
 
-Una vez realizado todo el pre-procesamiento y sus procedimientos, podemos proseguir con los siguientes pasos para poder lograr nuestro objetivo. Finalmente la muestra de estudio se compone de aproximadamente \textbf{260.000 alumnos del sistema regular escolar de escuelas municipales y subvencionadas de 5º Básico a 4º Medio del Gran Santiago}.
+Una vez realizado todo el preprocesamiento y sus procedimientos, podemos proseguir con los siguientes pasos para poder lograr nuestro objetivo. Finalmente la muestra de estudio se compone de aproximadamente \textbf{260.000 alumnos del sistema regular escolar de escuelas municipales y subvencionadas de 5º Básico a 4º Medio del Gran Santiago}.
 
 

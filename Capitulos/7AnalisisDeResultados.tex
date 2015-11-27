@@ -1,9 +1,8 @@
-\chapter{Análisis de Resultados}
+\chapter{ANÁLISIS DE RESULTADOS}
 \label{ch:anarel}
 
-En el presente capítulo se realizará un análisis de los resultados obtenidos del SPDE. Comenzaremos revisando la importancia de las variables sobre el modelo de predicción, y además, comprobaremos algunas hipótesis basadas en la teoría que finalmente la evidencia empírica las confirmó. Finalmente, se señalará la relevancia de predecir la deserción, pues quizá es más interesante predecir el abandono, pues como se señaló en capítulos anteriores, la deserción es un proceso que se va desencadenando con varias etapas, una de ellas es un abandono por el alumno.
+En el presente capítulo se realizará un análisis de los resultados obtenidos del SPDE. Revisaremos la importancia de las variables sobre el modelo de predicción resultante.
 
-\subsection{Importancia de las variables o atributos}
 Para poder analizar la importancia de las variables de entrada utilizadas en el modelo de predicción, es necesario utilizar un algoritmo de aprendizaje automatizado que le asigne pesos relativos a las variables. Lamentablemente el modelo de predicción creado en el Capitulo[cita] utiliza el algoritmo AdaBoost que no es capaz de señalar qué variables son más relevantes que otras. Como vimos anteriormente, el bosque aleatorio también era una opción viable, debido a la diferencia mínima con el algoritmo AdaBoost. El bosque aleatorio sí tiene la posibilidad de mostrar las importancias relativas de cada variable. Es precisamente por esto que desde ahora en adelante para efectos de este capítulo, utilizaremos un bosque aleatorio entrenado en la mismas condiciones que el capítulo citado anteriormente.
 Si entrenamos un modelo de predicción utilizando la muestra de estudio y la totalidad de las variables seleccionadas obtenemos los resultados de clasificación en el conjunto de entrenamiento y de prueba se muestran en la Figura~\ref{fig:clas-total}.
 
@@ -77,3 +76,5 @@ Además, en la Figura~\ref{fig:impo-basica} y Figura~\ref{fig:impo-media} se mue
       \caption{Importancia de las variables de entrada del modelo de predicción utilizando Bosques Aleatorios de la educación media sin las variables de sobre-edad y percentiles del promedio general y asistencia}
     \label{fig:impo-media}
 \end{figure}
+
+%Comentarios Karol: se ve que importa muchísimo más el GSE de la manzana donde vive el alumno que el de la manzana del colegio, pero quizás donde tienen jornada escolar completa no tienen mayor interacción con el lugar donde se encuentra el colegio a diferencia del lugar donde viven. En la básica hay menos diferencia entre el barrio del colegio y el barrio de la familia, mientras que para la media las diferencias son más significativas porque los niños tienden a viajar más. Habla de los colegios emblemáticos no están en barrios muy buenos, y la gente que vive en esos barrios no son los que asisten a el. Mientras que quienes si asisten provienen de otros lugares con mayor GSE. Preguntarse por qué, plantear hipótesis. Ver cuales son las variables mas importantes y compararlo con básica y media.  

@@ -1,13 +1,24 @@
-\chapter{Conclusiones y Recomendaciones}
+\chapter{CONCLUSIONES Y RECOMENDACIONES}
 \label{ch:concureco}
 
-Durante este trabajo hemos desarrollado un sistema de alerta temprana de la deserción escolar utilizando varias fuentes de información. Creamos el SPDE con la finalidad de poder tener una herramienta predictiva para detectar la deserción de forma temprana y así los tomadores de decisiones puedan fundamentar y medir el impacto de sus intervenciones y decisiones.
+Durante este trabajo hemos desarrollado un sistema de alerta temprana de la deserción escolar utilizando varias fuentes de información. Creamos el Sistema de Predicción de la Deserción Escolar con la finalidad de tener una herramienta predictiva que permita detectar la deserción de forma temprana, y que de esta forma los tomadores de decisiones puedan fundamentar y medir el impacto de sus intervenciones y decisiones.
 
 Este trabajo muestra que un sistema de predicción utilizando variables públicas como el promedio y la asistencia del alumno es bastante certero, esto se explicó por que básicamente estas variables resumen la mayor parte de la información del alumno. Un nuevo estudio, pensando en una herramienta explicativa, sería recolectar más información desagregada como lo hemos comentado, pero lamentablemente esto no es viable en el día de hoy.
+
+A pesar de esto, el acceso a toda la información recaudada no es de mayor complejidad gracias a la Ley de Acceso a la información y a la Ley de Transparencia, por lo que mantener un sistema de predicción como el propuesto no requiere esfuerzos excesivos con respecto a las fuentes de información. 
 
 Las recomendaciones que se desprenden del trabajo son las siguientes:
 \begin{itemize}
 \item El MINEDUC debe mejorar la calidad de los datos, puesto que durante el trabajo se encontraron errores humanos en la codificación, formato y el estándar. Se evidenció que cada año tenía un diferente estándar en términos de codificación e incluso, en algunos años habían problemas con alumnos repetidos.
 \item Además, el MINEDUC debe establecer un mejor marco de trabajo para recolectar la información, puesto que, los datos se liberan, generalmente, de forma anual imposibilitando el uso de un modelo de predicción de alerta temprana más realista donde capte la información que ocurre de un mes a otro.
-\item La agencia de calidad debe mejorar la información generada del SIMCE y las encuesta. Parte de nuestros esfuerzos se enfocaron en reparar la encuesta SIMCE, puesto que, como lo hemos comentado durante el trabajo, estas tenían alumnos repetidos(el identificador único) con diferente información.
+\item La Agencia de Calidad debe mejorar la información generada del SIMCE y las encuestas. Parte de nuestros esfuerzos se enfocaron en reparar la encuesta SIMCE, puesto que, como lo hemos comentado durante el trabajo, estas tenían alumnos repetidos (el identificador único) con diferente información. Por otro lado, nos encontramos con que, dado que esta prueba no se aplica anualmente sino que cada ciertos años, se dificulta cubrir a todos los apoderados de cada establecimiento, lo que sería útil para tener información más certera con respecto a lo que perciben del establecimiento y también para caracterizar mejor a las familias de los alumnos que asisten a cada establecimiento. Si bien la recomendación para abordar este problema no es realizar encuestas SIMCE todos los años, se podría buscar la forma de cubrir a todos los apoderados sin necesidad de encuestarles todos los años. 
+\item Con respecto a los establecimientos, gran parte de estos cuentan con sistemas de gestión escolar donde deben ingresan información referente a sus alumnos, como asistencia y evaluaciones, información que luego debe ser reportada al SIGE pero no automáticamente, por lo que se sugiere interoperabilidad entre estos sistemas, para que los colegios quieran dedicar recursos a digitalizar esta información y esto se genere automáticamente, evitando que se realice un doble trabajo.
 \end{itemize}
+
+%Comentar las fuentes de los datos, quién tiene cada información y cuán fácil es el acceso (Cada colegio Ministerio, SIMCE, CENSO, Ag de Calidad), la accesibilidad a los datos, con la granularidad que se tiene es buena, además no se generan problemas de granularidad ya que la información no cambia con mucha frecuencia. Mucha info se tiene en tiempo real (asistencia ya que en base a esto se da SEP), otras semestral, y otras de forma anual. Cómo se podría aumentar la frecuencia, correr el modelo mensualmente
+
+%Recomendaciones sobre SIMCE, ver si la encuesta que se hace actualmente realmente permite cubrir a todos los apoderados, recomendar conseguir esta info para todos (lo que no significa realizar SIMCE todos los años pero si cubrir más apoderados). 
+
+%Notas y asistencias muchas veces son poco confiables ya que hay incentivos mal puestos, para que estos datos sean modificados (gran impedimento para realizar el modelo, la confiabilidad de los datos). 
+
+%Gran parte de los colegios tienen sistemas de gestión escolar donde ingresan info como asistencia y evaluaciones, lo que luego se importa al SIGE pero no automáticamente, por lo que se requiere interoperabilidad entre estos sistemas, para que los colegios quieran dedicar recursos a digitalizar esta informacion (asistencia y notas) ya que por el momento no tienen incentivos para realizarlo (es como una pérdida de tiempo para ellos) 

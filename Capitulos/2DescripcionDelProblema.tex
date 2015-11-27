@@ -1,4 +1,4 @@
-\chapter{Descripción del Problema}
+\chapter{DESCRIPCIÓN DEL PROBLEMA}
 \label{ch:descprob}
 Dada la importancia que tiene la educación en Chile, debido a su magnitud ya que es un tema que aborda a toda la sociedad, y a las constantes entradas y salidas de este sistema, se hace necesario conocer más a fondo los factores que influyen en la deserción escolar, saber cómo se relacionan entre ellos para que así las autoridades correspondientes sepan cómo enfrentarse a este problema.
 
@@ -20,29 +20,30 @@ En Marzo de 2013 se presentó una \textit{Medición de la deserción escolar en 
   La importancia de este indicador radica en la rapidez con que es posible determinar a los desertores del sistema, lo que permite aplicar políticas focalizadas a este grupo de alumnos.\\
   Matemáticamente, en Chile esta tasa se define de la siguiente manera:\\
   
-  \begin{center}
-$TDI_t^j = \frac{Des_{t}^{j}}{Des_{t}^{j} + M_{t}^{j}}$
-    \end{center}
+  \begin{equation}
+TDI_t^j = \frac{Des_{t}^{j}}{Des_{t}^{j} + M_{t}^{j}}
+    \end{equation}
+    
 Donde:
 \begin{itemize}[label=]
     \item $TDI_t^j$: tasa de deserción medida como incidencia en el grado $j$ y periodo $t$.
-    \item $Des_{t}^{j}$: corresponde al número de personas que desertaron del sistema escolar en el grado $j$ y periodo $t$
+    \item $Des_{t}^{j}$: corresponde al número de personas que desertaron del sistema escolar en el grado $j$ y periodo $t$.
     \item $M_{t}^{j}$: corresponde a la matrícula efectiva en abril del periodo $t$ y grado $j$.
 \end{itemize}
 
 \newpage
 
-    Además, el número de personas que desertaron del sistema escolar en un grado y año dado, se define como continúa.
+    Además, el número de personas que desertaron del sistema escolar en un grado y año dado, se define como continua.
 
-  \begin{center}
-  $Des_{t}^{j} = Ap_{t-1}^{j-1} + Rep_{t-1}^{j} + Ret_{t-1}^{j}$\\
-    \end{center}
+  \begin{equation}
+  Des_{t}^{j} = Ap_{t-1}^{j-1} + Rep_{t-1}^{j} + Ret_{t-1}^{j}
+    \end{equation}
 Donde:
 \begin{itemize}[label=]
     \item $Des_{t}^{j}$: corresponde al número de personas que desertaron del sistema escolar en el grado $j$ y periodo $t$.
     \item $Ap_{t-1}^{j-1}$: corresponde a quienes, habiendo aprobado el grado $j-1$ en el periodo $t-1$, no presentan matrícula en el periodo $t$, sin que durante este periodo hayan finalizado la educación escolar.
     \item $Rep_{t-1}^{j}$: corresponde a quienes habiendo reprobado el grado $j$ en el periodo $t-1$, no presentan matrícula en el periodo $t$.
-    \item $Ret_{t-1}^{j}$: corresponde a quienes se retiraron durante el periodo $t-1$, en el grado $j$, y no presentan matrícula en el periodo $t$.
+    \item $Ret_{t-1}^{j}$: corresponde a quienes abandonaron durante el periodo $t-1$, en el grado $j$, y no presentan matrícula en el periodo $t$.
 \end{itemize}
 
 
@@ -51,9 +52,10 @@ Donde:
   La ventaja de la utilización de esta medida es que posibilita la comparación con oros sistemas educativos, y al mismo tiempo entrega una visión del fenómeno en un rango temporal más amplio, lo que permite un monitoreo a largo plazo.
   Matemáticamente, en Chile esta tasa se define de la siguiente forma:\\
    
-   \begin{center}
-$TDP_t^j = \frac{P_{t}^{j} - M_{t}^{j} - G_{t}^{j} - NA_{t}^{j}}{P_{t}^{j} - NA_{t}^{j}}$
-    \end{center}
+   \begin{equation}
+TDP_t^j = \frac{P_{t}^{j} - M_{t}^{j} - G_{t}^{j} - NA_{t}^{j}}{P_{t}^{j} - NA_{t}^{j}}
+    \end{equation}
+    
 Donde:
 \begin{itemize}[label=]
     \item $TDP_t^j$: corresponde a la tasa de deserción, medida
@@ -65,7 +67,7 @@ como prevalencia, en el periodo $t$ para el rango de edad $j$.
 \end{itemize}
 \end{description}
 
-Luego de estas definiciones, se procederá a evidenciar la situación del abandono escolar en Chile según los datos de la encuesta CASEN\footnote{Encuesta de Caracterización Socioeconómica Nacional, es una encuesta a nivel nacional, regional y comunal, que realiza el gobierno de Chile desde el año 1985. Esta encuesta es mandatada por el Ministerio de Planificación y Cooperación (MIDEPLAN) y se caracteriza por medir las condiciones socio-económicas de los hogares del país, en términos de acceso a la salud, la educación, el trabajo y a las condiciones de la vivienda.}
+Luego de estas definiciones, se procederá a evidenciar la situación del abandono escolar en Chile según los datos de la encuesta CASEN\footnote{Encuesta de Caracterización Socioeconómica Nacional, es una encuesta a nivel nacional, regional y comunal, que realiza el gobierno de Chile desde el año 1985. Esta encuesta es mandatada por el Ministerio de Planificación y Cooperación (MIDEPLAN) y se caracteriza por medir las condiciones socio-económicas de los hogares del país, en términos de acceso a la salud, la educación, el trabajo y a las condiciones de la vivienda.}.
 
 Un detalle importante, antes de entrar a las cifras de deserción, es hacer una diferenciación entre tasas globales y tasas del sistema regular. Esta última considera que el universo utilizado está compuesto sólo por educación básica y educación media, a diferencia de las tasas globales, que además de estos dos niveles considera un tercero que es la educación de adultos, a la que pertenecen quienes no terminaron la educación básica o media y pretender terminarla con 18 años o más. 
 

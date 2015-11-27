@@ -1,4 +1,4 @@
-\chapter{Marco Teórico}
+\chapter{MARCO TEÓRICO}
 \label{ch:marcoteorico}
 Como fue mencionado anteriormente, el objetivo de este trabajo es la creación de un prototipo de sistema de alerta temprana para la deserción en Chile, y para lograr esto es fundamental indagar en la literatura existente en torno al tema para tener una idea de qué se sabe de la deserción escolar en Chile, cómo ha sido abordada, qué tipos de estudios existen con respecto al tema, qué tipos de análisis se han realizado, qué variables se han estudiado y qué conclusiones se han obtenido en torno al tema. 
 
@@ -135,7 +135,7 @@ La hipótesis que se busca probar plantea que la escuela sí puede hacer una dif
 
 Los resultados del estudio plantean que la escuela si hace una diferencia: existe un efecto del ambiente escolar o efecto escuela sobre el fenómeno de la deserción escolar, siendo más favorable si se conjugan una serie de dimensiones, entre ellas, la existencia de normas claramente definidas y aplicadas con sentido de justicia; la cohesión del equipo de gestión; el sentido de pertenencia a la escuela; las altas expectativas educativas y las exigencias de éxito escolar por parte de los profesores directivos. En base a la construcción y aplicación del IAE, los resultados de los análisis descriptivos de este estudio permiten concluir que el ambiente escolar sí tiene un efecto sobre el rendimiento escolar. Este efecto es directo y también actúa como mediador. Se concluye que la escuela sí hace una diferencia, cuando se preocupa de resguardar y promover un buen ambiente escolar. 
 
-\subsection{Otros Documentos Relevantes}
+\subsection{Predicción del éxito académico}
 Existe además literatura internacional con respecto a la deserción escolar, de la cual podemos extraer algunos elementos interesantes, como la forma en que se aborda la predicción del éxito académico. 
 
 Para indagar en los estudio predictivos de la deserción, existen documentos nacionales referentes a la educación superior. Por otro lado, para investigar en el área de la predicción de la deserción en la educación escolar, se recurre a la literatura internacional, ya que en Chile es prácticamente nula. 
@@ -170,6 +170,10 @@ Los atributos estudiados para este trabajo se presentan en el Cuadro~\ref{tab:at
 \cuadro{attrcol}
 \cuadro{treecol}
 De este documento se puede concluir que las reglas que se muestran en el Cuadro~\ref{tab:treecol} generadas por el árbol de decisión son consistentes con la realidad observada y la teoría que hay de fondo con los resultados del árbol de decisión, y que, por tanto, el modelo predictivo es capaz de apoyar la toma de decisiones al desentrañar los factores que se evidencia el abandono para crear planes de retención y mitigación de la deserción. Se hace énfasis en que una de las mayores dificultades está en la calidad de los datos y que existen varios atributos poco útiles.
+
+\subsection{Costo de oportunidad}
+Una última arista a considerar en esta revisión bibliográfica son aquellos documentos en los cuales se analiza el costo de oportunidad de dejar la educación. Debido a que no se encontró literatura referente al contexto Chileno, lo que se presenta a continuación está contextualizado en Estados Unidos, cuyos resultados obtenidos permitirán de todas formas generarse una idea en cuanto al costo de oportunidad y cómo influye dejar los estudios.
+
 
 \subsubsection{El creciente costo de no asistir a la universidad. Año 2014.}
 En base a los resultados de una encuesta nacional del \textit{Pew Research Center}, que contempla a 2.002 adultos complementado por un análisis de los datos económicos de la Oficina del Censo de Estados Unidos, se obtiene que los jóvenes con una carrera universitaria actualmente superan a sus pares que no la tienen en cuanto a bienestar económico y logros relacionados con su carrera. Más aún, cuando los adultos jóvenes de hoy se comparan con las generaciones anteriores, se genera una gran disparidad en los resultados económicos entre quienes están graduados de la universidad y quienes solo están graduados de la secundaria (o menos). 
@@ -244,8 +248,7 @@ Para realizar minería de datos se han establecido diferentes metodologías para
 %[cita] http://www.csd.uwo.ca/faculty/ling/cs435/fayyad.pdf
 
 La metodología \textit{Knowledge Discovery in Databases} o Proceso de Extracción del Conocimiento, tal como su nombre lo dice, es un proceso no trivial de descubrimiento de conocimiento e información potencialmente útil dentro de los datos contenidos en algún repositorio de información (cita de Han, J.; Kamber M. (2001). Data Mining: Concepts ans Techniques. Morgan Kaufmann Publishers, USA.). 
-
-Es un proceso iterativo que explora de forma exhaustiva altos volúmenes de datos con el fin de determinar relaciones. De esta manera es posible extraer información de calidad que se puede utilizar para generar modelos con los datos. 
+Es un proceso iterativo que explora de forma exhaustiva altos volúmenes de datos con el fin de determinar relaciones. De esta manera es posible extraer información de calidad que se puede utilizar para generar modelos con los datos.
 
 \begin{figure}[H]
   \centering
@@ -276,7 +279,7 @@ La metodología SEMMA, acrónimo de \textit{Sample, Explore, Modify, Model, Asse
 En la Figura~\ref{fig:semma} es posible observar que esta metodología consta de cinco etapas:
 \begin{description}
   \item[1. Muestreo:] es la etapa inicial, en la cual se procede a preparar los datos para su posterior exploración. En esta etapa es común la utilización del nodo de partición (especialmente si se quiere realizar árboles de decisión o redes neuronales). 
-  \item[2. Exploración:] en esta etapa, como lo dice su nombre, se procede a explorar los datos, por lo que es una de las más trabajosas. Se tiene un nodo que permite explorar gráficamente los datos y otro de selección de variables que permite eliminar aquellos datos de entrada que no tienen relación con la variable objetivo, inclusive se puede realizar un análisis de conglomerados o una segmentación.
+  \item[2. Exploración:] en esta etapa, como lo dice su nombre, se procede a explorar los datos, por lo que es una de las más trabajosas. Se tiene un nodo\footnote{Un nodo multigráfico (o multiplot) es un proceso de minería de datos que permite explorar gráficamente grandes volúmenes de datos para luego crear gráficos de barras, histogramas y gráficos de dispersión con el fin de poder visualizar los datos que se tienen de forma más simple.} que permite explorar gráficamente los datos y otro de selección de variables que permite eliminar aquellos datos de entrada que no tienen relación con la variable objetivo, inclusive se puede realizar un análisis de conglomerados o una segmentación.
   \item[3. Modificación:] en esta etapa el foco es la selección y transformación de variables y datos que servirán para la posterior construcción de modelos. Entre otras tareas, destaca la reducción de dimensión y la imputación de datos perdidos o anómalos.
   \item[4. Modelamiento:] en esta etapa se procede a la selección de modelos. Esta elección depende esencialmente de los datos y variables que se tienen, y de obtener modelos fácilmente entendibles. Entre los modelos está la regresión, la regresión logística, árboles de decisión, análisis factorial discriminante, redes neuronales, entre otros. Se puede aplicar más de uno a la vez, para luego comparar los resultados obtenidos.
   \item[5. Evaluación:] etapa final en la cual se procede a comparar los modelos aplicados y los resultados que se obtienen de ellos. 
@@ -344,7 +347,7 @@ Por otro lado, estos retos también se hacen parte de nuestro estudio, ya que pa
 Un primer reto que es posible notar es la obtención de información y datos de diferentes fuentes y con diferentes métodos a diferentes muestras. 
 Es importante tener información actualizada y disponible con el fin de facilitar su utilización. 
 \subsection{Gestión de la Información}
-Gestionar la información previamente estandarizada resulta primordial para la generación de conocimientos. Este proceso de creación de conocimientos implica determinar la información que se precisa, recoger y analizar la información, registrarla y recuperarla cuando sea necesaria con el fin de utilizarla y divulgarla. 
+Gestionar la información previamente estandarizada resulta primordial para la generación de conocimientos. Este proceso de creación de conocimientos implica determinar la información que sea precisa, recoger y analizar la información, registrarla y recuperarla cuando sea necesaria con el fin de utilizarla y divulgarla. 
 El objetivo de realizar este proceso es garantizar la integridad, disponibilidad y confidencialidad de la información para las autoridades 
 \subsection{Ampliar Prototipo de Alerta Temprana al País}
 El último reto nace específicamente de este estudio, el cual tiene como objetivo crear un prototipo de alerta temprana de la deserción escolar para los establecimientos municipales y particulares subvencionados de la región Metropolitana, aspirando posteriormente a su ampliación a todas las regiones del país. Para lograr esto, es necesario que los dos puntos anteriores estén cubiertos, con el fin del facilitar el proceso.
@@ -352,4 +355,8 @@ El último reto nace específicamente de este estudio, el cual tiene como objeti
 \section{Conclusiones}
 En este capítulo se analizaron los documentos principales relacionados con la deserción escolar en Chile. Existen dos grandes grupos de estudios con respecto al tema, estudios cuantitativos que dan a conocer la deserción escolar en cifras, y los cualitativos que buscan explicar estas cifras mediante el análisis de diferentes factores. De aquí se desprenden dos grandes paradigmas que guiarán este estudio. El primero es la deserción escolar como un proceso, y el segundo son las tres esferas que interactúan y van generando este proceso. 
 
-Se encuentra también un último grupo de estudios internacionales en los cuales se analizan temas sobre la predicción del éxito académico y costo de oportunidad. En Colombia se utilizó minería de datos para detectar patrones del fracaso escolar y posterior a esto, mediante árboles de decisiones, se concluye que el modelo predictivo es capaz de encontrar los factores que generan esta situación. Luego, se presentan dos documentos relacionados con el costo de oportunidad de no estudiar, cuyo contexto es EEUU. De estos se puede concluir que, para las generaciones actuales el valor de tener el diploma de secundaria ha disminuido en relación a generaciones anteriores, por lo que para acceder a mejores oportunidades laborales no es necesario solamente terminar los 12 años de escolaridad, sino que obtener un título universitario es practicamente lo mínimo para abrirse puertas en el mercado laboral. Por otro lado, también se puede concluir que existe un alto costo asociado al hecho de no terminar los estudios, que aumenta cuando se habla de un título universitario y estudios superiores a esto. Además se plantea que los bajos niveles de educación están asociados con altas tasas de mortalidad en adultos, por lo que políticas que aumentan la educación podrían reducir la mortalidad.
+Se encuentra también un grupo de estudios internacionales en los cuales se analizan temas sobre la predicción del éxito académico. En Colombia se utilizó minería de datos para detectar patrones del fracaso escolar y posterior a esto, mediante árboles de decisiones, se concluye que el modelo predictivo es capaz de encontrar los factores que generan esta situación. 
+
+Luego, con respecto al costo de oportunidad, se presentan dos documentos relacionados con el costo de oportunidad de no estudiar, cuyo contexto es EEUU. De estos se puede concluir que, para las generaciones actuales el valor de tener el diploma de secundaria ha disminuido en relación a generaciones anteriores, por lo que para acceder a mejores oportunidades laborales no es necesario solamente terminar los 12 años de escolaridad, sino que obtener un título universitario es prácticamente lo mínimo para abrirse puertas en el mercado laboral. Por otro lado, también se puede concluir que existe un alto costo asociado al hecho de no terminar los estudios, que aumenta cuando se habla de un título universitario y estudios superiores a esto. Además se plantea que los bajos niveles de educación están asociados con altas tasas de mortalidad en adultos, por lo que las políticas que aumentan la educación podrían reducir la mortalidad.
+
+Finalmente, se presentan las metodologías de minería de datos que son candidatas a guiar este proyecto. 

@@ -1,10 +1,10 @@
 \subsubsection{Centro de Estudios del MINEDUC}
-    El conjunto de datos utilizados se obtuvieron de la página web del Centro de Estudios del MINEDUC, donde se concentran todos los datos públicos que maneja el MINEDUC, sin embargo, como lo hemos señalado anteriormente, se puede solicitar conjuntos de datos no disponibles mediante la Ley Sobre Acceso a la Información.
+    El conjunto de datos utilizados se obtuvieron de la página web del Centro de Estudios del MINEDUC, donde se concentran todos los datos públicos que maneja el MINEDUC, sin embargo, como lo hemos señalado anteriormente, se puede solicitar conjuntos de datos no disponibles mediante la Ley Sobre Acceso a la Información.\footnote{Para acceder a los libros de códigos y bases de datos de estos datos entrar a \url{http://centroestudios.mineduc.cl}}
     
-    A continuación se presenta el conjunto de datos disponibles[cita] desde el año $2002$ hasta el año $2014$, y se señalarán los indicadores creados a partir de estos.
+    A continuación se presenta el conjunto de datos disponibles desde el año $2002$ hasta el año $2014$, y se señalarán los indicadores creados a partir de estos.
     \begin{longdescription}
         \item[Rendimiento Anual de los Alumnos] \hfill \\
-        Concentra información de los alumnos en base al campo MRUN que corresponde a su llave única\footnote{Llave única se refiere a un campo que contiene un número o conjunto de caracteres únicos que identifica a cada observación.} del conjunto de datos. Para ver el libro de código\footnote{Un libro de código es un documento donde se señalan los campos, tipo de datos y características de un conjunto de datos.} completo ver Figura~\ref{fig:lb-raa} en el Anexo~\ref{an:lb}.
+        Concentra información de los alumnos en base al campo MRUN que corresponde a su llave única\footnote{Llave única se refiere a un campo que contiene un número o conjunto de caracteres únicos que identifica a cada observación.} del conjunto de datos.
         Los siguientes indicadores fueron creados a partir de este conjunto de datos:
             \begin{longdescription}
               \item[Deserción del alumno] (DESERTA\_ALU): En base a la teoría, ya hemos definido lo que es la deserción escolar. Para nuestro caso de estudio consideraremos la misma definición que utiliza el MINEDUC para calcular la deserción.
@@ -121,7 +121,7 @@
          De este conjunto de datos, se utilizarán los siguientes campos ya existentes, y que no han sido intervenidos:
             \begin{itemize}
                 \item Identificador único del establecimiento (RBD)\footnote{Solamente para facilitar el cruzamiento de los datos}
-                \item Indice calculado del SNED(INDICE\_SNED\_RBD)
+                \item Índice calculado del SNED(INDICE\_SNED\_RBD)
                 \item Tipo de SNED(SEL\_SNED\_RBD)
             \end{itemize}
         \item[Información del SEP] \hfill \\
@@ -203,7 +203,7 @@
         \end{longdescription}
         \item[Información Anual de la Dotación Docente] \hfill \\
         Este conjunto de datos se utilizará para crear diferentes indicadores de docentes por establecimiento ($RBD$).
-        Acá se encuentra la información de cada docente que trabaja en el establecimiento, como su título profesional, horas de trabajo por contrato y edad de titulación entre otros. Para ver el libro de código completo dirigirse a la Figura~\ref{fig:lb-iacd} en el Anexo~\ref{an:lb}.
+        Acá se encuentra la información de cada docente que trabaja en el establecimiento, como su título profesional, horas de trabajo por contrato y edad de titulación entre otros.
             \begin{longdescription}
                    % \item[Cantidad de Profesores Taxi\footnote{{cita}profesores taxi} por](PROF\_TAXI\_H\_MAT\_RBD): Cantidad de profesores taxi que contiene el colegio
                 \item[Horas de Profesores-Aula por Alumno](PROF\_AULA\_H\_MAT\_RBD): Cantidad de horas dedicadas en la sala de clases por alumno que asiste al establecimiento del alumno $j$ en el año $t$.

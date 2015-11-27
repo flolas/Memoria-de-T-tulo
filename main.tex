@@ -1,8 +1,8 @@
 \documentclass[12pt,letterpaper,oneside]{book}
 
 % Inicio de los paquetes
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
 \usepackage{geometry}
 \usepackage[spanish]{babel}
 \usepackage{import}
@@ -22,7 +22,7 @@
 \usepackage{hyperref}
 \usepackage{pdfpages}
 \usepackage{sectsty}% http://ctan.org/pkg/sectsty
-\usepackage{titlecaps}% http://ctan.org/pkg/titlecaps
+\usepackage{titlecaps}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumitem}
@@ -51,6 +51,7 @@
     \IfFileExists{./#2-crop.pdf}{}{%
         \immediate\write18{pdfcrop #2 #2-crop.pdf}}%
     \includegraphics[#1]{#2-crop.pdf}}
+    
 % Fin de funciones
 
 % Márgenes y otros
@@ -71,7 +72,6 @@
 }
 
 % Fin de Márgenes y otros
-
 \makeindex
 \begin{document}
 \frontmatter
@@ -108,17 +108,17 @@
 \chapter*{Anexo}
 \addcontentsline{toc}{chapter}{Anexo}
 \renewcommand{\thesection}{\Alph{section}}
-\anexo{AnexoA}
-\anexo{AnexoB}
+%\anexo{AnexoA}
+%\anexo{AnexoB}
+\anexo{AnexoG}
 \anexo{AnexoC}
 \anexo{AnexoD}
 \anexo{AnexoE}
-\anexo{AnexoG}
-\appendix
-\addcontentsline{toc}{chapter}{Apéndice}
-\chapter*{Apéndice}
-\apendice{ApendiceA}
-\apendice{ApendiceB}
+%\appendix
+%\addcontentsline{toc}{chapter}{Apéndice}
+%\chapter*{Apéndice}
+%\apendice{ApendiceA}
+%\apendice{ApendiceB}
 \backmatter
 \bibliographystyle{unsrtnat}
 \bibliography{bibliografia}

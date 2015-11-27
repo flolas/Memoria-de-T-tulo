@@ -1,17 +1,12 @@
-\chapter{Metodología}
+\chapter{METODOLOGÍA}
 \label{ch:metodologia}
 
 A lo largo de este capítulo se señalará con qué métodos y herramientas será posible lograr con éxito el objetivo de este trabajo. Estas estarán basadas en la experiencia de trabajos previos revisados en el Capitulo~\ref{ch:marcoteorico} y metodologías ampliamente utilizadas en la minería de datos [cita] para la obtención de información valiosa en los datos de forma efectiva.
 
-\section{Selección de una metodología}
+\section{Minería de datos}
 
-Para poder cumplir con los objetivos del trabajo es necesario seleccionar una de las metodologías de minería de datos presentadas en el capítulo Capitulo~\ref{ch:marcoteorico}. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.[cita]A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad [cita] http://www.kdnuggets.com/2014/10/crisp-dm-top-methodology-analytics-data-mining-data-science-projects.html
+Para poder cumplir con los objetivos del trabajo es necesario comenzar seleccionando una de las metodologías de minería de datos presentadas en el capítulo Capitulo~\ref{ch:marcoteorico}. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.[cita]A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad [cita] %http://www.kdnuggets.com/2014/10/crisp-dm-top-methodology-analytics-data-mining-data-science-projects.html
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -39,6 +34,7 @@ En el Cuadro~\ref{tab:metodos} se realiza una comparación de forma resumida cad
 
 
 \subsection{Aplicaciones}
+En este apartado se presentan las diferentes herramientas que serán utilizadas posteriormente con el fin de conocer los datos que se reunirán. 
 
 \subsubsection{Clasificación y Regresión}
 La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.[cita] %http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
@@ -63,7 +59,7 @@ El análisis de reglas asociativas busca descubrir patrones o asociaciones en ba
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.7\textwidth]{Figuras/Carrito}
-      \caption{Ejemplo del análisis del carrito de supermercado. [cita]}
+      \caption{Ejemplo del análisis del carrito de supermercado.[cita]}
     \label{fig:carrito}
 \end{figure}
 
@@ -96,8 +92,16 @@ Los procedimientos utilizados en esta etapa son los siguientes:
   Cuando se tiene muchos datos a veces resulta útil agruparlos para lograr una reducción de estos mejorando su calidad.
   \item[Estructuración de Datos]
   Hay veces donde los datos no  vienen estructurados de la misma forma o simplemente no hay estructura dada. para poder realizar un trabajo de minería de datos es necesario tener un estándar en la estructura de los datos. Por ejemplo, cuando se obtiene información de una página web, esta generalmente no posee una estructura dada, sino que, hay que crearle una para que sea legible y si se tienen más fuentes de datos, es necesario unificar la estructura en una sola.
+  \item[Imputación de Datos]
+  %http://www.stat.columbia.edu/~gelman/arm/missing.pdf
+  Generalmente cuando se trabaja con muchos datos nos encontramos con datos faltantes en una observación. Una opción es eliminar directamente la observación completa, pero lamentablemente estaríamos perdiendo información valiosa. Sin embargo, existen métodos que se encargan de reparar estos datos. En general los más utilizados son los siguientes:
+ \begin{enumerate}[label=\itshape\alph*\upshape)]
+  \item \textbf{Imputación del promedio}: lo que se hace este método lo que hace es calcular el promedio($\sum_{i=1}^N \frac{x_i}{N}$) de la columna y este se imputa a todos los datos faltantes de esa columna.
+  \item \textbf{Imputación de la mediana}: este método funciona de la misma forma que el anterior, pero en vez del promedio, utiliza la mediana para imputar datos faltantes.
+  \end{enumerate}
+  En este trabajo utilizaremos los métodos anteriormente señalados en función del tipo de datos, es decir, si estamos frente a un dato ordinal o nominal, utilizaremos la imputación de la mediana, pues si utilizáramos el promedio nos daría una categoría promedio no existente. Para el caso de variables continuas con escala, simplemente imputaremos el promedio.
   \item[Normalización y vectorización de Datos]
-  Para que el modelamiento entregue resultados coherentes con la realidad, es sumamente necesario normalizar y vectorizar los datos.\\
+  Para que el modelamiento entregue resultados coherentes con la realidad, es sumamente necesario normalizar y vectorizar los datos.[cita]
   La normalización es un procedimiento donde se modifica la escala de los datos logrando que todos tengan una escala de magnitudes similares donde la distancia representará la información y no la magnitud. Generalmente se normaliza utilizando una escala uniforme establecimiento el mínimo y el máximo en la escala. \\Para esto se utiliza la siguiente formula que terminaría con una variable con valores entre [0,1]:
   \begin{equation*}
   \centering
@@ -414,8 +418,6 @@ Existen múltiples métodos de validación cruzadas, a continuación se señalar
 
 El Cuadro~\ref{tab:mvalidacion} muestra un resumen de los pros y contra de los diferentes métodos de validación descritos anteriormente... \textcolor{red}{Ayuda con qué decir aquí :S}
 
-% Please add the following required packages to your document preamble:
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -508,11 +510,11 @@ Python se basa en paquetes o librerías para poder distribuir soluciones especif
 \subsubsection{Librerías}
 \begin{description}
   \item[NumPy] \hfill \\
-  Libería fundamental para el trabajo cientifico con Python. Se utiliza para trabajar con arreglos multidimensionales, algebra lineal y herramientas para implementar soluciones en lenguajes de bajo nivel(C/C++\footnote{Lenguaje de programación muy utilizado de bajo nivel que logra una rapidez y eficiencia en el uso de recursos.}) para obtener un mejor rendimiento.
+  Librería fundamental para el trabajo científico con Python. Se utiliza para trabajar con arreglos multidimensionales, álgebra lineal y herramientas para implementar soluciones en lenguajes de bajo nivel(C/C++\footnote{Lenguaje de programación muy utilizado de bajo nivel que logra una rapidez y eficiencia en el uso de recursos.}) para obtener un mejor rendimiento.
   \item[Pandas] \hfill \\
-  Manejo de datos de forma estructurada rápidamente y sencilla. Se utiliza mucho para hacer analisis de los datos y posee compatibilidad varias estructuras de información como SQL, CSV y TSV.
+  Manejo de datos de forma estructurada rápidamente y sencilla. Se utiliza mucho para hacer análisis de los datos y posee compatibilidad con varias estructuras de información como SQL, CSV y TSV.
   \item[Scikit-Learn] \cite{scikit-learn} \hfill \\
-  Implementación de algoritmos de machine learning de forma sencilla e intuitiva.
+  Implementación de algoritmos de aprendizaje automatizado de forma sencilla e intuitiva.
   \item[Scikit-Learn-NNet] \hfill \\
   Implementación de redes neuronales para la librería scikit-learn.
   \item[Matplotlib] \hfill \\
@@ -522,7 +524,7 @@ Python se basa en paquetes o librerías para poder distribuir soluciones especif
   \item[IPython] \hfill \\
   Shell interactiva para Python para poder explorar y trabajar en la memoria. Simula el estilo de MatLab y R.
 \end{description}
-Todas las librerias utilizadas en este proyecto, incluido Python son de código libre y de libertad de uso.
+Todas las librerías utilizadas en este proyecto, incluido Python son de código libre y de libertad de uso.
 \subsection{PyCharm}
 Interfaz de desarrollo para Python basado en Eclipse.\footnote{Ver más sobre PyCharm: https://www.jetbrains.com/pycharm/Py}
 \subsection{Tableau}

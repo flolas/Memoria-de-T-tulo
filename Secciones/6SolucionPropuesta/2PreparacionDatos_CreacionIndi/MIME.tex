@@ -1,8 +1,8 @@
 \subsubsection{MIME}
-Como fue señalado anteriormente, el MIME concentra la información registrada de los establecimientos y la muestra de forma amigable en una página web. Para poder estandarizar la información se utilizaron diferentes procedimientos de extracción de datos de un sitio web que se puede ver en el Apéndice~\ref{ap:obtencionmime}.
+Como fue señalado anteriormente, el MIME concentra la información registrada de los establecimientos y la muestra de forma amigable en una página web. Para poder estandarizar la información se utilizaron diferentes procedimientos de extracción de datos de un sitio web.\footnote{\url{ http://www.mime.mineduc.cl/mvc/mime/portada}}
 A continuación se hará una revisión de los indicadores creados y los campos obtenidos a partir de esta información.
 \begin{longdescription}
-     \item[Selección en la Admisión](SELECCION\_RBD): Este indicador señala si el establecimiento al que asiste el alumno selecciona o no a los alumnos que están postulando a entrar, en base a la información entregada por el establecimiento\footnote{Esto se tuvo que construir utilizando la información auto-reportada de los método de selección y se sabe que esta información esta sesgada. En la Ecuación~\ref{eq:sel} se muestra la construcción de la salida del indicador. Para revisar la metodología de la creación de este indicador dirigirse al Apéndice~\ref{ap:obtencionmime}}.
+     \item[Selección en la Admisión](SELECCION\_RBD): Este indicador señala si el establecimiento al que asiste el alumno selecciona o no a los alumnos que están postulando a entrar, en base a la información entregada por el establecimiento\footnote{Esto se tuvo que construir utilizando la información auto-reportada de los método de selección y se sabe que esta información esta sesgada. En la Ecuación~\ref{eq:sel} se muestra la construcción de la salida del indicador.}.
               \begin{equation}
               \centering
               SELECCION\_RBD_{j} = \left\{
@@ -19,7 +19,7 @@ A continuación se hará una revisión de los indicadores creados y los campos o
      Promedio PSU de Matemáticas y Lenguaje del año 2013 del establecimiento de estudio del alumno $j$.\footnote{Este indicador tiene problemas, puesto que establecimientos que imparten solo educación básica no tienen esta información.}
      \item[Indicador de la Gestión Tecnológica](IND\_GTI\_RBD):
      Indicador de la gestión tecnológica del establecimiento de estudio del alumno $j$.\footnote{No se encontró información sobre este indicador.}
-     \item[Indicador del uso de la Infraestructura Tecnologica](IND\_USO\_INFRA\_RBD):
+     \item[Indicador del uso de la Infraestructura Tecnológica](IND\_USO\_INFRA\_RBD):
      Indicador del uso de la infraestructura tecnológica del establecimiento de estudio del alumno $j$.\footnote{No se encontró información sobre este indicador.}
      \item[Vacantes en el curso de entrada](VACANTES\_CUR\_IN\_RBD):
      La cantidad de vacantes en el curso de entrada en el establecimiento de estudio del alumno $j$.
