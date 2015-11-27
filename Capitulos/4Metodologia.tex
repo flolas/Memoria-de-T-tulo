@@ -5,7 +5,8 @@ A lo largo de este capítulo se señalará con qué métodos y herramientas ser�
 
 \section{Minería de datos}
 
-Para poder cumplir con los objetivos del trabajo es necesario comenzar seleccionando una de las metodologías de minería de datos presentadas en el capítulo Capitulo~\ref{ch:marcoteorico}. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.[cita]A Comparative Study of Data Mining Process Models (KDD, CRISP-DM and SEMMA) Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad [cita] %http://www.kdnuggets.com/2014/10/crisp-dm-top-methodology-analytics-data-mining-data-science-projects.html
+Para poder cumplir con los objetivos del trabajo es necesario comenzar seleccionando una de las metodologías de minería de datos presentadas en el capítulo Capitulo~\ref{ch:marcoteorico}. Los estudios muestran que la metodología CRISP-DM es la más simple y a la vez completa, abarcando desde el entendimiento del negocio hasta la implementación de la herramienta de minería de datos.\ref{shafique2014comparative}
+Además, se ha visto durante varios años que la metodología CRISP-DM es la más utilizada dentro de la comunidad.\ref{kdnuggets2014}
 
 \begin{table}[H]
 \centering
@@ -36,8 +37,8 @@ En el Cuadro~\ref{tab:metodos} se realiza una comparación de forma resumida cad
 \subsection{Aplicaciones}
 En este apartado se presentan las diferentes herramientas que serán utilizadas posteriormente con el fin de conocer los datos que se reunirán. 
 
-\subsubsection{Clasificación y Regresión}
-La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.[cita] %http://storm.cis.fordham.edu/~gweiss/papers/data-mining-chapter-2010.pdf
+\subsubsection{Clasificación y regresión}
+La clasificación y regresión involucra la predicción de una variable específica a través de un modelo de dependencia de otras variables. La diferencia entre la clasificación y la regresión, es que la primera tiene como variable objetivo del tipo discreta y la segunda de carácter continua. Ejemplos de clasificación se ven en problema de detección de transacciones de tarjetas de crédito fraudulentas y ejemplos de regresión se pueden ver en predicción del precio de una acción hasta la planificación de producción de una empresa.\ref{datamining2010}
 
 Matemáticamente podemos ver lo siguiente:\\
 Teniendo $N$ observaciones con variables $x_1, x_2, x_3, ... , x_i$ se busca predecir el valor de las variables $y_1, y_2, y_3, ... , y_j$ para las $N$ observaciones de forma independiente.
@@ -47,25 +48,23 @@ $f(x_1, x_2, x_3, ... , x_i) = y_1, y_2, y_3, ... , y_j$
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/Clasificacion}
-      \caption{Ejemplos de clasificación y regresión.[cita]}
+      \caption{Ejemplos de clasificación y regresión.\ref{scikitlearn2014}
     \label{fig:clasificacion}
 \end{figure}
- 
-%http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
 
-\subsubsection{Análisis de Reglas Asociativas}
+\subsubsection{Análisis de reglas asociativas}
 El análisis de reglas asociativas busca descubrir patrones o asociaciones en base a diferentes elementos en un conjunto de datos. El ejemplo más común de este análisis es el de los carritos de compras en un supermercado. El objetivo en este caso es buscar el patrón de compras conjuntas, por ejemplo, y se puede encontrar un patrón común $\{\textrm{Hamburguesa, Pan}\} \to \textrm{Ketchup}$, es decir, en general las personas que llevan hamburguesa y pan de hamburguesa en el carrito de compra, es probable que también lleven ketchup. 
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.7\textwidth]{Figuras/Carrito}
-      \caption{Ejemplo del análisis del carrito de supermercado.[cita]}
+      \caption{Ejemplo del análisis del carrito de supermercado.%[cita]}
     \label{fig:carrito}
 \end{figure}
 
 En la Figura~\ref{fig:carrito} se puede ver el ejemplo del carrito de supermercados de forma genérica, es decir, se ve representado el patrón de compras, donde el 98\% de los clientes que compraron el ítem A y B, también compraron el ítem C. 
 
-\subsubsection{Análisis de Conglomerados}
+\subsubsection{Análisis de conglomerados}
 Este análisis tiene como objetivo agrupar variables similares en un mismo conglomerado. Las aplicaciones de esto pueden ser la agrupación de documentos de noticias en base al uso de un buscador.
 
 Matemáticamente podemos ver lo siguiente:\\
@@ -79,10 +78,9 @@ Teniendo $N$ observaciones con variables $x_1, x_2, x_3, ... , x_i$ se buscan ag
 \end{figure}
 
 Lo que se observa gráficamente en un análisis de conglomerados se muestra en la Figura~\ref{fig:conglomerado}, donde es posible ver que se generan grupos donde sus elementos sean lo más homogéneos posible, y los grupos entre ellos sean lo más heterogéneos posible. 
+%[cita] dataclusreview [revisar]
 
-%[revisar] http://eprints.iisc.ernet.in/273/1/p264-jain.pdf
-
-\subsection{Transformación de los Datos}
+\subsection{Transformación de los datos}
 La transformación de datos debe estar presente cuando se quiere aplicar minería de datos, ya que es un paso fundamental para que los datos sean legibles y válidos para los algoritmos del procedimiento del modelamiento.
 
 Los procedimientos utilizados en esta etapa son los siguientes:
@@ -93,15 +91,14 @@ Los procedimientos utilizados en esta etapa son los siguientes:
   \item[Estructuración de Datos]
   Hay veces donde los datos no  vienen estructurados de la misma forma o simplemente no hay estructura dada. para poder realizar un trabajo de minería de datos es necesario tener un estándar en la estructura de los datos. Por ejemplo, cuando se obtiene información de una página web, esta generalmente no posee una estructura dada, sino que, hay que crearle una para que sea legible y si se tienen más fuentes de datos, es necesario unificar la estructura en una sola.
   \item[Imputación de Datos]
-  %http://www.stat.columbia.edu/~gelman/arm/missing.pdf
-  Generalmente cuando se trabaja con muchos datos nos encontramos con datos faltantes en una observación. Una opción es eliminar directamente la observación completa, pero lamentablemente estaríamos perdiendo información valiosa. Sin embargo, existen métodos que se encargan de reparar estos datos. En general los más utilizados son los siguientes:
+  Generalmente cuando se trabaja con muchos datos nos encontramos con datos faltantes en una observación. Una opción es eliminar directamente la observación completa, pero lamentablemente estaríamos perdiendo información valiosa. Sin embargo, existen métodos que se encargan de reparar estos datos.\ref{gelman2007missingdata} En general los más utilizados son los siguientes:
  \begin{enumerate}[label=\itshape\alph*\upshape)]
   \item \textbf{Imputación del promedio}: lo que se hace este método lo que hace es calcular el promedio($\sum_{i=1}^N \frac{x_i}{N}$) de la columna y este se imputa a todos los datos faltantes de esa columna.
   \item \textbf{Imputación de la mediana}: este método funciona de la misma forma que el anterior, pero en vez del promedio, utiliza la mediana para imputar datos faltantes.
   \end{enumerate}
   En este trabajo utilizaremos los métodos anteriormente señalados en función del tipo de datos, es decir, si estamos frente a un dato ordinal o nominal, utilizaremos la imputación de la mediana, pues si utilizáramos el promedio nos daría una categoría promedio no existente. Para el caso de variables continuas con escala, simplemente imputaremos el promedio.
   \item[Normalización y vectorización de Datos]
-  Para que el modelamiento entregue resultados coherentes con la realidad, es sumamente necesario normalizar y vectorizar los datos.[cita]
+  Para que el modelamiento entregue resultados coherentes con la realidad, es sumamente necesario normalizar y vectorizar los datos.%[cita]
   La normalización es un procedimiento donde se modifica la escala de los datos logrando que todos tengan una escala de magnitudes similares donde la distancia representará la información y no la magnitud. Generalmente se normaliza utilizando una escala uniforme establecimiento el mínimo y el máximo en la escala. \\Para esto se utiliza la siguiente formula que terminaría con una variable con valores entre [0,1]:
   \begin{equation*}
   \centering
@@ -137,9 +134,8 @@ La importancia de este proceso se puede resumir en tres puntos:
   \item La preparación de datos genera un conjunto de datos más pequeño que el original logrando menos tiempo de procesamiento en el proceso del modelamiento
   \item La preparación de datos genera conjuntos de datos de calidad mejorando los patrones encontrados
 \end{enumerate}
-[cita]
-%http://www.cs.ccsu.edu/~markov/ccsu_courses/datamining-3.html
-\subsection{Limpieza y validación de los Datos}
+%[cita] dr.zdravkomarkov
+\subsection{Limpieza y validación de los datos}
 La limpieza y validación de datos es un paso muy importante, puesto que si se entregan datos erróneos o anómalos\footnote{Un dato anomalo se puede originar debido al error humano o estadístico. Por ejemplo, un promedio de algún alumno que se calculó mal o se anoto mal } al algoritmo de aprendizaje automatizado, es probable que el modelo de predicción no represente lo que debe. La limpieza de datos se puede realizar utilizando diferentes métodos manuales y automatizados\footnote{Existen los llamados \textit{outlier detectors} que básicamente son algoritmos de aprendizaje automatizados que buscan datos que no se ajustan al conjunto}. Para este trabajo, haremos una limpieza manual trabajando con diagramas de caja enfocándonos específicamente en la tasa de deserción.
 Un diagrama de caja es una visualización de un conjunto de datos donde representa una columna o variable basado en cuartiles, se muestra el 25\%, 50\%, 75\% de los datos.
 En la Figura~\ref{fig:outlier} se muestra un diagrama de caja con datos anómalos, estos son los puntos que se escapan de la linea. Nuestra limpieza de datos se basa en eliminar estos datos,
@@ -149,13 +145,13 @@ En la Figura~\ref{fig:outlier} se muestra un diagrama de caja con datos anómalo
       \caption{Diagrama de caja y datos anómalos}
     \label{fig:outlier}
 \end{figure}
-%http://academic.uprm.edu/wrolke/esma3102/graphs/outlier1.png
+%outlier1
 Finalmente, la validación de los datos es otra área importante, esta tiene que ver con que los datos efectivamente tengan el tipo de dato que corresponde y que los datos sean coherentes con lo que deben representar. Para esto, se utilizan las herramientas automáticas de Pandas para detectar anomalías en el tipo de datos y para ver la coherencia de los datos con lo que quieren representar se hará una revisión de esto cuando se haga la exploración de los datos.
-\subsection{Algoritmos de Aprendizaje Automatizado}
+\subsection{Algoritmos de aprendizaje automatizado}
 Para poder obtener información de los datos, se necesita analizar la información. Lamentablemente cuando tenemos demasiados datos, es imposible obtener información de forma rápida. Debido a esto, se plantearon diferentes algoritmos que buscan automáticamente lo relevante de los datos.
 A continuación señalaremos y haremos un breve resumen de los algoritmos más utilizados para la minería de datos.
 
-%http://www.uru.edu/fondoeditorial/libros/pdf/manualdestatistix/cap10.pdf [regresión logística]
+%[cita] uru.edu [regresion logistica]
 
 \begin{enumerate}
   \item Clasificación y Regresión
@@ -174,11 +170,11 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/Dispersion}
-         \caption{Ejemplo: porcentaje de de alcohol por precio. [cita]}
+         \caption{Ejemplo: porcentaje de de alcohol por precio.%[cita]}
          \label{fig:dispersion}
     \end{figure}
       
-      %http://pendientedemigracion.ucm.es/info/socivmyt/paginas/D_departamento/materiales/analisis_datosyMultivariable/18reglin_SPSS.pdf
+      %[cita] socivmyt [regresión lineal]
       
       Para el ejemplo de la Figura~\ref{fig:dispersion}, $R^2=0,06$ lo que significa que el porcentaje de alcohol contenido en los productos explica sólo el 6\% de su precio. 
       
@@ -216,13 +212,13 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/CurvaLog}
-         \caption{Curva logística. [cita]}
+         \caption{Curva logística.%[cita]}
          \label{fig:curvalog}
     \end{figure}
     %https://es.wikipedia.org/wiki/Función_log%C3%ADstica???? wikipedia????
      
       \item[Máquina de Vectores de Soporte] \hfill \\
-      %http://revistas.utp.edu.co/index.php/revistaciencia/article/view/6895/4139
+      %[cita] betancourt2005maquinas
       La máquina de vectores de soporte (SVM) es un conjunto de algoritmos de aprendizaje supervisado, es decir, una técnica de predicción. 
       
       Una SVM comienza mapeando los puntos de entrada a un espacio de características de una dimensión mayor, es decir, si los datos se encuentran en $R^2$, son mapeados por la SVM a $R^3$ para encontrar un hiperplano capaz de separarlos en clases y maximizar el margen $m$ entre estas, como se muestra en la Figura~\ref{fig:svm}.
@@ -230,7 +226,7 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{Figuras/SVM}
-         \caption{La frontera de desición debe estar tan lejos de los datos de ambas clases como sea posible. [cita]}
+         \caption{La frontera de decisión debe estar tan lejos de los datos de ambas clases como sea posible.%[cita]}
          \label{fig:svm}
       \end{figure}
       
@@ -386,7 +382,7 @@ A continuación señalaremos y haremos un breve resumen de los algoritmos más u
 \end{enumerate}
 
 
-\subsection{Validación del Modelo}
+\subsection{Validación del modelo}
 
 Una vez obtenido un modelo, es necesario validar que el modelo es capaz de generalizar para observaciones nuevas. El gran problema que puede ocurrir con un modelo es el sobre-ajuste, es decir, el modelo se ajusta perfectamente a los datos entregados, pero al momento de evaluar datos nuevos, entrega información incorrecta. Esto se puede ver muy fácilmente para una regresión. En el gráfico se ve que el modelo se ajusta muy bien a los datos entregados [grafico], pero no así con los datos nuevos [grafico].Para evitar el sobre-ajuste, es necesario realizar un procedimiento llamado validación cruzada.
 
@@ -438,7 +434,7 @@ Validación con retención & \begin{tabular}[c]{@{}c@{}}Conjunto de entrenamient
 
 % [tabla] Cross-Validation. Table 1. Pros and Cons of different validation methods
 
-\subsection{Afinación de los Hiper-parámetros del Modelo}
+\subsection{Afinación de los hiper-parámetros del modelo}
 La mayoría de los modelos poseen parámetros que definen diferentes atributos de este. Estos parámetros normalmente se determinan \textit{a priori}. Existen métodos que logran llegar al mejor conjunto de parámetros posible. Existen dos métodos muy relacionados para realizar esto. el primero se llama Búsqueda de Grilla Exhaustiva, y el segundo, Búsqueda de Grilla Aleatoria\citep{Bergstra}. Lo que realizan estos métodos es un procedimiento llamado \textit{trial and error}, es decir, en base a prueba y error se encuentran los mejores parámetros. El primer método se señala cuando se hace una búsqueda exhaustiva, es decir, se entrega un conjunto grande de parámetros y se va entrenando un modelo de predicción con cada parámetro hasta encontrar el mejor. El segundo método, menos costoso computacionalmente, se realiza la búsqueda de parámetros utilizando una distribución de probabilidad y se prueban $N$ conjuntos de esa muestra. Este método claramente no puede asegurar el óptimo, pero sí mejorar la capacidad de predicción de un modelo de predicción.En la literatura anteriormente citada, se señala que se debe preferir al método aleatorio, pues es mucho más eficiente y fácil de implementar.
 Estos métodos son muy utilizados para la minería de datos, sobre todo para algoritmos que poseen muchos parámetros y se escogen arbitrariamente.
 En general, los siguientes parámetros\footnote{Se señalan generalmente como hiper-parámetros de modelo de predicción, debido a que los parámetros del modelo de predicción son los que se ajustan cuando se entrena el modelo y el objetivo de este método es optimizar los parámetros \textit{a priori}} son optimizados utilizando esta herramienta o heurística:
@@ -455,7 +451,7 @@ En la Figura~\ref{fig:gridsearch} podemos observar la diferencia de los métodos
          \label{fig:gridsearch}
       \end{figure}
 %http://cs231n.github.io/neural-networks-3/
-\subsection{Medición del Desempeño del Modelo}
+\subsection{Medición del desempeño del modelo}
 
 Para evaluar el desempeño de un modelo se pueden utilizar diferentes medidas. Para nuestro estudio, solamente señalaremos aquellas más importantes que son la precisión y la exhaustividad. La precisión, cuando hablamos de una tarea de clasificación, se define como la proporción de las observaciones que son clasificados correctamente y la exhaustividad es la proporción de observaciones relevantes correctamente clasificadas.
 
@@ -464,20 +460,14 @@ La Figura~\ref{fig:precision} muestra gráficamente la forma en que se evalúa l
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.9\textwidth]{Figuras/Precision}
-      \caption{Descripción gráfica de precisión y exhaustividad.}
+      \caption{Descripción gráfica de precisión y exhaustividad.%[cita] preex}
     \label{fig:precision}
 \end{figure}
-
-
-% https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/440px-Precisionrecall.svg.png
 
 Para poder obtener toda esta información debemos, como primer paso, calcular la matriz de confusión\footnote{En el campo de minería de datos y estadística, una matriz de confusión, también conocida como tabla de contingencia o una matriz de error, es una tabla específica que permite la visualización del desempeño de un algoritmo, típicamente un aprendizaje supervisado (en el aprendizaje no supervisado por lo general se llama una matriz de juego). Cada columna de la matriz representa las instancias de una clase predicha, mientras que cada fila representa las instancias de una clase real. El nombre deriva del hecho que hace que sea fácil de ver si el sistema está confundiendo dos clases.}, la cual tiene como objetivo resumir el resultado obtenido en la tarea de clasificación. 
 
 En el Cuadro~\ref{tab:mconfusion} se presenta la forma en que se lee una matriz de confusión. Esta da a conocer el número de predicciones correctas, llamados verdadero positivo y verdadero negativo\footnote{Esto a veces se les llama clase, en nuestro caso particular la condición positiva se define como la clase desertora, y la condición negativa es la clase no desertora o retenida}, para cada clasificación y el número de predicciones incorrectas. Estas últimas, las predicciones incorrectas dan origen a dos importantes errores. El error tipo I o falso positivo, se define como el rechazo incorrecto de una verdadera hipótesis nula, mientras que el error tipo II o falso negativo, se define como el hecho de no haber rechazado una hipótesis nula falsa. En otras palabras, un error de tipo I es la detección de un efecto que realmente no está presente, mientras que un error de tipo II está fallando para detectar un efecto que está presente.
-%rehacer tabla con colores señalando que es error tipo I y II: https://en.wikipedia.org/wiki/Confusion_matrix
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
+%https://en.wikipedia.org/wiki/Confusion_matrix
 \begin{table}[H]
 \centering
 \begin{tabular}{lc|c|c|}
@@ -491,13 +481,11 @@ En el Cuadro~\ref{tab:mconfusion} se presenta la forma en que se lee una matriz 
 \label{tab:mconfusion}
 \end{table}
 Finalmente, podemos ver que para el caso especifico de la predicción de la deserción escolar el interés está en detectar deserción, por tanto, nuestra condición positiva sería la retención, y la negativa la deserción. Bajo este supuesto, el error tipo uno se define como 'Un alumno que desertó, pero fue clasificado como retenido o no desertor' y el error tipo dos se define como 'Un alumno que no desertó, pero fue clasificado como desertor'. Por tanto, el error más grave para nuestro caso especifico, es el de tipo dos, pues el objetivo precisamente del sistema es lograr predecir la deserción. Es por esta razón que finalmente nuestra medición para realizar las comparaciones será la exhaustividad de la detección de la condición negativa.
+%[cita] powers2011evaluation
 
-[cita] 
-%http://www.flinders.edu.au/science_engineering/fms/School-CSEM/publications/tech_reps-research_artfcts/TRRA_2007.pdf
-
-\section{Herramientas Computacionales}
+\section{Herramientas computacionales}
 Para poder desarrollar este trabajo se deben integrar diferentes herramientas para realizar la transformación, preparación, modelamiento y validación de los datos.
-\subsection{Lenguaje de Programación Python}
+\subsection{Lenguaje de programación Python}
 Python es un lenguaje de programación de alto nivel para resolver todo tipo de problemas. Este soporta programar en diferentes paradigmas y manejo automático del uso de recursos. Además tiene un énfasis en la legibilidad imponiendo un orden en el código.
 En general, las ventajas de Python son las siguientes:
 \begin{itemize}
